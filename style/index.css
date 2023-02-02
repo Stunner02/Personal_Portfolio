@@ -64,6 +64,7 @@ nav a {
   padding: 15px 30px;
 }
 
+/* (1.1) Drop Down content for Projects) */
 .dropdown {
 position: relative;
 display: inline-block;
@@ -79,11 +80,33 @@ box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .dropdown-content a {
-font-size: 22px;
+  font-size: 22px;
 }
+
 .dropdown:hover .dropdown-content {
-display: block;
+  display: block;
 }
+
+/* (1.2) Dropdown Navigation for Projects-Other */
+.dropdown-Projects {
+  display: none;
+  text-align: center;
+  position: absolute;
+  background-color: steelblue;
+  min-width: 250px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  left: 170px;
+  top: 100px;
+}
+
+.dropdown-Projects a{
+  font-size: 115x;
+}
+
+.Projects-Other:hover + .dropdown-Projects, .dropdown-content:hover div {
+  display: block;
+}
+
 
 /* Changes text for hover over*/
 nav a:hover a, 

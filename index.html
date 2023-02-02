@@ -19,21 +19,41 @@
       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
       
       <nav>
-        <button class="btn-toggle">Toggle Dark-Mode</button>
         <a href="index.html">Home</a> 
+        
+        <!-- Drop down content -->
         <div class="dropdown" >
           <a href="html\Projects.html">Projects</a>
+            
+          <!-- Hidden until Projects is hovered over -->
             <div class="dropdown-content">
               <a href="html\Projects_Hyperloop.html">Hyperloop</a>
               <a href="html\Projects_SMA.html">Shape Memory Alloy</a>
+              <a class="Projects-Other" href="html\Projects.html">Other<span style="font-size:30px; position:relative; left: 10px; top: 1px;">&#129170;</span></a>
+             
+                
+              <!-- Hidden until Projects-Other is hovered over -->
+                <div class="dropdown-Projects">
+                  <a href="html\Projects.html">3D Printed Enclosure</a>
+                  <a href="html\Projects.html">Motion controlled Drone</a>
+                  <a href="html\Projects.html">Hydroponics</a>+
+                  <a href="html\Projects.html">Variable Belt Bike</a>
+                  <a href="html\Projects.html">3D Printed Enclosure</a>
+                </div>
+              
             </div>
+
         </div>
+
         <a href="html\Education.html">Education</a>
         <!--  El Segundo High school  
               University of California Santa Barbara
               Codacademy                              -->
+        <a href="html\Resume.html">Resume</a>
         <a href="html\Contact.html">Contact</a>
+        <button class="btn-toggle">Toggle Dark-Mode</button>
       </nav>
+    
     </header>
 
         <!-- Left side page navigation large bar -->
