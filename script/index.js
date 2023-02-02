@@ -1,6 +1,6 @@
 // (0) This is for theme control 
 // Help: https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
-const btn = document.querySelector(".btn-toggle");
+const btn = document.querySelector('.theme-switch input[type="checkbox"]');
 const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
 const currentTheme = localStorage.getItem("theme");
