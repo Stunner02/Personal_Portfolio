@@ -39,7 +39,7 @@ body {
   font-family: 'Lato';
 }
 
-h1, p, main {
+h1, p, main, #link1 {
   color: var(--text-color);
 }
 
@@ -60,17 +60,22 @@ a:visited, a:link, a:active {  color: var(--text-color); }
 
 /* (1) Site Navigation - top right*/
 nav {
-  text-align: right;
+  /* text-align: right; */
   background-color: steelblue;
   font-size: 30px;
+  height: 72px;
+  width: 100%;
+  display: inline-flex;
+  justify-content: flex-end;
+  flex-wrap: wrap;
 }
 
 nav a, #link1{
-  padding: 15px 30px;
+  padding: 16px 30px;
 }
 
 .switch {
-  padding: 0px 10px;
+  padding: 0px 15px;
 }
 
 nav a, nav .switch {
@@ -78,17 +83,17 @@ nav a, nav .switch {
   font-weight: 400;
   display: inline-block;
  }
-
+/* 
 nav a .dropdown-1 {
   font-weight: 400;
-}
+} */
 
 /* (1.1) theme slider button */  
 .theme-switch {
   display: inline-block;
   height: 34px;
   position: relative;
-  top: 6.5px;
+  top: 18.5px;
   right: 10px;
   width: 60px;
 }
@@ -147,7 +152,6 @@ border-radius: 50%;
   display: none;
   position: absolute;
   background-color: steelblue;
-  min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
@@ -170,6 +174,7 @@ border-radius: 50%;
 
 .dropdown-Projects-2 .dItem {
   display: block;
+  padding: 15px 22px;
 }
 
 .dropdown-Projects-1 .dItem:hover, .dropdown-Projects-2 a:hover {
