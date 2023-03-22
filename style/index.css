@@ -3,61 +3,45 @@ html, body, ul {
   padding: 0;
 }
 
-/* (0) This is for theme control*/
-body {
-  --text-color: #222;
-  --bkg-color: #fff;
-  --switch-bkg-color: hsl(207, 44%, 80%);
-  --switch-position: 4px;
-}
-
-body.dark-theme {
-  --text-color: #eee;
-  --bkg-color: #121212;
-  --switch-bkg-color: #2b2b2b;
-  --switch-position: 30px;
-}
-
-@media (prefers-color-scheme: dark) {
-  /* defaults to dark theme */
-  body {
-    --text-color: #eee;
-    --bkg-color: #121212;
-    --switch-bkg-color: #2b2b2b;
-    --switch-position: 30px;
-  }
-  body.light-theme {
-    --text-color: #222;
-    --bkg-color: #fff;
-    --switch-bkg-color: hsl(207, 44%, 80%);
-    --switch-position: 4px;
-  }
-}
-
-body {
-  background: var(--bkg-color);
-  font-family: 'Lato';
-}
-
-h1, p, main, #link1 {
-  color: var(--text-color);
-}
-
-/* changing default link action*/
-a { text-decoration: none; }
-a:visited, a:link, a:active {  color: var(--text-color); }
-
-/* (0.1) Importing font faimly */
-@font-face {
-  font-family: 'Lato', sans-serif;
-  font-family: 'Raleway', sans-serif;
-  src: url();
-}
-
-/*
-* { border: 1px solid red; }
+/* Media Query responsive web design standards
+   1st - Phones in portrait           < 576px
+   2nd - phones in landscape    576px <--> 768px 
+   3rd - tablets                768px <--> 992px
+   4th - desktops               992px <--> 1200px
+   5th - large desktops         1200px <--> 1400px
+   6th - extra large desktops   1400px <--> or larger
 */
 
+/* X-Small devices (portrait phones, less than 576px) */
+nav {
+  background-color: steelblue;
+  font-size: 30;
+}
+
+nav a, #dropdown-1 {
+  display: inline-flex;
+  padding: 5%;
+  font-size: 32px;
+  border: 1px solid red;
+}
+
+aside, main, footer, .dropdown-Projects-1 {
+  display: none;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (min-width: 576px) { 
+
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
 /* (1) Site Navigation - top right*/
 nav {
   /* text-align: right; */
@@ -259,6 +243,69 @@ footer {
   font-weight: 600;
   font-size: 20px;
   padding: 10px 10px;
+}
+
+ }
+
+/* X-Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+ }
+
+/* XX-Large devices (larger desktops, 1400px and up) */
+@media (min-width: 1400px) { 
+
+}
+
+/* (0) This is for theme control*/
+body {
+  --text-color: #222;
+  --bkg-color: #fff;
+  --switch-bkg-color: hsl(207, 44%, 80%);
+  --switch-position: 4px;
+}
+
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #121212;
+  --switch-bkg-color: #2b2b2b;
+  --switch-position: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+    --text-color: #eee;
+    --bkg-color: #121212;
+    --switch-bkg-color: #2b2b2b;
+    --switch-position: 30px;
+  }
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #fff;
+    --switch-bkg-color: hsl(207, 44%, 80%);
+    --switch-position: 4px;
+  }
+}
+
+body {
+  background: var(--bkg-color);
+  font-family: 'Lato';
+}
+
+h1, p, main, #link1 {
+  color: var(--text-color);
+}
+
+/* changing default link action*/
+a { text-decoration: none; }
+a:visited, a:link, a:active {  color: var(--text-color); }
+
+/* (0.1) Importing font faimly */
+@font-face {
+  font-family: 'Lato', sans-serif;
+  font-family: 'Raleway', sans-serif;
+  src: url();
 }
 
 /* Hide scrollbar for Chrome, Safari, and Opera */

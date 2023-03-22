@@ -36,6 +36,27 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   });
 });
 
+// (1) Media Queries
+mobilePortrait()
+function mobilePortrait(){
+  const mql = window.matchMedia('screen and (max-width: 575px)');
+
+  checkMedia(mql);
+  mql.addListener(checkMedia);
+
+  function checkMedia(mql){
+
+      if(mql.matches){
+
+      }
+  }
+}
+mobileLandscape()
+tablet()
+desktop()
+desktopLarge()
+desktopExtraLarge()
+
 // (2) This is for asidebar svg manipulation
 var targetDiv = document.getElementById('svg-target'); //finds the target element
 var svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); //creates + sets attributes
@@ -119,23 +140,5 @@ window.addEventListener("scroll", function(event) {
   dot.setAttributeNS(null, 'cy', 14 + (0.72 * percent) + "%"); // y position
 
 });
-
-  //changes the top attribute of the dot id on the page nav
-  //dot.style.top = 10.7 + (0.72 * percent) + "%";  //This controls the CSS #dot attribute
-  
-// ~ CSS ~
-// #dot {
-//   position: absolute;
-//   top: 10.7%; /*Top is at 10.7% - P4 is at 82.1% */ 
-//   left: 13%; /*For 50px by 50px use 7.5%*/
-//   height: 45px;
-//   width: 45px;
-//   /*background-color:steelblue;*/
-//   background-color: steelblue;
-//   border-radius: 50%;
-//   z-index: 19; 
-// }
- 
-
 
 
