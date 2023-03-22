@@ -13,19 +13,31 @@ html, body, ul {
 */
 
 /* X-Small devices (portrait phones, less than 576px) */
-nav {
-  background-color: steelblue;
+.mobile {
   font-size: 30;
+  display: block;
 }
 
-nav a, #dropdown-1 {
-  display: inline-flex;
-  padding: 5%;
+.mobile a, .mobileWelcome {
+  box-sizing: content-box;
+  display: block;
+}
+
+
+.mobileWelcome {
+  font-size: 50px;
+  padding: 15%;
+  background-color: lightblue;
+}
+
+.mobile a{
   font-size: 32px;
-  border: 1px solid red;
+  padding: 5%;
+  background-color: rgba(173, 216, 230, 0.616);
 }
 
-aside, main, footer, .dropdown-Projects-1 {
+
+aside, main, footer, .dropdown-Projects-1, nav {
   display: none;
 }
 
@@ -42,6 +54,10 @@ aside, main, footer, .dropdown-Projects-1 {
 
 /* Large devices (desktops, 992px and up) */
 @media (min-width: 992px) { 
+
+.mobile {
+  display: none;
+}
 /* (1) Site Navigation - top right*/
 nav {
   /* text-align: right; */

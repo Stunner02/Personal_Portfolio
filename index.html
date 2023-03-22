@@ -3,7 +3,7 @@
 
 <!--- (0) This is the head -->
   <head>
-    <title>GG Home</title> <!--The tab name-->
+    <title>Gavin's Personal Portfolio</title> <!--The tab name-->
     <link href="style/index.css" type="text/css" rel="stylesheet">
     <script src="script/index.js" defer></script> 
     <!-- Script: add in <head> and use async and defer-->
@@ -18,20 +18,29 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
       
+      <!-- Mobile Navigation  -->
+      <div class="mobile">
+        <div class="mobileWelcome">a</div>
+        <a  href="html\Projects.html">Projects</a>
+        <a  href="html\Education.html">Education</a>
+        <a  href="html\Resume.html">Resume</a>
+        <a  href="html\Contact.html">Contact</a>
+      </div>
+
       <nav>
         <a href="index.html">Home</a> 
         
         <!-- Drop down content -->
         <div class="dropdown-1">
-            <a class="dropbtn" href="html\Projects.html">Projects<span style="font-size:30px; position:relative; left: -2.5px; top: 12.5px;">&#129171;</span></a>
-            
+            <!-- <a class="dropbtn" href="html\Projects.html">Projects<span style="font-size:30px; position:relative; left: -2.5px; top: 12.5px;">&#129171;</span></a> -->
+            <a class="dropbtn" href="html\Projects.html">Projects</a>
           <!-- Hidden until Projects is hovered over -->
             <div class="dropdown-Projects-1">
               <!-- These are the first drop down options-->
               <a href="html\Projects_Hyperloop.html">Hyperloop</a>
               <a href="html\Projects_SMA.html">Shape Memory Alloy</a>
-              <div id="link1" class="dItem" href="html\Projects.html">Other<span style="font-size:30px; position:relative; left: 10px; top: 1px;">&#129170;</span> 
-              
+              <!-- <div id="link1" class="dItem" href="html\Projects.html">Other<span style="font-size:30px; position:relative; left: 10px; top: 1px;">&#129170;</span>  -->
+                <div id="link1" class="dItem" href="html\Projects.html">Other</span> 
                 <!-- Hidden until dropdown-Projects-1 is hovered over -->
                 <div class="dropdown-Projects-2">
                   <a class="dItem" id="file" href="html\Projects.html">3D Printed Enclosure</da>
@@ -49,7 +58,8 @@
 
         <!-- This is the second full dropdown menu -->
         <div class="dropdown-1">
-          <a href="html\Education.html">Education<span style="font-size:30px; position:relative; left: -2.5px; top: 12.5px;">&#129171;</span></a>
+          <!-- <a href="html\Education.html">Education<span style="font-size:30px; position:relative; left: -2.5px; top: 12.5px;">&#129171;</span></a> -->
+          <a href="html\Education.html">Education</a>
           <div class="dropdown-content">
             <div class="dropdown-Projects-1">
               <a href="html\Education_Highschool">ESHS</a>
@@ -58,8 +68,8 @@
             </div> 
           </div>
         </div>
-        <a href="html\Resume.html">Resume</a>
-        <a href="html\Contact.html">Contact</a>
+        <a  href="html\Resume.html">Resume</a>
+        <a  href="html\Contact.html">Contact</a>
         <!-- <button class="btn-toggle">Toggle Dark-Mode</button> -->
         
         <!-- Theme control switch -->
