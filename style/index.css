@@ -49,10 +49,19 @@ overflow: scroll;
   margin-top: 10%;
 }
 
-.mobile a{
+.mobileTile{
+  display: block;
   color: black;
   font-size: 50px;
-  display: block;
+  margin: auto;
+  margin-top: 0%;   
+  aspect-ratio: 1.4;
+}
+
+.slide {
+  font-size: 3em;
+  box-sizing: border-box;
+  display: none;
   margin: auto;
   margin-top: 10%;   
   aspect-ratio: 1.4;
@@ -62,8 +71,62 @@ overflow: scroll;
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
   background-color: rgba(173, 216, 230, 0.616);
+  overflow: hidden;
+  position: relative;
 }
 
+.slide img {
+  max-width: 100%;
+  object-fit: contain;  /* can also use 'contain' based on requirement */
+  object-position: center;
+}
+
+/* Caption text */
+.text {
+  color: red;
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 8px;
+  width: 100%;
+  text-align: center;
+}
+
+.projectTag {
+  position: absolute;
+  top: 10px;  /* Adjust this value as needed */
+  left: 10px; /* Adjust this value as needed */
+  z-index: 2;  /* To ensure it's on top of the image */
+  color: white;  /* Color of the text, adjust as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for visibility */
+  padding: 5px 10px;  /* Padding around the word "project" */
+  border-radius: 3px; /* Optional, for rounded corners */
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {opacity: .3} 
+  to {opacity: 1}
+}
 
 aside, main, footer, .dropdown-Projects-1, nav {
   display: none;
