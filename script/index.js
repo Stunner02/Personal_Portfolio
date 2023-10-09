@@ -73,6 +73,62 @@ function showSlides() {
   setTimeout(showSlides, 3750); // Change image every 2 seconds
 }
 
+
+let slideIndex2 = 0;
+showSlides2();
+
+function showSlides2() {
+  let i;
+  let slides2 = document.getElementsByClassName("slide2");
+  let dots2 = document.getElementsByClassName("dot2");
+  for (i = 0; i < slides2.length; i++) {
+    slides2[i].style.display = "none";  
+  }
+  slideIndex2++;
+  if (slideIndex2 > slides2.length) {slideIndex2 = 1}    
+  // for (i = 0; i < dots.length; i++) {
+  //   dots[i].className = dots[i].className.replace(" active", "");
+  // }
+  slides2[slideIndex2-1].style.display = "block";  
+  // dots[slideIndex-1].className += " active";
+  setTimeout(showSlides2, 5000); // Change image every 2 seconds
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  let acc = document.getElementsByClassName("accordion-btn");
+
+  for (let j = 0; j < acc.length; j++) {
+      acc[j].addEventListener("click", function() {
+          
+          // Close other accordions and reset their arrows
+          for (let k = 0; k < acc.length; k++) {
+              if (k !== j) {
+                  acc[k].nextElementSibling.style.maxHeight = null;
+                  let otherArrow = acc[k].querySelector('.arrow');
+                  if(otherArrow) {
+                      otherArrow.style.transform = "rotate(0deg)";
+                  }
+              }
+          }
+          
+          this.classList.toggle("active");
+          let panel = this.nextElementSibling;
+          let arrow = this.querySelector('.arrow');
+
+          if (arrow) {
+              if (panel.style.maxHeight) {
+                  panel.style.maxHeight = null;
+                  arrow.style.transform = "rotate(0deg)";
+              } else {
+                  panel.style.maxHeight = panel.scrollHeight + "px";
+                  arrow.style.transform = "rotate(180deg)";
+              }
+          }
+      });
+  }
+});
+
+
 mobileLandscape()
 tablet()
 desktop()

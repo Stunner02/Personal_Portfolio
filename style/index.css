@@ -25,18 +25,62 @@ position:fixed;
 
   width: 100%;
   height: 100%;
-background-color: white;
+background-color: steelblue;
 overflow: scroll;
 -webkit-overflow-scrolling: touch;
 }
 
+.flex-bar {
+  display: flex;
+  align-items: center; /* Vertically centers content if your bar has a specific height */
+  padding: 0.62em;
+  background-color: black; /* Just for visualization */
+  font-size: 2.5em;
+  border: none;
+}
+
+.name-block {
+  width: 150px; /* Set the width you desire for the left block */
+  text-align: left;
+  padding: 0.7em;
+}
+
+.space-block {
+  flex-grow: 1; /* This ensures it takes up the remaining space */
+}
+
+.contact-block {
+  width: 200px; /* Set the width you desire for the right block */
+  text-align: right;
+  padding: 0.7em;
+}
+
+.name-block a, .contact-block a {
+  text-decoration: none; /* Removes underline */
+  color: inherit; /* Inherits the color of its parent so it doesn't have the default blue color */
+}
 
 .mobileWelcome {
-  display: block;
-  font-size: 50px;
-  height: 12.5%;
-  width: 100%;
-  background-image: linear-gradient(lightblue 50%, white);
+    display: block;
+    font-size: 18px; /* adjusted for better readability on mobile */
+    padding: 15px; /* providing some padding around the content */
+    color: var(--text-color);
+    text-align: center; /* to center the header text */
+    background : linear-gradient(black, steelblue); /* gradient from steelblue to deepskyblue */
+}
+
+.mobileWelcome h1 {
+    font-size: 2.5em; /* making the welcome message larger */
+    margin-bottom: 20px; /* providing some space between the header and the content */
+  }
+
+.mobileWelcome .nameHighlight {
+    color: gold; /* making the name stand out */
+    font-weight: bold; /* emphasizing the name */
+}
+
+.mobileWelcome p {
+    margin-bottom: 15px; /* space between paragraphs */
 }
 
 .mobileFooter {
@@ -51,25 +95,27 @@ overflow: scroll;
 
 .mobileTile{
   display: block;
-  color: black;
+  color: var(--text-color);
   font-size: 50px;
   margin: auto;
   margin-top: 0%;   
   aspect-ratio: 1.4;
 }
 
-.slide {
+.slide, .slide2 {
   font-size: 3em;
   box-sizing: border-box;
   display: none;
   margin: auto;
-  margin-top: 10%;   
+  margin-top: 1.5em;   
   aspect-ratio: 1.4;
   width: 90%;
   font-size: 32px;
-  box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+  border: 1px solid #d1d1d1;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+  /* box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
-    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); */
   background-color: rgba(173, 216, 230, 0.616);
   overflow: hidden;
   position: relative;
@@ -77,17 +123,26 @@ overflow: scroll;
 
 .slide img {
   max-width: 100%;
-  object-fit: contain;  /* can also use 'contain' based on requirement */
+  object-fit: cover;  /* can also use 'contain' based on requirement */
+  object-position: center;
+}
+
+.slide2 img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;  /* can also use 'contain' based on requirement */
   object-position: center;
 }
 
 /* Caption text */
 .text {
-  color: red;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
   padding: 8px 12px;
   position: absolute;
-  bottom: 8px;
-  width: 100%;
+  bottom: 0px;
+  left: 25%;
+  width: 50%;
   text-align: center;
 }
 
@@ -126,6 +181,81 @@ overflow: scroll;
 @keyframes fade {
   from {opacity: .3} 
   to {opacity: 1}
+}
+
+.resumeFlex {
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 1em; /* Updated from 10px to em unit */
+  flex-wrap: wrap; /* Allows the items to wrap to the next line if needed */
+}
+
+.resumeFlex-2Blocks, .dropdownResume-container {
+  /* This will give both containers equal width when they are side by side */
+  margin: 0.3125em; /* Updated from 5px to em unit */
+}
+
+.resumeFlex-2Blocks {
+  display: block;
+  gap: 0.625em; /* Updated from 10px to em unit, Space between blocks */
+}
+
+.ResumeName {
+  color: var(--text-color);
+  font-size: 2.5em; /* Setting font size for the main heading */
+  font-weight: 500; /* Semi-bold */
+  margin-bottom: 1em; /* Space below the main heading */
+}
+
+.ResumeDownload {
+  font-size: 1.2em; /* Font size for the download link */
+  font-weight: 300; /* Light weight for subtlety */
+  text-decoration: underline; /* Underlined as it's a link */
+  margin-bottom: 0.5em; /* Spacing below the download link */
+}
+.accordion-container {
+  width: 100%;
+}
+
+.accordion-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: steelblue;
+  color: var(--text-color);
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid steelblue;
+  border-top: 1px solid white;
+  outline: none;
+  cursor: pointer;
+  font-size: 1.5em;
+  transition: background-color 0.2s ease;
+}
+
+.accordion-btn:hover {
+  background-color: #0056b3;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  background-color: #009CFF;
+  transition: max-height 0.3s ease-out;
+  padding: 0 20px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Optionally, style for the active button */
+.accordionButton.active {
+  background-color: #0056b3; /* A darker shade of blue */
 }
 
 aside, main, footer, .dropdown-Projects-1, nav {
