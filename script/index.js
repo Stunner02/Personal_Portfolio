@@ -74,24 +74,24 @@ function showSlides() {
 }
 
 
-let slideIndex2 = 0;
-showSlides2();
+let slideIndex_Education = 0;
+showSlide_Education();
 
-function showSlides2() {
+function showSlide_Education() {
   let i;
-  let slides2 = document.getElementsByClassName("slide2");
-  let dots2 = document.getElementsByClassName("dot2");
-  for (i = 0; i < slides2.length; i++) {
-    slides2[i].style.display = "none";  
+  let slides_Education = document.getElementsByClassName("slide_Education");
+  let dots_Education = document.getElementsByClassName("dot_Education");
+  for (i = 0; i < slides_Education.length; i++) {
+    slides_Education[i].style.display = "none";  
   }
-  slideIndex2++;
-  if (slideIndex2 > slides2.length) {slideIndex2 = 1}    
+  slideIndex_Education++;
+  if (slideIndex_Education > slides_Education.length) {slideIndex_Education = 1}    
   // for (i = 0; i < dots.length; i++) {
   //   dots[i].className = dots[i].className.replace(" active", "");
   // }
-  slides2[slideIndex2-1].style.display = "block";  
+  slides_Education[slideIndex_Education-1].style.display = "block";  
   // dots[slideIndex-1].className += " active";
-  setTimeout(showSlides2, 5000); // Change image every 2 seconds
+  setTimeout(showSlide_Education, 5000); // Change image every 2 seconds
 }
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -134,89 +134,3 @@ tablet()
 desktop()
 desktopLarge()
 desktopExtraLarge()
-
-// (2) This is for asidebar svg manipulation
-var targetDiv = document.getElementById('svg-target'); //finds the target element
-var svgNode = document.createElementNS('http://www.w3.org/2000/svg', 'svg'); //creates + sets attributes
-svgNode.setAttributeNS(null, 'viewBox', '0 0 60 752'); //creates + sets attributes
-targetDiv.appendChild(svgNode); //Adds svg attributes to targetDiv
-
-// This creates a filter
-var defs = document.createElementNS("http://www.w3.org/2000/svg", "defs");
-
-var filter = document.createElementNS("http://www.w3.org/2000/svg", "filter");
-  filter.setAttribute("id","f1");
-  // filter.setAttribute("x","-0.5");
-  // filter.setAttribute("y","-0.5");
-  // filter.setAttribute("width","200%");
-  // filter.setAttribute("height","200%");
-
-var feGaussianBlur = document.createElementNS("http://www.w3.org/2000/svg", "feGaussianBlur");
-  feGaussianBlur.setAttribute("in","SourceGraphic");
-  feGaussianBlur.setAttribute("stdDeviation","7.5");
-  feGaussianBlur.setAttribute("result","blur");
-
-var feColorMatrix = document.createElementNS("http://www.w3.org/2000/svg", "feColorMatrix");
-  feColorMatrix.setAttribute("in", "blur");
-  feColorMatrix.setAttribute("mode", "matrix");
-  feColorMatrix.setAttribute("values", "1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9");
-  feColorMatrix.setAttribute("result", "goo");
-
-var feComposite = document.createElementNS("http://www.w3.org/2000/svg", "feComposite");
-  feComposite.setAttribute("in","SourceGraphic");
-  feComposite.setAttribute("in2", "goo");
-  feComposite.setAttribute("operator", "atop");
-
-filter.appendChild(feGaussianBlur);
-filter.appendChild(feColorMatrix);
-filter.appendChild(feComposite);
-defs.appendChild(filter);
-svgNode.setAttribute("filter","url(#f1)")  
-svgNode.appendChild(defs);    
-
-// create the circle node, set attributes, and append it to the SVG node
-var circleY0 = 106; // Initial pixel cy height
-var circleCenter = []; // Create array for centers of circles on the page navigation
-const circleSide = [0, 60]; // Sides of circles - used later for svg 1st and last points 
-
-for (var i = 0; i < 5; i++) { // This creates 5 circles for the aside bar
-  const circleNode = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-  circleNode.setAttributeNS(null, 'cx', '30');                // x position
-  circleNode.setAttributeNS(null, 'cy', circleY0 + i * 135);  // y position
-  circleNode.setAttributeNS(null, 'r', '27.5');               // circle radius  
-  circleNode.setAttributeNS(null, 'fill', 'steelblue');       // sets the fill attribute to steelblue
-  svgNode.appendChild(circleNode);
-  circleCenter[i] = [30, circleY0 + i * 135];
-}
-
-// For text that the circle has
-
-// (3) This is for the scrollbar
-
-//For the dot
-var dotPosition = document.getElementsByClassName("dot"); 
-
-//Create dot
-const dot = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
-dot.setAttributeNS(null, "Class", "dot");           // Sets class for dot so that CSS can edit it
-dot.setAttributeNS(null, 'cx', '30');               // x position
-dot.setAttributeNS(null, 'cy', circleY0 + i * 135); // y position
-dot.setAttributeNS(null, 'r', '27.5');              // circle radius  
-dot.setAttributeNS(null, 'fill', 'steelblue');      // sets the fill attribute to steelblue 
-svgNode.appendChild(dot);
-
-//What retrieves the data/ uses it
-window.addEventListener("scroll", function(event) {
-  
-  // This finds the percent of scrolling on the document.
-  var h = document.documentElement, 
-    b = document.body,
-    st = 'scrollTop',
-    sh = 'scrollHeight';
-  var percent = (h[st]||b[st]) / ((h[sh]||b[sh]) - h.clientHeight) * 100;
-  
-  dot.setAttributeNS(null, 'cy', 14 + (0.72 * percent) + "%"); // y position
-
-});
-
-

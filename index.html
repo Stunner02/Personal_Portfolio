@@ -2,22 +2,25 @@
 <html>
 
 <!--- (0) This is the head -->
-  <head>
-    <title>Gavin's Personal Portfolio</title> <!--The tab name-->
-    <link href="style/index.css" type="text/css" rel="stylesheet">
-    <script src="script/index.js" defer></script> 
-    <!-- Script: add in <head> and use async and defer-->
-  </head>
+<head>
+  <title>Gavin's Personal Portfolio</title> <!--The tab name-->
 
-  <body>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Font Family -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <link href="style/index.css" type="text/css" rel="stylesheet">
+  <script src="script/index.js" defer></script> 
+  <!-- Script: add in <head> and use async and defer-->
+</head>
+
+<body>
 <!--- (1) Header / Site Navigation -->
-    <header id="top">
-      
-      <!-- Font Family -->
-      <link rel="preconnect" href="https://fonts.googleapis.com">
-      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
-      
+  <header id="top">
+  </header>
       <!-- Mobile Navigation  -->
       <div class="mobile">
         <!-- Flex Bar -->
@@ -35,7 +38,10 @@
           <h1>🚀 Hi there!</h1>
           <p>I'm <span class="nameHighlight">Gavin Glynn</span>, a mechanical engineer with a passion for rapid innovation and pushing the boundaries of what's possible.</p>
           <p>📍Originating from El Segundo, California, I've consistently been inspired by how the aerospace 🛰️ entities around me transform pure engineering into practical, impactful solutions💡</p>
-      </div>
+        </div>
+
+    <div class="grid-container">
+      <div class="grid-item" id="Projects">
         <div class="mobileTile">
           <a href="html\Projects.html">
             <div class="slide fade">
@@ -55,19 +61,18 @@
             </div>
           </a>
         </div>
+      </div>
 
 <!-- <div style="text-align:center">
   <span class="dot"></span> 
   <span class="dot"></span> 
   <span class="dot"></span> 
 </div> -->
-        <div class="resumeFlex">
-          <div class="resumeFlex-2Blocks">
+      <div class="grid-item" id="Resume"> 
               <div class="ResumeName">My Resume</div>
               <div class="ResumeDownload">
                   <a href="Documents/Gavin Glynn - Resume.pdf" download="Gavin Glynn - Resume.pdf"><i>PDF of Current Resume</i></a>
               </div>
-          </div>
           <!-- Accordion section -->
           <div class="accordion-container">
             <div class="accordion">
@@ -80,200 +85,72 @@
                     Content for Education.
                 </div>
             </div>
-            <div class="accordion">
-                <button class="accordion-btn">
-                    Work Experience
-                    <span class="arrow">&#9662;</span>
-                </button>
-                <div class="panel">
-                    <!-- Your content for Work Experience goes here -->
-                    Content for Work Experience.
-                </div>
+              <div class="accordion">
+                  <button class="accordion-btn" style>
+                      Work Experience
+                      <span class="arrow">&#9662;</span>
+                  </button>
+                  <div class="panel">
+                      <!-- Your content for Work Experience goes here -->
+                      Content for Work Experience.
+                  </div>
+              </div>
+              <div class="accordion">
+                  <button class="accordion-btn">
+                      Leadership & Extracurriculars
+                      <span class="arrow">&#9662;</span>
+                  </button>
+                  <div class="panel">
+                      <!-- Your content for Leadership & Extracurriculars goes here -->
+                      Content for Leadership & Extracurriculars.
+                  </div>
+              </div>
+              <div class="accordion">
+                  <button class="accordion-btn">
+                      Skills
+                      <span class="arrow">&#9662;</span>
+                  </button>
+                  <div class="panel">
+                      <!-- Your content for Skills goes here -->
+                      Content for Skills.
+                  </div>
+              </div>
             </div>
-            <div class="accordion">
-                <button class="accordion-btn">
-                    Leadership & Extracurriculars
-                    <span class="arrow">&#9662;</span>
-                </button>
-                <div class="panel">
-                    <!-- Your content for Leadership & Extracurriculars goes here -->
-                    Content for Leadership & Extracurriculars.
-                </div>
-            </div>
-            <div class="accordion">
-                <button class="accordion-btn">
-                    Skills
-                    <span class="arrow">&#9662;</span>
-                </button>
-                <div class="panel">
-                    <!-- Your content for Skills goes here -->
-                    Content for Skills.
-                </div>
-            </div>
-          </div>
+      </div>
 
-        
+      <div class="grid-item" id="Education"> 
         <div class="mobileTile">
           <a href="html\Education.html">
-            <div class="slide2 fade">
+            <div class="slide_Education fade">
               <div class="projectTag">College</div>
               <img src="images/UCSB_Photo (1).png" alt="UCSB Campus" class="image">
               <div class="text">MechE</div>
             </div>
-            <div class="slide2 fade">
+            <div class="slide_Education fade">
               <div class="projectTag">Highschool</div>
               <img src="images/El Segundo High 10.jpg" alt="UCSB Campus" class="image">
               <div class="text">PLTW</div>
             </div>
           </a>
         </div>
+      </div>
+      <div class="grid-item" id="Contact"> 
         <a href="html\Contact.html">Contact</a>
         <div class="mobileFooter">Gavin Glynn</div>
       </div>
+    </div>
 
-      <nav>
-        <a href="index.html">Home</a> 
+
+
+<!-- Theme control switch -->
+  <div class="switch">
+    <label class="theme-switch" for="checkbox">
+      <input type="checkbox" id="checkbox" />
+      <div class="slider round"></div>
+    </label>
+  </div>
         
-        <!-- Drop down content -->
-        <div class="dropdown-1">
-            <!-- <a class="dropbtn" href="html\Projects.html">Projects<span style="font-size:30px; position:relative; left: -2.5px; top: 12.5px;">&#129171;</span></a> -->
-            <a class="dropbtn" href="html\Projects.html">Projects</a>
-          <!-- Hidden until Projects is hovered over -->
-            <div class="dropdown-Projects-1">
-              <!-- These are the first drop down options-->
-              <a href="html\Projects_Hyperloop.html">Hyperloop</a>
-              <a href="html\Projects_SMA.html">Shape Memory Alloy</a>
-              <!-- <div id="link1" class="dItem" href="html\Projects.html">Other<span style="font-size:30px; position:relative; left: 10px; top: 1px;">&#129170;</span>  -->
-                <div id="link1" class="dItem" href="html\Projects.html">Other</span> 
-                <!-- Hidden until dropdown-Projects-1 is hovered over -->
-                <div class="dropdown-Projects-2">
-                  <a class="dItem" id="file" href="html\Projects.html">3D Printed Enclosure</da>
-                  <a class="dItem" id="file" href="html\Projects.html">Motion controlled Drone</da>
-                  <a class="dItem" id="file" href="html\Projects.html">Hydroponics</da>
-                  <a class="dItem" id="file" href="html\Projects.html">Variable Belt Bike</a>
-                  <a class="dItem" id="file" href="html\Projects.html">3D Printed Enclosure</a>
-                </div>
-              
-              </div>
-
-            </div>
-
-        </div>
-
-        <!-- This is the second full dropdown menu -->
-        <div class="dropdown-1">
-          <!-- <a href="html\Education.html">Education<span style="font-size:30px; position:relative; left: -2.5px; top: 12.5px;">&#129171;</span></a> -->
-          <a href="html\Education.html">Education</a>
-          <div class="dropdown-content">
-            <div class="dropdown-Projects-1">
-              <a href="html\Education_Highschool">ESHS</a>
-              <a href="html\Education_UCSB">UCSB</a>
-              <a href="html\Experience">Experience</a>
-            </div> 
-          </div>
-        </div>
-        <a  href="html\Resume.html">Resume</a>
-        <a  href="html\Contact.html">Contact</a>
-        <!-- <button class="btn-toggle">Toggle Dark-Mode</button> -->
-        
-        <!-- Theme control switch -->
-          <div class="switch">
-            <label class="theme-switch" for="checkbox">
-              <input type="checkbox" id="checkbox" />
-              <div class="slider round"></div>
-            </label>
-          </div>
-        
-
-      </nav>
-    
-    </header>
-
-        <!-- Left side page navigation large bar -->
-    <div class="L-bar"></div>
-        <!-- This is svg practice -->
-        <!-- testing -->
-    <div id="svg-target"></div>
-        <!-- Cursor -->
-    <div class="cursor"></div>
-    <div class="cursor2"></div>
-        <!-- This contains the links to other parts of the page -->
-   <aside> 
-      <div id="dot"></div>
-      <a href="#top">Top</a>
-      <a href="#P1">P1</a>
-      <a href="#P2">P2</a>
-      <a href="#P3">P3</a>
-      <a href="#P4">P4</a>
-    </aside> 
-
-        <!-- Main -->
-    <Main>
-    <h1>Gavin's Home Page</h1>
-      <h2 id="P1">Paragraph 1</h2>
-      <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat sapien a fermentum varius. Integer velit urna, posuere eu sem non, tempor egestas dolor. Vivamus venenatis eleifend arcu eget feugiat. Vivamus euismod cursus arcu. Maecenas vitae ante sem. Cras elementum risus sit amet elit cursus egestas. Etiam accumsan lobortis orci, vulputate molestie odio dictum eu. Aliquam erat volutpat. Vestibulum eget vulputate orci, posuere eleifend metus. Donec faucibus arcu mauris, sit amet efficitur sem tempus sed. Praesent in urna vitae massa faucibus rhoncus. Etiam sem enim, ultrices nec lectus eget, convallis facilisis lacus. Sed ut luctus felis.
-        <br><br>
-        Pellentesque mauris orci, aliquam vitae elementum eu, lacinia at lacus. Aenean quis odio vitae quam mollis pharetra vel in eros. Sed vestibulum non urna eget ornare. Ut id dolor accumsan, imperdiet tortor at, euismod urna. Sed pulvinar tempor sapien, eget tristique odio tristique vel. Nulla eu orci a nisl feugiat pharetra vitae eu neque. Duis et bibendum velit. Quisque eu euismod lorem, eu hendrerit mi.
-        <br><br>
-        Donec nec interdum ipsum. Nulla viverra eu mi vel semper. Morbi nisi eros, imperdiet sit amet iaculis at, gravida non velit. Integer id elit ultricies, aliquet orci laoreet, faucibus nunc. Duis hendrerit pretium diam sed laoreet. Nam libero tortor, pretium in finibus nec, placerat id sapien. Quisque et dolor vitae nisi laoreet hendrerit id ut ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a convallis nisl. Aliquam neque diam, tristique quis commodo vitae, aliquam non justo. Duis tristique sodales feugiat.
-        <br><br>
-        Vivamus laoreet aliquet accumsan. Nullam vestibulum est risus, in tincidunt nibh tempor in. Nam sed mattis urna. Donec mauris odio, dapibus egestas scelerisque ut, efficitur sed nulla. Aenean tincidunt leo pellentesque ipsum ultrices maximus eget ut nibh. Aliquam egestas augue sit amet interdum sollicitudin. Nullam sit amet felis et dolor aliquam pretium vitae vitae augue. Aliquam purus lorem, tempor sit amet metus vitae, auctor euismod velit. Sed scelerisque, justo in accumsan suscipit, sapien erat malesuada ligula, nec posuere odio orci ac urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin euismod velit ante, sit amet convallis augue aliquet in.
-        <br><br>
-      </h3>
-      <h2 id="P2">Paragraph 2</h2>
-      <h3>
-        Vestibulum est mauris, tincidunt eget condimentum vitae, dictum sed ligula. Fusce vestibulum placerat ex in malesuada. Nullam scelerisque porta libero, non gravida quam pellentesque eget. Vivamus at interdum nisl, in dapibus ligula. In vitae lorem consectetur, ultricies neque sit amet, accumsan tellus. Donec in enim justo. Ut vestibulum, ligula a elementum dictum, ante tortor gravida ex, ut gravida mi urna eu risus. Sed mollis sem eget nunc convallis imperdiet. Sed dapibus ut odio id aliquet. Nullam eget tincidunt felis, ac aliquet quam. Nullam dignissim dignissim egestas.
-        <br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat sapien a fermentum varius. Integer velit urna, posuere eu sem non, tempor egestas dolor. Vivamus venenatis eleifend arcu eget feugiat. Vivamus euismod cursus arcu. Maecenas vitae ante sem. Cras elementum risus sit amet elit cursus egestas. Etiam accumsan lobortis orci, vulputate molestie odio dictum eu. Aliquam erat volutpat. Vestibulum eget vulputate orci, posuere eleifend metus. Donec faucibus arcu mauris, sit amet efficitur sem tempus sed. Praesent in urna vitae massa faucibus rhoncus. Etiam sem enim, ultrices nec lectus eget, convallis facilisis lacus. Sed ut luctus felis.
-        <br><br>
-        Pellentesque mauris orci, aliquam vitae elementum eu, lacinia at lacus. Aenean quis odio vitae quam mollis pharetra vel in eros. Sed vestibulum non urna eget ornare. Ut id dolor accumsan, imperdiet tortor at, euismod urna. Sed pulvinar tempor sapien, eget tristique odio tristique vel. Nulla eu orci a nisl feugiat pharetra vitae eu neque. Duis et bibendum velit. Quisque eu euismod lorem, eu hendrerit mi.
-        <br><br>
-        Donec nec interdum ipsum. Nulla viverra eu mi vel semper. Morbi nisi eros, imperdiet sit amet iaculis at, gravida non velit. Integer id elit ultricies, aliquet orci laoreet, faucibus nunc. Duis hendrerit pretium diam sed laoreet. Nam libero tortor, pretium in finibus nec, placerat id sapien. Quisque et dolor vitae nisi laoreet hendrerit id ut ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a convallis nisl. Aliquam neque diam, tristique quis commodo vitae, aliquam non justo. Duis tristique sodales feugiat.
-        <br><br>
-        Vivamus laoreet aliquet accumsan. Nullam vestibulum est risus, in tincidunt nibh tempor in. Nam sed mattis urna. Donec mauris odio, dapibus egestas scelerisque ut, efficitur sed nulla. Aenean tincidunt leo pellentesque ipsum ultrices maximus eget ut nibh. Aliquam egestas augue sit amet interdum sollicitudin. Nullam sit amet felis et dolor aliquam pretium vitae vitae augue. Aliquam purus lorem, tempor sit amet metus vitae, auctor euismod velit. Sed scelerisque, justo in accumsan suscipit, sapien erat malesuada ligula, nec posuere odio orci ac urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin euismod velit ante, sit amet convallis augue aliquet in.
-        <br><br>
-        Vestibulum est mauris, tincidunt eget condimentum vitae, dictum sed ligula. Fusce vestibulum placerat ex in malesuada. Nullam scelerisque porta libero, non gravida quam pellentesque eget. Vivamus at interdum nisl, in dapibus ligula. In vitae lorem consectetur, ultricies neque sit amet, accumsan tellus. Donec in enim justo. Ut vestibulum, ligula a elementum dictum, ante tortor gravida ex, ut gravida mi urna eu risus. Sed mollis sem eget nunc convallis imperdiet. Sed dapibus ut odio id aliquet. Nullam eget tincidunt felis, ac aliquet quam. Nullam dignissim dignissim egestas.
-        <br><br>
-      </h3>
-      <h2 id="P3">Paragraph 3</h2>
-      <h3>
-        Vestibulum est mauris, tincidunt eget condimentum vitae, dictum sed ligula. Fusce vestibulum placerat ex in malesuada. Nullam scelerisque porta libero, non gravida quam pellentesque eget. Vivamus at interdum nisl, in dapibus ligula. In vitae lorem consectetur, ultricies neque sit amet, accumsan tellus. Donec in enim justo. Ut vestibulum, ligula a elementum dictum, ante tortor gravida ex, ut gravida mi urna eu risus. Sed mollis sem eget nunc convallis imperdiet. Sed dapibus ut odio id aliquet. Nullam eget tincidunt felis, ac aliquet quam. Nullam dignissim dignissim egestas.
-        <br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat sapien a fermentum varius. Integer velit urna, posuere eu sem non, tempor egestas dolor. Vivamus venenatis eleifend arcu eget feugiat. Vivamus euismod cursus arcu. Maecenas vitae ante sem. Cras elementum risus sit amet elit cursus egestas. Etiam accumsan lobortis orci, vulputate molestie odio dictum eu. Aliquam erat volutpat. Vestibulum eget vulputate orci, posuere eleifend metus. Donec faucibus arcu mauris, sit amet efficitur sem tempus sed. Praesent in urna vitae massa faucibus rhoncus. Etiam sem enim, ultrices nec lectus eget, convallis facilisis lacus. Sed ut luctus felis.
-        <br><br>
-        Pellentesque mauris orci, aliquam vitae elementum eu, lacinia at lacus. Aenean quis odio vitae quam mollis pharetra vel in eros. Sed vestibulum non urna eget ornare. Ut id dolor accumsan, imperdiet tortor at, euismod urna. Sed pulvinar tempor sapien, eget tristique odio tristique vel. Nulla eu orci a nisl feugiat pharetra vitae eu neque. Duis et bibendum velit. Quisque eu euismod lorem, eu hendrerit mi.
-        <br><br>
-        Donec nec interdum ipsum. Nulla viverra eu mi vel semper. Morbi nisi eros, imperdiet sit amet iaculis at, gravida non velit. Integer id elit ultricies, aliquet orci laoreet, faucibus nunc. Duis hendrerit pretium diam sed laoreet. Nam libero tortor, pretium in finibus nec, placerat id sapien. Quisque et dolor vitae nisi laoreet hendrerit id ut ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a convallis nisl. Aliquam neque diam, tristique quis commodo vitae, aliquam non justo. Duis tristique sodales feugiat.
-        <br><br>
-        Vivamus laoreet aliquet accumsan. Nullam vestibulum est risus, in tincidunt nibh tempor in. Nam sed mattis urna. Donec mauris odio, dapibus egestas scelerisque ut, efficitur sed nulla. Aenean tincidunt leo pellentesque ipsum ultrices maximus eget ut nibh. Aliquam egestas augue sit amet interdum sollicitudin. Nullam sit amet felis et dolor aliquam pretium vitae vitae augue. Aliquam purus lorem, tempor sit amet metus vitae, auctor euismod velit. Sed scelerisque, justo in accumsan suscipit, sapien erat malesuada ligula, nec posuere odio orci ac urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin euismod velit ante, sit amet convallis augue aliquet in.
-        <br><br>
-        Vestibulum est mauris, tincidunt eget condimentum vitae, dictum sed ligula. Fusce vestibulum placerat ex in malesuada. Nullam scelerisque porta libero, non gravida quam pellentesque eget. Vivamus at interdum nisl, in dapibus ligula. In vitae lorem consectetur, ultricies neque sit amet, accumsan tellus. Donec in enim justo. Ut vestibulum, ligula a elementum dictum, ante tortor gravida ex, ut gravida mi urna eu risus. Sed mollis sem eget nunc convallis imperdiet. Sed dapibus ut odio id aliquet. Nullam eget tincidunt felis, ac aliquet quam. Nullam dignissim dignissim egestas.
-        <br><br>
-      </h3>
-      <h2 id="P4">Paragraph 4</h2>
-      <h3>
-        Vestibulum est mauris, tincidunt eget condimentum vitae, dictum sed ligula. Fusce vestibulum placerat ex in malesuada. Nullam scelerisque porta libero, non gravida quam pellentesque eget. Vivamus at interdum nisl, in dapibus ligula. In vitae lorem consectetur, ultricies neque sit amet, accumsan tellus. Donec in enim justo. Ut vestibulum, ligula a elementum dictum, ante tortor gravida ex, ut gravida mi urna eu risus. Sed mollis sem eget nunc convallis imperdiet. Sed dapibus ut odio id aliquet. Nullam eget tincidunt felis, ac aliquet quam. Nullam dignissim dignissim egestas.
-        <br><br>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed consequat sapien a fermentum varius. Integer velit urna, posuere eu sem non, tempor egestas dolor. Vivamus venenatis eleifend arcu eget feugiat. Vivamus euismod cursus arcu. Maecenas vitae ante sem. Cras elementum risus sit amet elit cursus egestas. Etiam accumsan lobortis orci, vulputate molestie odio dictum eu. Aliquam erat volutpat. Vestibulum eget vulputate orci, posuere eleifend metus. Donec faucibus arcu mauris, sit amet efficitur sem tempus sed. Praesent in urna vitae massa faucibus rhoncus. Etiam sem enim, ultrices nec lectus eget, convallis facilisis lacus. Sed ut luctus felis.
-        <br><br>
-        Pellentesque mauris orci, aliquam vitae elementum eu, lacinia at lacus. Aenean quis odio vitae quam mollis pharetra vel in eros. Sed vestibulum non urna eget ornare. Ut id dolor accumsan, imperdiet tortor at, euismod urna. Sed pulvinar tempor sapien, eget tristique odio tristique vel. Nulla eu orci a nisl feugiat pharetra vitae eu neque. Duis et bibendum velit. Quisque eu euismod lorem, eu hendrerit mi.
-        <br><br>
-        Donec nec interdum ipsum. Nulla viverra eu mi vel semper. Morbi nisi eros, imperdiet sit amet iaculis at, gravida non velit. Integer id elit ultricies, aliquet orci laoreet, faucibus nunc. Duis hendrerit pretium diam sed laoreet. Nam libero tortor, pretium in finibus nec, placerat id sapien. Quisque et dolor vitae nisi laoreet hendrerit id ut ipsum. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Donec a convallis nisl. Aliquam neque diam, tristique quis commodo vitae, aliquam non justo. Duis tristique sodales feugiat.
-        <br><br>
-        Vivamus laoreet aliquet accumsan. Nullam vestibulum est risus, in tincidunt nibh tempor in. Nam sed mattis urna. Donec mauris odio, dapibus egestas scelerisque ut, efficitur sed nulla. Aenean tincidunt leo pellentesque ipsum ultrices maximus eget ut nibh. Aliquam egestas augue sit amet interdum sollicitudin. Nullam sit amet felis et dolor aliquam pretium vitae vitae augue. Aliquam purus lorem, tempor sit amet metus vitae, auctor euismod velit. Sed scelerisque, justo in accumsan suscipit, sapien erat malesuada ligula, nec posuere odio orci ac urna. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Proin euismod velit ante, sit amet convallis augue aliquet in.
-        <br><br>
-        Vestibulum est mauris, tincidunt eget condimentum vitae, dictum sed ligula. Fusce vestibulum placerat ex in malesuada. Nullam scelerisque porta libero, non gravida quam pellentesque eget. Vivamus at interdum nisl, in dapibus ligula. In vitae lorem consectetur, ultricies neque sit amet, accumsan tellus. Donec in enim justo. Ut vestibulum, ligula a elementum dictum, ante tortor gravida ex, ut gravida mi urna eu risus. Sed mollis sem eget nunc convallis imperdiet. Sed dapibus ut odio id aliquet. Nullam eget tincidunt felis, ac aliquet quam. Nullam dignissim dignissim egestas.
-      </h3>
-      <br><br>
-    </Main>
-  </body>
-        <!-- Footer -->
-  <footer>
-      <!--- Getting in contact -->
-      <!--- linkdin? -->
-      <!--- -->
-      <a href="#top">Top</a>
-  </footer>
+</body>
     
         
 </html> 
