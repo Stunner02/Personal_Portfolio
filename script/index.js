@@ -1,29 +1,29 @@
 // (0) This is for theme control 
 // Help: https://css-tricks.com/a-complete-guide-to-dark-mode-on-the-web/
-const btn = document.querySelector('.theme-switch input[type="checkbox"]');
-const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
+// const btn = document.querySelector('.theme-switch input[type="checkbox"]');
+// const prefersDarkScheme = window.matchMedia("(prefers-color-scheme: dark)");
 
-const currentTheme = localStorage.getItem("theme");
-if (currentTheme == "dark") {
-  document.body.classList.toggle("dark-theme");
-} else if (currentTheme == "light") {
-  document.body.classList.toggle("light-theme");
-}
+// const currentTheme = localStorage.getItem("theme");
+// if (currentTheme == "dark") {
+//   document.body.classList.toggle("dark-theme");
+// } else if (currentTheme == "light") {
+//   document.body.classList.toggle("light-theme");
+// }
 
-btn.addEventListener("click", function () {
-  if (prefersDarkScheme.matches) {
-    document.body.classList.toggle("light-theme");
-    var theme = document.body.classList.contains("light-theme")
-      ? "light"
-      : "dark";
-  } else {
-    document.body.classList.toggle("dark-theme");
-    var theme = document.body.classList.contains("dark-theme")
-      ? "dark"
-      : "light";
-  }
-  localStorage.setItem("theme", theme);
-});
+// btn.addEventListener("click", function () {
+//   if (prefersDarkScheme.matches) {
+//     document.body.classList.toggle("light-theme");
+//     var theme = document.body.classList.contains("light-theme")
+//       ? "light"
+//       : "dark";
+//   } else {
+//     document.body.classList.toggle("dark-theme");
+//     var theme = document.body.classList.contains("dark-theme")
+//       ? "dark"
+//       : "light";
+//   }
+//   localStorage.setItem("theme", theme);
+// });
 
 // (0.1) This is for smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -128,6 +128,31 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 });
 
+function adjustResumeMaxWidth() {
+  // Get the width of the viewport
+  let viewportWidth = window.innerWidth;
+
+  // Check if viewportWidth is greater than 676px
+  if (viewportWidth > 768) {
+      // Get the width of .grid-container
+      let gridContainerWidth = document.querySelector('.grid-container').offsetWidth;
+
+      // Calculate half of the gridContainerWidth
+      let halfWidth = gridContainerWidth / 2;
+
+      // Set the max-width of #Resume
+      document.querySelector('#Resume').style.maxWidth = `${halfWidth}px`;
+  } else {
+      // Reset the max-width for #Resume when viewportWidth is less than or equal to 676px
+      document.querySelector('#Resume').style.maxWidth = '';
+  }
+}
+
+// Call the function initially
+adjustResumeMaxWidth();
+
+// Call the function on window resize to adjust dynamically
+window.addEventListener('resize', adjustResumeMaxWidth);
 
 mobileLandscape()
 tablet()

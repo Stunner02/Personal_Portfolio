@@ -19,11 +19,12 @@
 
 <body>
 <!--- (1) Header / Site Navigation -->
-  <header id="top">
-  </header>
+  <header id="top"></header>
+
       <!-- Mobile Navigation  -->
       <div class="mobile">
         <!-- Flex Bar -->
+      <div class="flex-background">
         <div class="flex-bar">
           <div class="Name">
             <a href="index.html">Gavin Glynn</a>
@@ -32,14 +33,21 @@
           <div class="contact-block">
             <a href="html/Contact.html">Contact</a>
           </div>
+          
         </div>
+      </div>
 
+      <div class="mobileWelcome-background">
         <div class="mobileWelcome">
           <h1>🚀 Hi there!</h1>
           <p>I'm <span class="nameHighlight">Gavin Glynn</span>, a mechanical engineer with a passion for rapid innovation and pushing the boundaries of what's possible.</p>
           <p>📍Originating from El Segundo, California, I've consistently been inspired by how the aerospace 🛰️ entities around me transform pure engineering into practical, impactful solutions💡</p>
         </div>
+      </div>
 
+<!-- ================================
+     Grid-item: Projects
+     ================================ -->
     <div class="grid-container">
       <div class="grid-item" id="Projects">
         <div class="mobileTile">
@@ -68,6 +76,10 @@
   <span class="dot"></span> 
   <span class="dot"></span> 
 </div> -->
+
+<!-- ================================
+     Grid-item: Resume
+     ================================ -->
       <div class="grid-item" id="Resume"> 
               <div class="ResumeName">My Resume</div>
               <div class="ResumeDownload">
@@ -77,22 +89,86 @@
           <div class="accordion-container">
             <div class="accordion">
                 <button class="accordion-btn">
-                    Education
+                    Projects
                     <span class="arrow">&#9662;</span>
                 </button>
                 <div class="panel">
-                    <!-- Your content for Education goes here -->
-                    Content for Education.
+            <!-- ======================
+                 Resume: Project content
+                 ====================== -->
+
+                    <!-- Shape Memory Alloy Section -->
+                      <div class="resume-section">
+                        <h2>Shape Memory Alloy folding Solar Array</h2>
+                        <h3>Project Manager, Tech Lead</h3>
+                        <p><strong>Date:</strong> September 2020 - June 2021</p>
+                        <p><strong>Location:</strong> UCSB</p>
+                        <ul>
+                            <li>Developed an efficient storing method for solar arrays on cube satellites enabled by shape memory alloys (SMA).</li>
+                            <li>Integrated SMA’s into 3D printed replicated parts for testing.</li>
+                            <li>Assumed role of Tech Lead spring quarter to focus on development.</li>
+                            <li>Awarded Outstanding Innovation in Mechanical Engineering at UCSB Capstone Expo among 11 teams.</li>
+                        </ul>
+                      </div>
+
+                      <!-- SpaceX Hyperloop Pod Competition Section -->
+                      <div class="resume-section">
+                        <h2>SpaceX Hyperloop Pod Competition</h2>
+                        <h3>Project Manager</h3>
+                        <p><strong>Date:</strong> August 2015 - Spring 2016</p>
+                        <p><strong>Location:</strong> ESHS</p>
+                        <ul>
+                            <li>Created and entered HyperEagles in college/professional pod competition as a high school team.</li>
+                            <li>Selected to compete at Design Weekend.</li>
+                            <li>Competed in Pod Design and Safety Subsystem Design at Design Weekend in Texas.</li>
+                        </ul>
+                      </div>
+
                 </div>
             </div>
+
               <div class="accordion">
                   <button class="accordion-btn" style>
-                      Work Experience
+                      Education
                       <span class="arrow">&#9662;</span>
                   </button>
                   <div class="panel">
-                      <!-- Your content for Work Experience goes here -->
-                      Content for Work Experience.
+            <!-- ======================
+                 Resume: Education content
+                 ====================== -->
+                      <!-- Resume Section: University of California Santa Barbara -->
+                      <div class="resume-section">
+                        <h2>University of California Santa Barbara</h2>
+                        <h3>BS</h3>
+                        <p><strong>Date:</strong> September 2016 - June 2021</p>
+                        <p><strong>Location:</strong> Santa Barbara</p>
+                        <ul>
+                            <li>Bachelor of Science, Mechanical Engineering.</li>
+                        </ul>
+                      </div>
+
+                      <!-- Resume Section: Northrup Grumman Internship -->
+                      <div class="resume-section">
+                        <h2>Northrup Grumman Internship</h2>
+                        <h3>Intern</h3>
+                        <p><strong>Date:</strong> February 2016 - June 2016</p>
+                        <p><strong>Location:</strong> El Segundo</p>
+                        <ul>
+                            <li>Intern at Northrup Grumman, Monday - Thursday, two hours daily.</li>
+                            <li>Environmental department.</li>
+                        </ul>
+                      </div>
+
+                      <!-- Resume Section: El Segundo High School -->
+                      <div class="resume-section">
+                        <h2>El Segundo High School</h2>
+                        <p><strong>Date:</strong> August 2012 - June 2016</p>
+                        <p><strong>Location:</strong> El Segundo</p>
+                        <ul>
+                            <li>Fulfilled Engineering Pathway (Project Lead the Way).</li>
+                        </ul>
+                      </div>
+
                   </div>
               </div>
               <div class="accordion">
@@ -117,7 +193,9 @@
               </div>
             </div>
       </div>
-
+<!-- ================================
+     Grid-item: Education
+     ================================ -->
       <div class="grid-item" id="Education"> 
         <div class="mobileTile">
           <a href="html\Education.html">
@@ -136,19 +214,30 @@
       </div>
       <div class="grid-item" id="Contact"> 
         <a href="html\Contact.html">Contact</a>
-        <div class="mobileFooter">Gavin Glynn</div>
+        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdawUSHDOhhnf5DlxdjRLqSuVkF1BrSmVhRqCN7ddWsE33oug/viewform?embedded=true" width="640" height="1449" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
       </div>
     </div>
 
-
+    <div class="flex-background-footer">
+      <div class="flex-bar-footer">
+        <div class="Name">
+          <a href="index.html">Gavin Glynn</a>
+        </div>
+        <div class="space-block"></div>
+        <div class="contact-block">
+          <a href="html/Contact.html">Contact</a>
+        </div>
+      </div>
+    </div>
+</div>
 
 <!-- Theme control switch -->
-  <div class="switch">
+  <!-- <div class="switch">
     <label class="theme-switch" for="checkbox">
       <input type="checkbox" id="checkbox" />
       <div class="slider round"></div>
     </label>
-  </div>
+  </div> -->
         
 </body>
     

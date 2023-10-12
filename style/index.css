@@ -108,26 +108,38 @@ body {
 /* Medium devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .grid-container {
-    grid-template-columns: repeat(2, 1fr);  /* two columns of equal width */
-    grid-template-areas:
-        "item1 item2"
-        "item3 item4";
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Define two columns with the second column being twice as wide */
+    grid-template-areas: 
+        "Projects Resume"
+        "Education Resume"
+        "Contact Resume";
+    grid-auto-rows: minmax(200px, auto); /* This sets a minimum height for the rows but allows them to expand if the content requires more space */
 }
 
 #Projects {
-    grid-area: item1;
-}
-
-#Resume {
-    grid-area: item2;
+    grid-area: Projects;
 }
 
 #Education {
-    grid-area: item3;
+    grid-area: Education;
+}
+
+#Resume {
+    grid-area: Resume;
 }
 
 #Contact {
-    grid-area: item4;
+    grid-area: Contact;
+    left: 0px;
+}
+
+body #Contact a {
+  font-size: 2.25rem; /* Setting font size for the main heading */
+  font-weight: bold; /* Semi-bold */
+  margin-bottom: 0.875em; /* Space below the main heading */
+  position: relative;
+  left: 0px;
 }
 }
 
@@ -258,22 +270,29 @@ body {
    Name + Contact Top Bar
    ================================ */
 
-
 .flex-bar {
+  box-sizing: border-box;
   display: flex;
   align-items: center; /* Vertically centers content if your bar has a specific height */
-  /* padding: 20px 5%; */
   padding: 0.62em;
   background-color: black; /* Just for visualization */
-  font-size: 2rem;
+  font-size: 1.5rem;
+  text-align: center;
   border: none;
- 
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-.name-block {
-  width: 150px; /* Set the width you desire for the left block */
+.flex-background {
+  background-color: black; /* Set their background to black */
+}
+
+.Name {
+  width: 200px; /* Set the width you desire for the left block */
   text-align: left;
-  padding: 0.7em;
+  margin-top: clamp(0,(1vw*0.5), 10px);
+  /* margin-left: calc(1vw*2.5); */
 }
 
 .space-block {
@@ -283,10 +302,11 @@ body {
 .contact-block {
   width: 200px; /* Set the width you desire for the right block */
   text-align: right;
-  padding: 0.7em;
+  margin-top: clamp(0,(1vw*0.5), 10px);
+  /* margin-right: calc(1vw*2.5); */
 }
 
-.name-block a, .contact-block a {
+.Name a, .contact-block a {
   text-decoration: none; /* Removes underline */
   color: inherit; /* Inherits the color of its parent so it doesn't have the default blue color */
 }
@@ -295,7 +315,15 @@ body {
    Intro Paragraph
    ================================ */
 
+.mobileWelcome-background {
+  background : linear-gradient(black, steelblue);
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center;     /* Center vertically */
+}
+
 .mobileWelcome {
+    max-width: 1200px;
     display: block;
     font-size: 1rem; /* adjusted for better readability on mobile */
     padding: 15px; /* providing some padding around the content */
@@ -332,18 +360,17 @@ body {
 .mobileTile{
   display: block;
   color: var(--text-color);
-  font-size: 1rem;
   margin: auto;
   margin-top: 0%;   
   aspect-ratio: 1.4;
 }
 
 .slide, .slide_Education {
-  font-size: 2.25rem;
+  /* font-size: 2.25rem; */
   box-sizing: border-box;
   display: none;
   margin: auto;
-  margin-top: 1.5em;   
+  /* margin-top: 1.5em;    */
   aspect-ratio: 1.4;
   width: 90%;
   border: 1px solid #d1d1d1;
@@ -420,6 +447,8 @@ body {
 }
 
 #Resume {
+  /* grid-column: span 1;
+  grid-row: span 1; */
   box-sizing: border-box;
   display: block;
   flex-direction: column;
@@ -430,29 +459,25 @@ body {
   flex-wrap: wrap; /* Allows the items to wrap to the next line if needed */
 }
 
-.resumeFlex-2Blocks, .accordion-container {
+.accordion-container {
   flex: 1;/* This will give both containers equal width when they are side by side */
   margin: 0.3125em; /* Updated from 5px to em unit */
-}
-
-.resumeFlex-2Blocks {
-  display: block;
 }
 
 .ResumeName {
   position: relative;
   left: -2.5%;
   color: var(--text-color);
-  font-size: 2.5rem; /* Setting font size for the main heading */
+  font-size: 2.25rem; /* Setting font size for the main heading */
   font-weight: bold; /* Semi-bold */
-  margin-bottom: 1em; /* Space below the main heading */
+  margin-bottom: 0.875em; /* Space below the main heading */
 }
 
 .ResumeDownload {
   font-size: 1.5rem; /* Font size for the download link */
   font-weight: bold; /* Light weight for subtlety */
   text-decoration: underline; /* Underlined as it's a link */
-  margin-bottom: 0.5em; /* Spacing below the download link */
+  margin-bottom: 0.75em; /* Spacing below the download link */
 }
 .accordion-container {
   width: 100%;
@@ -483,7 +508,7 @@ body {
 .panel {
   max-height: 0;
   overflow: hidden;
-  background-color: #009CFF;
+  background-color: steelblue;
   transition: max-height 0.3s ease-out;
   padding: 0 20px;
 }
@@ -492,18 +517,90 @@ body {
   transition: transform 0.3s ease;
 }
 
+/* ================================
+   Resume Section Styles
+   ================================ */
+
+.resume-section {
+  margin-bottom: 30px; /* Spacing between resume sections */
+  padding: 20px; /* Internal spacing for each resume section */
+  border: 1px solid #e0e0e0; /* A light border around each section */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color for each section */
+}
+
+.resume-section h2 {
+  font-size: 1.5rem; /* Main resume title size */
+  margin-bottom: 10px; /* Spacing after the title */
+  color: #333; /* Dark text color for contrast */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.resume-section h3 {
+  font-size: 1.2rem; /* Sub-title/role size */
+  margin-bottom: 5px; /* Spacing after the sub-title */
+  color: #555; /* A slightly lighter shade for sub-titles */
+  font-style: italic; /* Italic text for a different look. Can be removed if not desired */
+}
+
+.resume-section p {
+  margin-bottom: 15px; /* Spacing after paragraphs (like Date and Location) */
+  color: #666; /* Color for general text */
+}
+
+.resume-section p strong {
+  color: #444; /* Darker text color for labels like 'Date:' and 'Location:' for emphasis */
+}
+
+.resume-section ul {
+  margin-left: 20px; /* Indentation for the bullet list */
+  list-style-type: disc; /* Regular disc bullet points, can be changed to another style if desired */
+}
+
+.resume-section li {
+  margin-bottom: 10px; /* Spacing between bullet points */
+  color: #666; /* Text color for bullet points */
+}
+
 /* Optionally, style for the active button */
 .accordionButton.active {
   background-color: #0056b3; /* A darker shade of blue */
 }
 
-.mobileFooter {
-  display: block;
-  height: 12.5%;
-  background-color: steelblue;
-  /* background-image: linear-gradient(white, lightblue 50%, lightblue ); */
+/* ================================
+   Contact Section Styles
+   ================================ */
+
+#Contact {
+  position: relative;
+  left: 5%;
+  color: var(--text-color);
+}
+
+#Contact a {
+  font-size: 2.25rem; /* Setting font size for the main heading */
+  font-weight: bold; /* Semi-bold */
+  margin-bottom: 0.875em; /* Space below the main heading */
+  position: relative;
+  left: -2.5%;
+}
+
+.flex-bar-footer {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; /* Vertically centers content if your bar has a specific height */
+  padding: 0.62em;
+  background-color: steelblue; /* Just for visualization */
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
   width: 100%;
-  margin-top: 10%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-background-footer {
+  background-color: steelblue; /* Set their background to black */
 }
 
 aside, main, footer, .dropdown-Projects-1, nav {
