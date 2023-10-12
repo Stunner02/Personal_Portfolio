@@ -134,7 +134,7 @@ body {
     left: 0px;
 }
 
-body #Contact a {
+#Contact .ContactName {
   font-size: 2.25rem; /* Setting font size for the main heading */
   font-weight: bold; /* Semi-bold */
   margin-bottom: 0.875em; /* Space below the main heading */
@@ -229,9 +229,7 @@ body #Contact a {
   
 /* X-Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) { 
-  .grid-container {
-    column-gap: clamp(0vw,calc(10*1vw - 120px),20vw);
-  }
+  /* Placeholder */
 }
 
 /* XX-Large devices (larger desktops, 1400px and up) */
@@ -262,6 +260,7 @@ body #Contact a {
     height: 100%;
   background-color: steelblue;
   overflow: scroll;
+  overflow-x: hidden;
   -webkit-overflow-scrolling: touch;
   color: var(--text-color);
 }
@@ -575,14 +574,27 @@ body #Contact a {
   position: relative;
   left: 5%;
   color: var(--text-color);
+  min-height: 175px;
 }
 
-#Contact a {
+#Contact .ContactName {
+  display: block;
   font-size: 2.25rem; /* Setting font size for the main heading */
   font-weight: bold; /* Semi-bold */
   margin-bottom: 0.875em; /* Space below the main heading */
   position: relative;
   left: -2.5%;
+}
+
+.googleForm {
+  font-size: 1.5rem; /* Font size for the download link */
+  font-weight: bold; /* Light weight for subtlety */
+  text-decoration: underline; /* Underlined as it's a link */
+  margin-bottom: 0.75em; /* Spacing below the download link */
+}
+
+#Contact p {
+  font-size: 1rem;
 }
 
 .flex-bar-footer {
