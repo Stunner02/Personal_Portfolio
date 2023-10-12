@@ -12,7 +12,7 @@ body {
     background: var(--bkg-color);
     font-family: 'Lato';
   --text-color: #222;
-  --bkg-color: #fff;
+  --bkg-color: #87CEFA;
   --switch-bkg-color: hsl(207, 44%, 80%);
   --switch-position: 4px;
 }
@@ -68,7 +68,7 @@ body.dark-theme {
   }
   body.light-theme {
     --text-color: #222;
-    --bkg-color: #fff;
+    --bkg-color: #87CEFA;
     --switch-bkg-color: hsl(207, 44%, 80%);
     --switch-position: 4px;
   }
@@ -275,7 +275,7 @@ body #Contact a {
   display: flex;
   align-items: center; /* Vertically centers content if your bar has a specific height */
   padding: 0.62em;
-  background-color: black; /* Just for visualization */
+  background-color: var(--bkg-color); /* Just for visualization */
   font-size: 1.5rem;
   text-align: center;
   border: none;
@@ -285,7 +285,7 @@ body #Contact a {
 }
 
 .flex-background {
-  background-color: black; /* Set their background to black */
+  background-color: var(--bkg-color); /* Set their background to black */
 }
 
 .Name {
@@ -316,7 +316,7 @@ body #Contact a {
    ================================ */
 
 .mobileWelcome-background {
-  background : linear-gradient(black, steelblue);
+  background : linear-gradient(var(--bkg-color), steelblue);
   display: flex;
   justify-content: center; /* Center horizontally */
   align-items: center;     /* Center vertically */
@@ -329,7 +329,7 @@ body #Contact a {
     padding: 15px; /* providing some padding around the content */
     color: var(--text-color);
     text-align: center; /* to center the header text */
-    background : linear-gradient(black, steelblue); /* gradient from steelblue to deepskyblue */
+    background : linear-gradient(var(--bkg-color), steelblue); /* gradient from steelblue to deepskyblue */
 }
 
 .mobileWelcome h1 {
