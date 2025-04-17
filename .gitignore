@@ -1,0 +1,25 @@
+# Ignore node_modules if you install packages
+node_modules/
+
+# Ignore compiled CSS if needed (optional)
+css/style.css
+
+# Ignore Sass cache
+.sass-cache/
+
+# macOS system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# AWS credentials (if you ever use aws cli configs)
+*.pem
+*.key
+.aws/
+
+# Log files
+*.log
+
+# Compiled output (optional - if you only want to version the SCSS)
+*.css.map
