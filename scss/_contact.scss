@@ -1,3 +1,5 @@
+@use 'components';
+
 .contact-form {
     background: #fff;
     padding: 2rem;
@@ -21,6 +23,6 @@
   }
   
   .contact-form button {
-    @extend .btn;
+    @include components.btn;
   }
   
