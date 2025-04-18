@@ -1,9 +1,6 @@
 # Ignore node_modules if you install packages
 node_modules/
 
-# Ignore compiled CSS if needed (optional)
-css/style.css
-
 # Ignore Sass cache
 .sass-cache/
 
