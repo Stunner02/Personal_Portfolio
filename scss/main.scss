@@ -1,6 +1,3 @@
-@use 'reset';
-@use 'variables';
-@use 'global';
 @use 'header';
 @use 'footer';
 @use 'home';
@@ -8,3 +5,42 @@
 @use 'projects';
 @use 'contact';
 @use '404' as error404;
+
+// Abstracts
+@use 'abstracts/variables';
+
+// Base
+@use 'base/global';
+@use 'base/reset';
+@use 'base/typography';
+
+
+/* Sample: 
+
+// Abstracts
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+@use 'abstracts/functions';
+
+// Base
+@use 'base/reset';
+@use 'base/typography';
+@use 'base/global';
+
+// Layout
+@use 'layout/header';
+@use 'layout/footer';
+@use 'layout/navigation';
+
+// Components
+@use 'components/buttons';
+@use 'components/cards';
+@use 'components/form';
+
+// Pages
+@use 'pages/home';
+@use 'pages/about';
+@use 'pages/projects';
+@use 'pages/contact';
+@use 'pages/404' as error404;
+*/
