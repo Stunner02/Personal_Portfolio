@@ -1,4 +1,4 @@
-@use 'components';
+@use '../abstracts/mixins';
 
 .contact-form {
     background: #fff;
@@ -22,7 +22,7 @@
     border-radius: 3px;
   }
   
-  .contact-form button {
-    @include components.btn;
+  .contact-button {
+    @include mixins.btn;
   }
   
