@@ -1,15 +1,20 @@
 // Abstracts
-@use 'abstracts/variables';
 @use 'abstracts/mixins';
-// @use 'abstracts/functions';
+@use 'abstracts/variables';
 
 // Base
-@use 'base/global';
+@use 'base/base';
 @use 'base/reset';
-@use 'base/typography';
+
+// Components
+@use 'components/accordion';
+@use 'components/theme-switch';
+@use 'components/ui';
 
 // Layout
+@use 'layout/container';
 @use 'layout/footer';
+@use 'layout/grid';
 @use 'layout/header';
 // @use 'layout/navigation';
 

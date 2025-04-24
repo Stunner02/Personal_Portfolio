@@ -38,3 +38,9 @@
     }
   }
   
+// Media breakpoints
+$breakpoint-sm: 576px;  // base size - mobile phones
+$breakpoint-md: 768px;  // Medium devices (tablets, 768px and up)
+$breakpoint-lg: 992px;  // Large devices (desktops, 992px and up)
+$breakpoint-xl: 1200px;
+$breakpoint-xxl: 1400px;
