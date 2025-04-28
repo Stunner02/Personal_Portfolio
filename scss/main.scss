@@ -12,8 +12,13 @@
 // @use 'layout/navigation';
 
 // Pages
-@use 'pages/home';
-@use 'pages/about';
-@use 'pages/projects';
-@use 'pages/contact';
+// @use 'pages/home';
+// @use 'pages/about';
+// @use 'pages/projects';
+// @use 'pages/contact';
 @use 'pages/404' as error404;
+
+// Sections
+@use 'sections/homepage-education';
+@use 'sections/homepage-projects';
+@use 'sections/homepage-resume';
