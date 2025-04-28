@@ -3,29 +3,38 @@
 
 <!--- (0) This is the head -->
 <head>
-  <title>Gavin's Personal Portfolio</title> <!--The tab name-->
+  <meta charset="utf-8">
 
+  <title>Gavin Glynn</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta charset="UTF-8">
+  <meta name="description" content="Portfolio of Gavin Glynn – mechanical engineer specializing in rapid prototyping, aerospace projects, and 3-D printing.">
 
-  <!-- Font Family -->
+  <!-- Favicon -->
+  <!-- <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">  -->
+
+  <!-- Google Fonts (preconnect improves first-paint) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&family=Raleway:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="css/style.css">
-  <script src="index.js" defer></script> 
-  <!-- Script: add in <head> and use async and defer-->
+  <!-- Compiled Sass -->
+  <link rel="stylesheet" href="css/style.css"><!-- or dist/style.css -->
+
+  <!-- Own scripts -->
+  <script src="index.js" defer></script>
 </head>
 
 <body>
 <!--- (1) Header / Site Navigation -->
-  <header id="top"></header>
+  <header id="top" class="site-header">
+    <div class="header-bar container">
+      <a href="index.html">Gavin Glynn</a>
+      <a class="contact-link" href="#contact">Contact</a>
+    </div>
+  </header>
 
-      <!-- Mobile Navigation  -->
-      <div class="mobile">
         <!-- Flex Bar -->
-      <div class="flex-background">
+      <!-- <div class="flex-background">
         <div class="flex-bar">
           <div class="Name">
             <a href="index.html">Gavin Glynn</a>
@@ -36,15 +45,15 @@
           </div>
           
         </div>
-      </div>
+      </div> -->
 
-      <div class="mobileWelcome-background">
-        <div class="mobileWelcome">
-          <h1>🚀 Hi there!</h1>
-          <p>I'm <span class="nameHighlight">Gavin Glynn</span>, a mechanical engineer with a passion for rapid innovation and pushing the boundaries of what's possible.</p>
-          <p>📍Originating from El Segundo, California, I've consistently been inspired by how the aerospace 🛰️ entities around me transform pure engineering into practical, impactful solutions💡</p>
-        </div>
-      </div>
+  <section class="intro">
+    <div class="mobileWelcome">
+      <h1>🚀 Hi there!</h1>
+      <p>I'm <span class="nameHighlight">Gavin Glynn</span>, a mechanical engineer with a passion for rapid innovation and pushing the boundaries of what's possible.</p>
+      <p>📍Originating from El Segundo, California, I've consistently been inspired by how the aerospace 🛰️ entities around me transform pure engineering into practical, impactful solutions💡</p>
+    </div>
+  </section>
 
 <!-- ================================
      Grid-item: Projects
@@ -299,7 +308,7 @@
         </div>
       </div>
     </div>
-</div>
+
 
 <!-- Theme control switch -->
   <!-- <div class="switch">

@@ -13,28 +13,27 @@
     // Fonts
     --font-primary: 'Lato', sans-serif;
     --font-secondary: 'Raleway', sans-serif;
-  }
-  
-  body.dark-theme {
+}
+
+body.dark-theme {
+  --text-color: #eee;
+  --bkg-color: #121212;
+  --switch-bkg-color: #2b2b2b;
+  --switch-position: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
     --text-color: #eee;
     --bkg-color: #121212;
     --switch-bkg-color: #2b2b2b;
     --switch-position: 30px;
   }
-  
-  @media (prefers-color-scheme: dark) {
-    body {
-      --text-color: #eee;
-      --bkg-color: #121212;
-      --switch-bkg-color: #2b2b2b;
-      --switch-position: 30px;
-    }
-  
-    body.light-theme {
-      --text-color: #222;
-      --bkg-color: #87CEFA;
-      --switch-bkg-color: hsl(207, 44%, 80%);
-      --switch-position: 4px;
-    }
+
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #87CEFA;
+    --switch-bkg-color: hsl(207, 44%, 80%);
+    --switch-position: 4px;
   }
-  
+}
