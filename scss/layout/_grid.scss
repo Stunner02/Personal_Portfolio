@@ -1,0 +1,22 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin: 0 auto;
+  
+    @include respond-up(md) {
+      grid-template-columns: 1fr 2fr;
+      grid-template-areas:
+        "Projects Resume"
+        "Education Resume"
+        "Contact Resume";
+      grid-auto-rows: minmax(200px, auto);
+    }
+  }
+  
+  // Grid areas
+  #Projects    { grid-area: Projects; }
+  #Education   { grid-area: Education; }
+  #Resume      { grid-area: Resume; }
+  #Contact     { grid-area: Contact; }
+  

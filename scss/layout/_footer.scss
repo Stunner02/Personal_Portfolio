@@ -1,8 +1,10 @@
-footer {
-    background: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem 0;
-    margin-top: 2rem;
-  }
-  
+.footer-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.62em;
+  font-size: 1.5rem;
+  background-color: steelblue;
+  max-width: 1200px;
+  margin: 0 auto;
+}
