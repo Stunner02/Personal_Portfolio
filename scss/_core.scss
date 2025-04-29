@@ -1,6 +1,6 @@
 /* DESIGN TOKENS & MIXINS */
-@use 'abstracts/variables';
-@use 'abstracts/mixins';
+@forward 'abstracts/variables';
+@forward 'abstracts/mixins';
 
 /* RESET + TYPOGRAPHY */
 @use 'base/global';   // your _global.scss

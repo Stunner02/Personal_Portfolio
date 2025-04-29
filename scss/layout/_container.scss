@@ -1,0 +1,22 @@
+// scss/layout/_container.scss
+@use 'sass:meta';
+@use '../abstracts/variables' as *;
+
+$container-max: if(meta.variable-exists('container-max'), $container-max, 70rem);
+$gutter:        if(meta.variable-exists('gutter'),        $gutter,        1rem);
+
+/* Global page wrapper
+   - Keeps content centered, applies horizontal padding only.
+   - No flex/grid so sections decide their own layout. */
+.container {
+  width: 100%;                // always fill the viewport first
+  max-width: $container-max;  // clamp to readable line length on large screens
+  margin-inline: auto;        // centers the block
+  padding-inline: clamp(#{$gutter}, 4vw, calc(#{$gutter} * 2));
+}
+
+/* Optional modifier for edge-to-edge hero or footer sections. */
+.container--full {
+  max-width: none;
+  padding-inline: 0;
+}

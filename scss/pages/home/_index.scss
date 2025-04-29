@@ -1,5 +1,5 @@
 /* ---------- core shared styles ---------- */
-@use '../../core';
+@use '../../core' as *; 
 
 /* ---------- page-specific sections ------ */
 @forward 'intro';

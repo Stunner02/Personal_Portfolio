@@ -81,6 +81,23 @@ p {
 }
 
 /* LAYOUT CHROME */
+/* DESIGN TOKENS & MIXINS */
+/* Global page wrapper
+   - Keeps content centered, applies horizontal padding only.
+   - No flex/grid so sections decide their own layout. */
+.container {
+  width: 100%;
+  max-width: 70rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1rem * 2);
+}
+
+/* Optional modifier for edge-to-edge hero or footer sections. */
+.container--full {
+  max-width: none;
+  padding-inline: 0;
+}
+
 header {
   background: --bkg-color;
   color: #fff;

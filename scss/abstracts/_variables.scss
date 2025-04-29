@@ -37,3 +37,7 @@ body.dark-theme {
     --switch-position: 4px;
   }
 }
+
+// Layout rhythm
+$container-max: 70rem;   // ≈ 1120 px – tweak to taste
+$gutter:        1rem;    // base horizontal padding (mobile)
