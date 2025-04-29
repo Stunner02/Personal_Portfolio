@@ -2,9 +2,10 @@
 /* DESIGN TOKENS & MIXINS */
 :root {
   --text-color: #222;
-  --bkg-color: #87CEFA;
+  --bkg-color: steelblue;
   --switch-bkg-color: hsl(207, 44%, 80%);
   --switch-position: 4px;
+  --header-bkg-color: #121212;
   --base-font-size: 16px;
   --min-font-size: 1rem;
   --max-font-size: 2rem;
@@ -13,27 +14,6 @@
   --font-secondary: "Raleway", sans-serif;
 }
 
-body.dark-theme {
-  --text-color: #eee;
-  --bkg-color: #121212;
-  --switch-bkg-color: #2b2b2b;
-  --switch-position: 30px;
-}
-
-@media (prefers-color-scheme: dark) {
-  body {
-    --text-color: #eee;
-    --bkg-color: #121212;
-    --switch-bkg-color: #2b2b2b;
-    --switch-position: 30px;
-  }
-  body.light-theme {
-    --text-color: #222;
-    --bkg-color: #87CEFA;
-    --switch-bkg-color: hsl(207, 44%, 80%);
-    --switch-position: 4px;
-  }
-}
 /* RESET + TYPOGRAPHY */
 *,
 *::before,
@@ -99,29 +79,10 @@ p {
 }
 
 header {
-  background: --bkg-color;
+  background: var(--header-bkg-color);
   color: #fff;
   padding: 1rem 0;
-}
-
-header h1 {
-  text-align: center;
-  margin-bottom: 0.5rem;
-}
-
-nav ul {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-}
-
-nav a {
-  color: #fff;
-  font-weight: bold;
-}
-
-nav a:hover {
-  text-decoration: underline;
+  font-size: 24px;
 }
 
 footer {
@@ -134,5 +95,54 @@ footer {
 
 /* REUSABLE COMPONENTS */
 /* ---------- page-specific sections ------ */
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+#intro {
+  grid-area: intro;
+}
+
+#projects {
+  grid-area: projects;
+}
+
+#resume {
+  grid-area: resume;
+}
+
+#education {
+  grid-area: education;
+}
+
+.intro {
+  background: linear-gradient(var(--header-bkg-color), var(--bkg-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro .container {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.intro .nameHighlight {
+  color: gold;
+  font-weight: bold;
+}
+
+.intro p {
+  margin-bottom: 15px;
+}
 
 /*# sourceMappingURL=home.css.map */

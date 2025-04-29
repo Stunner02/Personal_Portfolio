@@ -1,26 +1,6 @@
 header {
-    background: --bkg-color;
-    color: #fff;
-    padding: 1rem 0;
-  }
-  
-  header h1 {
-    text-align: center;
-    margin-bottom: 0.5rem;
-  }
-  
-  nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-  }
-  
-  nav a {
-    color: #fff;
-    font-weight: bold;
-  }
-  
-  nav a:hover {
-    text-decoration: underline;
-  }
-  
+  background: var(--header-bkg-color);
+  color: #fff;
+  padding: 1rem 0;
+  font-size: 24px;
+}

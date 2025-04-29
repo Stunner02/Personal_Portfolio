@@ -1,0 +1,12 @@
+main {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#intro     { grid-area: intro; }
+#projects  { grid-area: projects; }
+#resume    { grid-area: resume; }
+#education { grid-area: education; }
+// #contact   { grid-area: contact; }

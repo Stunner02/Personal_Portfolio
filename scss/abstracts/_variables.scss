@@ -1,8 +1,11 @@
 :root {
     --text-color: #222;
-    --bkg-color: #87CEFA;
+    --bkg-color: steelblue;
     --switch-bkg-color: hsl(207, 44%, 80%);
     --switch-position: 4px;
+
+    // Header
+    --header-bkg-color: #121212;
   
     // Font scaling variables
     --base-font-size: 16px;
