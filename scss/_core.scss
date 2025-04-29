@@ -1,0 +1,16 @@
+/* DESIGN TOKENS & MIXINS */
+@use 'abstracts/variables';
+@use 'abstracts/mixins';
+
+/* RESET + TYPOGRAPHY */
+@use 'base/global';   // your _global.scss
+
+/* LAYOUT CHROME */
+@use 'layout/container';
+@use 'layout/header';
+@use 'layout/footer';
+
+/* REUSABLE COMPONENTS */
+@use 'components/buttons';
+@use 'components/theme-switch';
+// @use 'components/accordion';

@@ -1,11 +1,15 @@
 {
   "name": "personal_portfolio",
   "version": "1.0.0",
-  "description": "This repository contains the source code for my personal portfolio website:  \r 👉 [gavglynn.com](https://gavglynn.com)",
+  "description": "This repository contains the source code for my personal portfolio website: 👉 [gavglynn.com](https://gavglynn.com)",
   "main": "index.js",
   "scripts": {
-  "sass": "sass --watch scss/main.scss css/style.css"
-},
+    "sass:home": "sass --watch scss/pages/home/_index.scss     public/css/home.css",
+    "sass:projects": "sass --watch scss/pages/projects/_index.scss public/css/projects.css",
+    "sass:about": "sass --watch scss/pages/about/_index.scss    public/css/about.css",
+    "sass:contact": "sass --watch scss/pages/contact/_index.scss  public/css/contact.css",
+    "dev": "npm-run-all -p sass:*"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Stunner02/Personal_Portfolio.git"
