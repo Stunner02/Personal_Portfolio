@@ -2,8 +2,10 @@
 @use '../../core' as *; 
 
 /* ---------- page-specific sections ------ */
+@forward 'contact';
 @forward 'education';
 @use 'grid';
 @forward 'intro';
 @forward 'projects';
 @forward 'resume';
+

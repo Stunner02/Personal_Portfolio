@@ -14,6 +14,25 @@
   --font-secondary: "Raleway", sans-serif;
 }
 
+body.dark-theme {
+  --text-color: #eee;
+  --switch-bkg-color: #2b2b2b;
+  --switch-position: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: #eee;
+    --switch-bkg-color: #2b2b2b;
+    --switch-position: 30px;
+  }
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #87CEFA;
+    --switch-bkg-color: hsl(207, 44%, 80%);
+    --switch-position: 4px;
+  }
+}
 /* RESET + TYPOGRAPHY */
 *,
 *::before,
@@ -85,16 +104,56 @@ header {
   font-size: 24px;
 }
 
-footer {
-  background: #333;
-  color: #fff;
+.flex-bar-footer {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; /* Vertically centers content if your bar has a specific height */
+  padding: 0.62em;
+  background-color: steelblue; /* Just for visualization */
+  font-size: 1.5rem;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  border: none;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-background-footer {
+  background-color: steelblue; /* Set their background to black */
 }
 
 /* REUSABLE COMPONENTS */
 /* ---------- page-specific sections ------ */
+/* ================================
+   Contact Section Styles
+   ================================ */
+#Contact {
+  position: relative;
+  left: 5%;
+  color: var(--text-color);
+  min-height: 175px;
+}
+
+#Contact .ContactName {
+  display: block;
+  font-size: 2.25rem; /* Setting font size for the main heading */
+  font-weight: bold; /* Semi-bold */
+  margin-bottom: 0.875em; /* Space below the main heading */
+  position: relative;
+  left: -2.5%;
+}
+
+.googleForm {
+  font-size: 1.5rem; /* Font size for the download link */
+  font-weight: bold; /* Light weight for subtlety */
+  text-decoration: underline; /* Underlined as it's a link */
+  margin-bottom: 0.75em; /* Spacing below the download link */
+}
+
+#Contact p {
+  font-size: 1rem;
+}
+
 main {
   display: grid;
   grid-template-columns: 1fr;
@@ -118,6 +177,10 @@ main {
   grid-area: education;
 }
 
+#contact {
+  grid-area: contact;
+}
+
 .intro {
   background: linear-gradient(var(--header-bkg-color), var(--bkg-color));
   display: flex;
@@ -129,10 +192,12 @@ main {
   display: block;
   font-size: 1rem;
   text-align: center;
+  padding: 15px;
 }
 
 .intro h1 {
   font-size: 2.5rem;
+  margin-top: 0.62em;
   margin-bottom: 20px;
 }
 
@@ -143,6 +208,219 @@ main {
 
 .intro p {
   margin-bottom: 15px;
+}
+
+.Tile {
+  display: block;
+  color: var(--text-color);
+  margin: auto;
+  margin-top: 0%;
+  aspect-ratio: 1.4;
+}
+
+.slide, .slide_Education {
+  /* font-size: 2.25rem; */
+  box-sizing: border-box;
+  display: none;
+  margin: auto;
+  /* margin-top: 1.5em;    */
+  aspect-ratio: 1.4;
+  width: 90%;
+  border: 1px solid #d1d1d1;
+  box-shadow: 5px 5px 15px rgba(0, 0, 0, 0.2);
+  /* box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+      -webkit-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75);
+      -moz-box-shadow: 10px 10px 5px 0px rgba(0,0,0,0.75); */
+  background-color: rgba(173, 216, 230, 0.616);
+  overflow: hidden;
+  position: relative;
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* can also use 'contain' based on requirement */
+  object-position: center;
+}
+
+.slide_Education img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill; /* can also use 'contain' based on requirement */
+  object-position: center;
+}
+
+/* Caption text */
+.text {
+  color: white;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 8px 12px;
+  position: absolute;
+  bottom: 0px;
+  left: 25%;
+  width: 50%;
+  text-align: center;
+}
+
+.projectTag {
+  position: absolute;
+  top: 10px; /* Adjust this value as needed */
+  left: 10px; /* Adjust this value as needed */
+  z-index: 2; /* To ensure it's on top of the image */
+  color: white; /* Color of the text, adjust as needed */
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for visibility */
+  padding: 5px 10px; /* Padding around the word "project" */
+  border-radius: 3px; /* Optional, for rounded corners */
+}
+
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
+}
+
+.active {
+  background-color: #717171;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+@keyframes fade {
+  from {
+    opacity: 0.3;
+  }
+  to {
+    opacity: 1;
+  }
+}
+#Resume {
+  /* grid-column: span 1;
+  grid-row: span 1; */
+  box-sizing: border-box;
+  display: block;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  width: 100%;
+  padding: 0% 5%; /* Updated from 10px to em unit */
+  flex-wrap: wrap; /* Allows the items to wrap to the next line if needed */
+}
+
+.accordion-container {
+  flex: 1; /* This will give both containers equal width when they are side by side */
+  margin: 0.3125em; /* Updated from 5px to em unit */
+}
+
+.ResumeName {
+  position: relative;
+  left: -2.5%;
+  color: var(--text-color);
+  font-size: 2.25rem; /* Setting font size for the main heading */
+  font-weight: bold; /* Semi-bold */
+  margin-bottom: 0.875em; /* Space below the main heading */
+}
+
+.ResumeDownload {
+  font-size: 1.5rem; /* Font size for the download link */
+  font-weight: bold; /* Light weight for subtlety */
+  text-decoration: underline; /* Underlined as it's a link */
+  margin-bottom: 0.75em; /* Spacing below the download link */
+}
+
+.accordion-container {
+  width: 100%;
+}
+
+.accordion-btn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: steelblue;
+  color: var(--text-color);
+  padding: 10px 20px;
+  width: 100%;
+  text-align: left;
+  border: 1px solid steelblue;
+  border-top: 1px solid white;
+  outline: none;
+  cursor: pointer;
+  font-size: 2rem;
+  transition: background-color 0.2s ease;
+  font-family: "Lato";
+}
+
+.accordion-btn:hover {
+  color: lightgrey;
+}
+
+.panel {
+  max-height: 0;
+  overflow: hidden;
+  background-color: steelblue;
+  transition: max-height 0.3s ease-out;
+  padding: 0 20px;
+}
+
+.arrow {
+  transition: transform 0.3s ease;
+}
+
+/* ================================
+   Resume Section Styles
+   ================================ */
+.resume-section {
+  margin-bottom: 30px; /* Spacing between resume sections */
+  padding: 20px; /* Internal spacing for each resume section */
+  border: 1px solid #e0e0e0; /* A light border around each section */
+  border-radius: 5px; /* Rounded corners */
+  background-color: #f9f9f9; /* Light background color for each section */
+}
+
+.resume-section h2 {
+  font-size: 1.5rem; /* Main resume title size */
+  margin-bottom: 10px; /* Spacing after the title */
+  color: #333; /* Dark text color for contrast */
+  font-weight: bold; /* Bold text for emphasis */
+}
+
+.resume-section h3 {
+  font-size: 1.2rem; /* Sub-title/role size */
+  margin-bottom: 5px; /* Spacing after the sub-title */
+  color: #555; /* A slightly lighter shade for sub-titles */
+  font-style: italic; /* Italic text for a different look. Can be removed if not desired */
+}
+
+.resume-section p {
+  margin-bottom: 15px; /* Spacing after paragraphs (like Date and Location) */
+  color: #666; /* Color for general text */
+}
+
+.resume-section p strong {
+  color: #444; /* Darker text color for labels like 'Date:' and 'Location:' for emphasis */
+}
+
+.resume-section ul {
+  margin-left: 20px; /* Indentation for the bullet list */
+  list-style-type: disc; /* Regular disc bullet points, can be changed to another style if desired */
+}
+
+.resume-section li {
+  margin-bottom: 10px; /* Spacing between bullet points */
+  color: #666; /* Text color for bullet points */
+}
+
+/* Optionally, style for the active button */
+.accordionButton.active {
+  background-color: #0056b3; /* A darker shade of blue */
 }
 
 /*# sourceMappingURL=home.css.map */
