@@ -54,8 +54,8 @@
           
         </div>
       </div> -->
-  <main>
-    <section class="intro">
+  <main class="home-grid">
+    <section class="intro" id="intro">
       <div class="container">
         <h1>🚀 Hi there!</h1>
         <p>I'm <span class="nameHighlight">Gavin Glynn</span>, a mechanical engineer with a passion for rapid innovation and pushing the boundaries of what's possible.</p>
@@ -66,239 +66,236 @@
 <!-- ================================
      Grid-item: Projects
      ================================ -->
-    <div class="grid-container">
-      <section class="grid-item container" id="Projects">
-        <div class="Tile">
-          <a>
-          <!-- <a href="html\Projects.html"> -->
-            <div class="slide fade">
-              <div class="projectTag">Projects</div>
-              <img src="images/Hyperloop_insideTube.jpg" alt="Hyperloop" class="image">
-              <div class="text">Hyperloop</div>
-            </div>
-            <div class="slide fade">
-              <div class="projectTag">Projects</div>
-              <img src="images/ShapeMemoryPic_1.png" alt="Shape memory Alloy" class="image">
-              <div class="text">Shape memory Alloy</div>
-            </div>
-            <div class="slide fade">
-              <div class="projectTag">Projects</div>
-              <img src="images/Solar Memory Laboratory_Folded in cubesat.jpg" alt="CubeSat Demo" class="image">
-              <div class="text">CubeSat Demo</div>
-            </div>
-          </a>
-        </div>
-      </section>
-
+    <section class="grid-item container" id="projects">
+      <div class="Tile">
+        <a>
+        <!-- <a href="html\Projects.html"> -->
+          <div class="slide fade">
+            <div class="projectTag">Projects</div>
+            <img src="images/Hyperloop_insideTube.jpg" alt="Hyperloop" class="image">
+            <div class="text">Hyperloop</div>
+          </div>
+          <div class="slide fade">
+            <div class="projectTag">Projects</div>
+            <img src="images/ShapeMemoryPic_1.png" alt="Shape memory Alloy" class="image">
+            <div class="text">Shape memory Alloy</div>
+          </div>
+          <div class="slide fade">
+            <div class="projectTag">Projects</div>
+            <img src="images/Solar Memory Laboratory_Folded in cubesat.jpg" alt="CubeSat Demo" class="image">
+            <div class="text">CubeSat Demo</div>
+          </div>
+        </a>
+      </div>
+    </section>
 <!-- ================================
      Grid-item: Resume
      ================================ -->
-      <section class="grid-item" id="Resume"> 
-        <div class="ResumeName">My Resume</div>
-        <div class="ResumeDownload">
-            <a href="Documents/Gavin Glynn - Resume.pdf" download="Gavin Glynn - Resume.pdf"><i>PDF of Current Resume</i></a>
+    <section class="grid-item container" id="resume"> 
+      <div class="ResumeName">My Resume</div>
+      <div class="ResumeDownload">
+          <a href="documents/Gavin Glynn - Resume.pdf" download="Gavin Glynn - Resume.pdf"><i>PDF of Current Resume</i></a>
+      </div>
+      <!-- Accordion section -->
+      <div class="accordion-container">
+        <div class="accordion">
+          <button class="accordion-btn">
+              Projects
+              <span class="arrow">&#9662;</span>
+          </button>
+
+          <div class="panel">
+      <!-- ======================
+            Resume: Project content
+            ====================== -->
+
+              <!-- Shape Memory Alloy Section -->
+                <div class="resume-section">
+                  <h2>Shape Memory Alloy folding Solar Array</h2>
+                  <h3>Project Manager, Tech Lead</h3>
+                  <p><strong>Date:</strong> September 2020 - June 2021</p>
+                  <p><strong>Location:</strong> UCSB</p>
+                  <ul>
+                      <li>Developed an efficient storing method for solar arrays on cube satellites enabled by shape memory alloys (SMA).</li>
+                      <li>Integrated SMA’s into 3D printed replicated parts for testing.</li>
+                      <li>Assumed role of Tech Lead spring quarter to focus on development.</li>
+                      <li>Awarded Outstanding Innovation in Mechanical Engineering at UCSB Capstone Expo among 11 teams.</li>
+                  </ul>
+                </div>
+
+                <!-- SpaceX Hyperloop Pod Competition Section -->
+                <div class="resume-section">
+                  <h2>SpaceX Hyperloop Pod Competition</h2>
+                  <h3>Project Manager</h3>
+                  <p><strong>Date:</strong> August 2015 - Spring 2016</p>
+                  <p><strong>Location:</strong> ESHS</p>
+                  <ul>
+                      <li>Created and entered HyperEagles in college/professional pod competition as a high school team.</li>
+                      <li>Selected to compete at Design Weekend.</li>
+                      <li>Competed in Pod Design and Safety Subsystem Design at Design Weekend in Texas.</li>
+                  </ul>
+                </div>
+
+          </div>
         </div>
-        <!-- Accordion section -->
-        <div class="accordion-container">
-          <div class="accordion">
-            <button class="accordion-btn">
-                Projects
+
+        <div class="accordion">
+            <button class="accordion-btn" style>
+                Education
                 <span class="arrow">&#9662;</span>
             </button>
-
             <div class="panel">
-        <!-- ======================
-              Resume: Project content
-              ====================== -->
+      <!-- ======================
+            Resume: Education content
+            ====================== -->
+                <!-- Resume Section: University of California Santa Barbara -->
+                <div class="resume-section">
+                  <h2>University of California Santa Barbara</h2>
+                  <h3>BS</h3>
+                  <p><strong>Date:</strong> September 2016 - June 2021</p>
+                  <p><strong>Location:</strong> Santa Barbara</p>
+                  <ul>
+                      <li>Bachelor of Science, Mechanical Engineering.</li>
+                  </ul>
+                </div>
 
-                <!-- Shape Memory Alloy Section -->
-                  <div class="resume-section">
-                    <h2>Shape Memory Alloy folding Solar Array</h2>
-                    <h3>Project Manager, Tech Lead</h3>
-                    <p><strong>Date:</strong> September 2020 - June 2021</p>
-                    <p><strong>Location:</strong> UCSB</p>
-                    <ul>
-                        <li>Developed an efficient storing method for solar arrays on cube satellites enabled by shape memory alloys (SMA).</li>
-                        <li>Integrated SMA’s into 3D printed replicated parts for testing.</li>
-                        <li>Assumed role of Tech Lead spring quarter to focus on development.</li>
-                        <li>Awarded Outstanding Innovation in Mechanical Engineering at UCSB Capstone Expo among 11 teams.</li>
-                    </ul>
-                  </div>
+                <!-- Resume Section: Northrup Grumman Internship -->
+                <div class="resume-section">
+                  <h2>Northrup Grumman Internship</h2>
+                  <h3>Intern</h3>
+                  <p><strong>Date:</strong> February 2016 - June 2016</p>
+                  <p><strong>Location:</strong> El Segundo</p>
+                  <ul>
+                      <li>Intern at Northrup Grumman, Monday - Thursday, two hours daily.</li>
+                      <li>Environmental department.</li>
+                  </ul>
+                </div>
 
-                  <!-- SpaceX Hyperloop Pod Competition Section -->
-                  <div class="resume-section">
-                    <h2>SpaceX Hyperloop Pod Competition</h2>
-                    <h3>Project Manager</h3>
-                    <p><strong>Date:</strong> August 2015 - Spring 2016</p>
-                    <p><strong>Location:</strong> ESHS</p>
-                    <ul>
-                        <li>Created and entered HyperEagles in college/professional pod competition as a high school team.</li>
-                        <li>Selected to compete at Design Weekend.</li>
-                        <li>Competed in Pod Design and Safety Subsystem Design at Design Weekend in Texas.</li>
-                    </ul>
-                  </div>
+                <!-- Resume Section: El Segundo High School -->
+                <div class="resume-section">
+                  <h2>El Segundo High School</h2>
+                  <p><strong>Date:</strong> August 2012 - June 2016</p>
+                  <p><strong>Location:</strong> El Segundo</p>
+                  <ul>
+                      <li>Fulfilled Engineering Pathway (Project Lead the Way).</li>
+                  </ul>
+                </div>
 
             </div>
-          </div>
-
-          <div class="accordion">
-              <button class="accordion-btn" style>
-                  Education
-                  <span class="arrow">&#9662;</span>
-              </button>
-              <div class="panel">
-        <!-- ======================
-              Resume: Education content
-              ====================== -->
-                  <!-- Resume Section: University of California Santa Barbara -->
-                  <div class="resume-section">
-                    <h2>University of California Santa Barbara</h2>
-                    <h3>BS</h3>
-                    <p><strong>Date:</strong> September 2016 - June 2021</p>
-                    <p><strong>Location:</strong> Santa Barbara</p>
-                    <ul>
-                        <li>Bachelor of Science, Mechanical Engineering.</li>
-                    </ul>
-                  </div>
-
-                  <!-- Resume Section: Northrup Grumman Internship -->
-                  <div class="resume-section">
-                    <h2>Northrup Grumman Internship</h2>
-                    <h3>Intern</h3>
-                    <p><strong>Date:</strong> February 2016 - June 2016</p>
-                    <p><strong>Location:</strong> El Segundo</p>
-                    <ul>
-                        <li>Intern at Northrup Grumman, Monday - Thursday, two hours daily.</li>
-                        <li>Environmental department.</li>
-                    </ul>
-                  </div>
-
-                  <!-- Resume Section: El Segundo High School -->
-                  <div class="resume-section">
-                    <h2>El Segundo High School</h2>
-                    <p><strong>Date:</strong> August 2012 - June 2016</p>
-                    <p><strong>Location:</strong> El Segundo</p>
-                    <ul>
-                        <li>Fulfilled Engineering Pathway (Project Lead the Way).</li>
-                    </ul>
-                  </div>
-
-              </div>
-          </div>
-
-          <div class="accordion">
-                <button class="accordion-btn">
-                    Leadership & Extracurriculars
-                    <span class="arrow">&#9662;</span>
-                </button>
-                <div class="panel">
-            <!-- ======================
-                 Resume: Leadership & Extracurriculars
-                 ====================== -->
-                 <div class="resume-section">
-
-                  <h2>Interact Club</h2>
-                  <p><strong>Date:</strong> August 2014 - Spring 2016</p>
-                  <ul>
-                      <li>Participated in the Rotary Youth Leadership Awards leadership development program (April 2014).</li>
-                      <li>Role as Events Coordinator for the High School Interact Club.</li>
-                      <li>Regular attendance at District Council Meetings.</li>
-                  </ul>
-              
-                  <h2>Cross Country/Track</h2>
-                  <p><strong>Date:</strong> February 2012 - August 2016</p>
-                  <ul>
-                      <li>Served as the Men's team captain during my senior year.</li>
-                      <li>Achieved 8th Place at the CIF State Championship in Division 4 for Cross Country.</li>
-                  </ul>
-              
-                  <h2>Marching Band/Concert Band</h2>
-                  <p><strong>Date:</strong> August 2012 - August 2016</p>
-                  <ul>
-                      <li>Contributed as a Clarinetist and Oboist throughout my high school years.</li>
-                      <li>Acted as a dedicated musician in the El Segundo High School Marching and Concert Bands.</li>
-                  </ul>
-              
-              </div>
-                </div>
-          </div>
-
-          <div class="accordion">
-              <button class="accordion-btn">
-                  Skills
-                  <span class="arrow">&#9662;</span>
-              </button>
-              <div class="panel">
-            <!-- ======================
-              Resume: Skills & Expertise content
-              ====================== -->
-                <div class="resume-section">
-                  <h2>Skills & Expertise</h2>
-              
-                  <h3>Software + Languages</h3>
-                  <ul>
-                      <li>Solidworks</li>
-                      <li>Matlab</li>
-                      <li>Simulink</li>
-                      <li>Arduino</li>
-                      <li>Javascript</li>
-                      <li>HTML + CSS</li>
-                  </ul>
-              
-                  <h3>Machine Shop</h3>
-                  <ul>
-                      <li>Mill</li>
-                      <li>Lathe</li>
-                      <li>Band Saw</li>
-                      <li>Tapping</li>
-                      <li>Laser Cutter</li>
-                  </ul>
-              
-                  <h3>3D Modeling + FDM Printers</h3>
-                  <ul>
-                      <li>Blender</li>
-                      <li>Unity</li>
-                      <li>PrusaSlicer</li>
-                      <li>Prusa MK3s Multi Material</li>
-                      <li>Prusa Mini+</li>
-                  </ul>
-                </div>
-              </div>
-          </div>
         </div>
-      </section>
+
+        <div class="accordion">
+              <button class="accordion-btn">
+                  Leadership & Extracurriculars
+                  <span class="arrow">&#9662;</span>
+              </button>
+              <div class="panel">
+          <!-- ======================
+                Resume: Leadership & Extracurriculars
+                ====================== -->
+                <div class="resume-section">
+
+                <h2>Interact Club</h2>
+                <p><strong>Date:</strong> August 2014 - Spring 2016</p>
+                <ul>
+                    <li>Participated in the Rotary Youth Leadership Awards leadership development program (April 2014).</li>
+                    <li>Role as Events Coordinator for the High School Interact Club.</li>
+                    <li>Regular attendance at District Council Meetings.</li>
+                </ul>
+            
+                <h2>Cross Country/Track</h2>
+                <p><strong>Date:</strong> February 2012 - August 2016</p>
+                <ul>
+                    <li>Served as the Men's team captain during my senior year.</li>
+                    <li>Achieved 8th Place at the CIF State Championship in Division 4 for Cross Country.</li>
+                </ul>
+            
+                <h2>Marching Band/Concert Band</h2>
+                <p><strong>Date:</strong> August 2012 - August 2016</p>
+                <ul>
+                    <li>Contributed as a Clarinetist and Oboist throughout my high school years.</li>
+                    <li>Acted as a dedicated musician in the El Segundo High School Marching and Concert Bands.</li>
+                </ul>
+            
+            </div>
+              </div>
+        </div>
+
+        <div class="accordion">
+            <button class="accordion-btn">
+                Skills
+                <span class="arrow">&#9662;</span>
+            </button>
+            <div class="panel">
+          <!-- ======================
+            Resume: Skills & Expertise content
+            ====================== -->
+              <div class="resume-section">
+                <h2>Skills & Expertise</h2>
+            
+                <h3>Software + Languages</h3>
+                <ul>
+                    <li>Solidworks</li>
+                    <li>Matlab</li>
+                    <li>Simulink</li>
+                    <li>Arduino</li>
+                    <li>Javascript</li>
+                    <li>HTML + CSS</li>
+                </ul>
+            
+                <h3>Machine Shop</h3>
+                <ul>
+                    <li>Mill</li>
+                    <li>Lathe</li>
+                    <li>Band Saw</li>
+                    <li>Tapping</li>
+                    <li>Laser Cutter</li>
+                </ul>
+            
+                <h3>3D Modeling + FDM Printers</h3>
+                <ul>
+                    <li>Blender</li>
+                    <li>Unity</li>
+                    <li>PrusaSlicer</li>
+                    <li>Prusa MK3s Multi Material</li>
+                    <li>Prusa Mini+</li>
+                </ul>
+              </div>
+            </div>
+        </div>
+      </div>
+    </section>
 <!-- ================================
      Grid-item: Education
      ================================ -->
-      <section class="grid-item" id="Education"> 
-        <div class="Tile">
-          <a>
-            <!-- <a href="html\Education.html"> -->
-            <div class="slide_Education fade">
-              <div class="projectTag">College</div>
-              <img src="images/UCSB_Photo (1).png" alt="UCSB Campus" class="image">
-              <div class="text">Mechanical Engineering</div>
-            </div>
-            <div class="slide_Education fade">
-              <div class="projectTag">Highschool</div>
-              <img src="images/El Segundo High 10.jpg" alt="UCSB Campus" class="image">
-              <div class="text">PLTW</div>
-            </div>
-          </a>
-        </div>
-      </section>
+    <section class="grid-item" id="Education"> 
+      <div class="Tile">
+        <a>
+          <!-- <a href="html\Education.html"> -->
+          <div class="slide_Education fade">
+            <div class="projectTag">College</div>
+            <img src="images/UCSB_Photo (1).png" alt="UCSB Campus" class="image">
+            <div class="text">Mechanical Engineering</div>
+          </div>
+          <div class="slide_Education fade">
+            <div class="projectTag">Highschool</div>
+            <img src="images/El Segundo High 10.jpg" alt="UCSB Campus" class="image">
+            <div class="text">PLTW</div>
+          </div>
+        </a>
+      </div>
+    </section>
 <!-- ================================
      Grid-item: Contact
      ================================ -->
-      <section class="grid-item" id="Contact"> 
-        <a class="ContactName" href="html\Contact.html">Contact</a>
-          <div class="googleForm">
-            <a href="https://forms.gle/K4R784KkNUVhW5mj7"><i>Google contact form</i></a>
-          </div>
-          <p>Please fill out to contact me!</p>
-        <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdawUSHDOhhnf5DlxdjRLqSuVkF1BrSmVhRqCN7ddWsE33oug/viewform?embedded=true" width="640" height="1449" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
-      </section>
-    </div>
+    <section class="grid-item" id="Contact"> 
+      <a class="ContactName" href="html\Contact.html">Contact</a>
+        <div class="googleForm">
+          <a href="https://forms.gle/K4R784KkNUVhW5mj7"><i>Google contact form</i></a>
+        </div>
+        <p>Please fill out to contact me!</p>
+      <!-- <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdawUSHDOhhnf5DlxdjRLqSuVkF1BrSmVhRqCN7ddWsE33oug/viewform?embedded=true" width="640" height="1449" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe> -->
+    </section>
   </main>
 
     <div class="flex-background-footer" id="footer">

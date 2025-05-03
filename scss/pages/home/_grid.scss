@@ -1,10 +1,46 @@
-main {
-    display: grid;
-    grid-template-columns: 1fr;
-    max-width: 1200px;
-    margin: 0 auto;
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/variables' as *;
+
+/* -------------
+   HOME  GRID
+   ------------- */
+
+.home-grid {
+  /* 0.  Mobile‑first — single column stack */
+  display: grid;
+  max-width: 1200px;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "intro"
+    "projects"
+    "resume"
+    "education"
+    "contact";
+
+  /* 1.  ≥ sm  (48 rem / 768 px)  -- split middle row into two columns */
+  @include respond-to(sm) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "intro     intro"
+      "projects  resume"
+      "education resume"
+      "contact   contact";
+  }
+
+  /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
+  @include respond-to(md) {
+    grid-template-columns: 1fr 2fr;      /* wider right column */
+    grid-template-areas:
+      "intro     intro"
+      "projects  resume"
+      "education resume"
+      "contact   resume";
+    grid-auto-rows: minmax(18rem, auto);
+  }
 }
 
+/* Area hooks  (keep flat; no nesting needed) */
 #intro     { grid-area: intro; }
 #projects  { grid-area: projects; }
 #resume    { grid-area: resume; }

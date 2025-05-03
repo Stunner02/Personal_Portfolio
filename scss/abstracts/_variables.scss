@@ -42,5 +42,10 @@ body.dark-theme {
 }
 
 // Layout rhythm
-$container-max: 70rem;   // ≈ 1120 px – tweak to taste
+$container-max: 70rem;   // ≈ 1120 px – rem is root <html> font-size: --base-font-size
 $gutter:        1rem;    // base horizontal padding (mobile)
+
+/* Break‑points */
+$bp-sm: 48rem;  // 768 px   Medium devices (tablets, 768px and up)
+$bp-md: 62rem;  // 992 px   Large devices (desktops, 992px and up) 
+$bp-lg: 72rem;  // 1152 px 

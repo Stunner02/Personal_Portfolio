@@ -1,4 +1,4 @@
-// scss/abstracts/_mixins.scss
+@use 'variables' as *;
 
 @mixin btn {
     padding: 0.75rem 1.5rem;
@@ -13,4 +13,21 @@
       background-color: #0056b3;
     }
   }
+
+/* (A) Re‑usable tile mixin you already have */
+@mixin tile($aspect: 16/9) {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: $aspect;
+  border-radius: var(--radius, $radius);
+  box-shadow: var(--shadow, $shadow);
+  cursor: pointer;
+}
+
+/* (B) Tiny breakpoint helper */
+@mixin respond-to($bp) {
+  @if $bp == sm   { @media (min-width: $bp-sm) { @content; } }
+  @else if $bp == md { @media (min-width: $bp-md) { @content; } }
+  @else if $bp == lg { @media (min-width: $bp-lg) { @content; } }
+}
   

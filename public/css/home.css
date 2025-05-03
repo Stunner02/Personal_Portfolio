@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* ---------- core shared styles ---------- */
 /* DESIGN TOKENS & MIXINS */
 :root {
@@ -33,6 +34,10 @@ body.dark-theme {
     --switch-position: 4px;
   }
 }
+/* Break‑points */
+/* DESIGN TOKENS & MIXINS */
+/* (A) Re‑usable tile mixin you already have */
+/* (B) Tiny breakpoint helper */
 /* RESET + TYPOGRAPHY */
 *,
 *::before,
@@ -154,13 +159,34 @@ header {
   font-size: 1rem;
 }
 
-main {
+/* -------------
+   HOME  GRID
+   ------------- */
+.home-grid {
+  /* 0.  Mobile‑first — single column stack */
   display: grid;
-  grid-template-columns: 1fr;
   max-width: 1200px;
   margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-areas: "intro" "projects" "resume" "education" "contact";
+  /* 1.  ≥ sm  (48 rem / 768 px)  -- split middle row into two columns */
+  /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
+}
+@media (min-width: 48rem) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas: "intro     intro" "projects  resume" "education resume" "contact   contact";
+  }
+}
+@media (min-width: 62rem) {
+  .home-grid {
+    grid-template-columns: 1fr 2fr; /* wider right column */
+    grid-template-areas: "intro     intro" "projects  resume" "education resume" "contact   resume";
+    grid-auto-rows: minmax(18rem, auto);
+  }
 }
 
+/* Area hooks  (keep flat; no nesting needed) */
 #intro {
   grid-area: intro;
 }
