@@ -30,12 +30,17 @@
 
   /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
   @include respond-to(md) {
-    grid-template-columns: 1fr 1fr;      /* wider right column */
+    grid-template-columns:
+    1fr                       /* left gutter   */
+    minmax(0, 600px)          /* content col 1 */
+    minmax(0, 600px)          /* content col 2 */
+    1fr;                      /* right gutter  */
+
     grid-template-areas:
-      "intro     intro"
-      "projects  resume"
-      "education resume"
-      "contact   resume";
+      "intro  intro     intro   intro "
+      ".      projects  resume  .     "  //. placeholders stand for “unused cell”
+      ".      education resume  .     "
+      ".      contact   resume  .     ";
     // grid-auto-rows: minmax(18rem, auto);
   }
   

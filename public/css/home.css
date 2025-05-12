@@ -181,8 +181,8 @@ header {
 }
 @media (min-width: 62rem) {
   .home-grid {
-    grid-template-columns: 1fr 1fr; /* wider right column */
-    grid-template-areas: "intro     intro" "projects  resume" "education resume" "contact   resume";
+    grid-template-columns: 1fr minmax(0, 600px) minmax(0, 600px) 1fr; /* right gutter  */
+    grid-template-areas: "intro  intro     intro   intro " ".      projects  resume  .     " ".      education resume  .     " ".      contact   resume  .     ";
   }
 }
 @media (min-width: 72rem) {
