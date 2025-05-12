@@ -30,13 +30,24 @@
 
   /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
   @include respond-to(md) {
-    grid-template-columns: 1fr 2fr;      /* wider right column */
+    grid-template-columns: 1fr 1fr;      /* wider right column */
     grid-template-areas:
       "intro     intro"
       "projects  resume"
       "education resume"
       "contact   resume";
-    grid-auto-rows: minmax(18rem, auto);
+    // grid-auto-rows: minmax(18rem, auto);
+  }
+  
+  /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
+  @include respond-to(lg) {
+    grid-template-columns: 1fr 1fr;      /* wider right column */
+    grid-template-areas:
+      "intro     intro"
+      "projects  resume"
+      "education resume"
+      "contact   resume";
+    // grid-auto-rows: minmax(18rem, auto);
   }
 }
 

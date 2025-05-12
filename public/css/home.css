@@ -171,6 +171,7 @@ header {
   grid-template-areas: "intro" "projects" "resume" "education" "contact";
   /* 1.  ≥ sm  (48 rem / 768 px)  -- split middle row into two columns */
   /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
+  /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
 }
 @media (min-width: 48rem) {
   .home-grid {
@@ -180,9 +181,14 @@ header {
 }
 @media (min-width: 62rem) {
   .home-grid {
-    grid-template-columns: 1fr 2fr; /* wider right column */
+    grid-template-columns: 1fr 1fr; /* wider right column */
     grid-template-areas: "intro     intro" "projects  resume" "education resume" "contact   resume";
-    grid-auto-rows: minmax(18rem, auto);
+  }
+}
+@media (min-width: 72rem) {
+  .home-grid {
+    grid-template-columns: 1fr 1fr; /* wider right column */
+    grid-template-areas: "intro     intro" "projects  resume" "education resume" "contact   resume";
   }
 }
 
