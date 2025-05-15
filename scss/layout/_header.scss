@@ -1,6 +1,14 @@
 header {
   background: var(--header-bkg-color);
   color: #fff;
-  padding: 1rem 0;
+  padding: 0 auto;
   font-size: 24px;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between; // items to edges
+  align-items: center;            // vertical center
+  max-width: 1200px;
+  padding: 0.875rem;
 }
