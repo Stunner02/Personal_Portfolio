@@ -8,7 +8,7 @@
 .home-grid {
   /* 0.  Mobile‑first — single column stack */
   display: grid;
-  max-width: 1200px;
+  // max-width: 1200px;
   margin: 0 auto;
   grid-template-columns: 1fr;
   grid-template-areas:
@@ -40,18 +40,23 @@
       "intro  intro     intro   intro "
       ".      projects  resume  .     "  //. placeholders stand for “unused cell”
       ".      education resume  .     "
-      ".      contact   resume  .     ";
+      ".      contact   contact .     ";
     // grid-auto-rows: minmax(18rem, auto);
   }
   
   /* 2.  ≥ md  (60 rem)  -- give resume its own column, tighten rows */
   @include respond-to(lg) {
-    grid-template-columns: 1fr 1fr;      /* wider right column */
+     grid-template-columns:
+    1fr                       /* left gutter   */
+    minmax(0, 600px)          /* content col 1 */
+    minmax(0, 600px)          /* content col 2 */
+    1fr;                      /* right gutter  */
+
     grid-template-areas:
-      "intro     intro"
-      "projects  resume"
-      "education resume"
-      "contact   resume";
+      "intro  intro     intro   intro "
+      ".      projects  resume  .     "  //. placeholders stand for “unused cell”
+      ".      education resume  .     "
+      ".      contact   contact .     ";
     // grid-auto-rows: minmax(18rem, auto);
   }
 }

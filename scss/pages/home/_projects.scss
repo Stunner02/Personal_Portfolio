@@ -46,10 +46,10 @@ text-align: center;
 
 .projectTag {
 position: absolute;
-top: 10px;  /* Adjust this value as needed */
-left: 10px; /* Adjust this value as needed */
-z-index: 2;  /* To ensure it's on top of the image */
-color: white;  /* Color of the text, adjust as needed */
+top: 10px;          /* Adjust this value as needed */
+left: 10px;         /* Adjust this value as needed */
+z-index: 2;         /* To ensure it's on top of the image */
+color: white;     /* Color of the text, adjust as needed */
 background-color: rgba(0, 0, 0, 0.5); /* semi-transparent background for visibility */
 padding: 5px 10px;  /* Padding around the word "project" */
 border-radius: 3px; /* Optional, for rounded corners */

@@ -165,7 +165,6 @@ header {
 .home-grid {
   /* 0.  Mobile‑first — single column stack */
   display: grid;
-  max-width: 1200px;
   margin: 0 auto;
   grid-template-columns: 1fr;
   grid-template-areas: "intro" "projects" "resume" "education" "contact";
@@ -182,13 +181,13 @@ header {
 @media (min-width: 62rem) {
   .home-grid {
     grid-template-columns: 1fr minmax(0, 600px) minmax(0, 600px) 1fr; /* right gutter  */
-    grid-template-areas: "intro  intro     intro   intro " ".      projects  resume  .     " ".      education resume  .     " ".      contact   resume  .     ";
+    grid-template-areas: "intro  intro     intro   intro " ".      projects  resume  .     " ".      education resume  .     " ".      contact   contact .     ";
   }
 }
 @media (min-width: 72rem) {
   .home-grid {
-    grid-template-columns: 1fr 1fr; /* wider right column */
-    grid-template-areas: "intro     intro" "projects  resume" "education resume" "contact   resume";
+    grid-template-columns: 1fr minmax(0, 600px) minmax(0, 600px) 1fr; /* right gutter  */
+    grid-template-areas: "intro  intro     intro   intro " ".      projects  resume  .     " ".      education resume  .     " ".      contact   contact .     ";
   }
 }
 
