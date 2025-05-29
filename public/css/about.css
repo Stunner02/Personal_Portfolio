@@ -1,3 +1,168 @@
+@charset "UTF-8";
+/* ---------- core shared styles ---------- */
+/* DESIGN TOKENS & MIXINS */
+:root {
+  --text-color: #222;
+  --bkg-color: steelblue;
+  --switch-bkg-color: hsl(207, 44%, 80%);
+  --switch-position: 4px;
+  --header-bkg-color: #121212;
+  --base-font-size: 16px;
+  --min-font-size: 1rem;
+  --max-font-size: 2rem;
+  --font-scaling-factor: 0.5;
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "Raleway", sans-serif;
+}
 
+body.dark-theme {
+  --text-color: #eee;
+  --switch-bkg-color: #2b2b2b;
+  --switch-position: 30px;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    --text-color: #eee;
+    --switch-bkg-color: #2b2b2b;
+    --switch-position: 30px;
+  }
+  body.light-theme {
+    --text-color: #222;
+    --bkg-color: #87CEFA;
+    --switch-bkg-color: hsl(207, 44%, 80%);
+    --switch-position: 4px;
+  }
+}
+/* Break‑points */
+/* DESIGN TOKENS & MIXINS */
+/* (A) Re‑usable tile mixin you already have */
+/* (B) Tiny breakpoint helper */
+/* RESET + TYPOGRAPHY */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  background: var(--bkg-color);
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  font-size: clamp(var(--min-font-size), var(--base-font-size) + var(--font-scaling-factor) * 1vw, var(--max-font-size));
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* LAYOUT CHROME */
+/* DESIGN TOKENS & MIXINS */
+/* Global page wrapper
+   - Keeps content centered, applies horizontal padding only.
+   - No flex/grid so sections decide their own layout. */
+.container {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1rem * 2);
+}
+
+/* Optional modifier for edge-to-edge hero or footer sections. */
+.container--full {
+  max-width: none;
+  padding-inline: 0;
+}
+
+header {
+  background: var(--header-bkg-color);
+  color: #fff;
+  padding: 0 auto;
+  font-size: 24px;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem;
+}
+
+.flex-bar-footer {
+  box-sizing: border-box;
+  display: flex;
+  align-items: center; /* Vertically centers content if your bar has a specific height */
+  padding: 0.62em;
+  background-color: steelblue; /* Just for visualization */
+  font-size: 1.5rem;
+  text-align: center;
+  border: none;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.flex-background-footer {
+  background-color: steelblue; /* Set their background to black */
+}
+
+/* REUSABLE COMPONENTS */
+/* ---------- page-specific sections ------ */
+.intro {
+  background: linear-gradient(var(--header-bkg-color), var(--bkg-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro .container {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  padding: 15px;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-top: 0.65em;
+  margin-bottom: 20px;
+}
+
+.intro .nameHighlight {
+  color: gold;
+  font-weight: bold;
+}
+
+.intro p {
+  margin-bottom: 15px;
+}
 
 /*# sourceMappingURL=about.css.map */
