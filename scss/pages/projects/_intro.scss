@@ -1,0 +1,28 @@
+.intro {
+    background: linear-gradient(var(--header-bkg-color),var(--bkg-color));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro .container {
+    display: block;
+    font-size: 1rem;
+    text-align: center;
+    padding: 15px;
+}
+
+.intro h1 {
+    font-size: 2.5rem;
+    margin-top: 0.65em;
+    margin-bottom: 20px;
+}
+
+.intro .nameHighlight{
+    color: gold;
+    font-weight: bold;
+}
+
+.intro p {
+    margin-bottom: 15px;
+}

@@ -8,6 +8,7 @@
     "sass:projects": "sass --watch scss/pages/projects/_index.scss public/css/projects.css",
     "sass:about": "sass --watch scss/pages/about/_index.scss    public/css/about.css",
     "sass:contact": "sass --watch scss/pages/contact/_index.scss  public/css/contact.css",
+    "sass:404": "sass --watch scss/pages/404/_index.scss public/css/404.css",
     "dev": "npm-run-all -p sass:*"
   },
   "repository": {

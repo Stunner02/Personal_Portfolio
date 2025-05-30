@@ -110,7 +110,9 @@ Do not copy, modify, or reuse without written permission.
 
 ## 🛠️ In Progress
 
-- [ ] Split into `about.html`, `projects.html`, `contact.html`
+- [ ] Improve file structure for AWS deployment
 - [ ] Modular Sass structure + responsive layout
 - [ ] Project case studies with technical breakdowns
 - [ ] GitHub Actions → auto-deploy to AWS S3
+- [ ] Create layout/_gradient.scss to replace all intro.scss
+- [ ] Create template.html easy page creation
