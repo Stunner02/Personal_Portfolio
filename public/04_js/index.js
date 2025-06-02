@@ -98,22 +98,23 @@ function showSlide_Education() {
 document.addEventListener('DOMContentLoaded', function() {
   let acc = document.getElementsByClassName("accordion-btn");
 
+  // For each accordian row, assign a click event listener.
   for (let j = 0; j < acc.length; j++) {
-      acc[j].addEventListener("click", function() {
-          
+      acc[j].addEventListener("click", function() { // When any of the event listeners are clicked, run function 
+        
           // Close other accordions and reset their arrows
           for (let k = 0; k < acc.length; k++) {
               if (k !== j) {
                   acc[k].nextElementSibling.style.maxHeight = null;
                   let otherArrow = acc[k].querySelector('.arrow');
-                  if(otherArrow) {
+                  if(otherArrow) {  // If arrow exists, run this
                       otherArrow.style.transform = "rotate(0deg)";
                   }
               }
           }
-          
+
           this.classList.toggle("active");
-          let panel = this.nextElementSibling;
+          let panel = this.nextElementSibling;  // Panel contains drop down info
           let arrow = this.querySelector('.arrow');
 
           if (arrow) {
@@ -127,14 +128,40 @@ document.addEventListener('DOMContentLoaded', function() {
           }
       });
   }
+
+  // (2.1) Open Education section in Resume when Education tile is clicked
+  document.querySelector('.slide_Education').addEventListener('click', function() {
+    // Open the Education accordion (acc[1])
+    // Close other accordian rows when opening education.
+    for (let k = 0; k < acc.length; k++) {
+      acc[k].nextElementSibling.style.maxHeight = null;
+      let otherArrow = acc[k].querySelector('.arrow');
+      if(otherArrow) {
+        otherArrow.style.transform = "rotate(0deg)";
+      }
+      acc[k].classList.remove('active');
+    }
+
+    // Open Education
+    let btn = acc[1];
+    let panel = btn.nextElementSibling;
+    let arrow = btn.querySelector('.arrow');
+    btn.classList.add('active');
+    if (arrow) arrow.style.transform = "rotate(180deg)";
+    panel.style.maxHeight = panel.scrollHeight + "px";
+
+    // Optional: scroll to Education accordion
+    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
 });
 
 // (2.1) Open Education section in Resume when Education tile is clicked
-// document.addEventListener('DOMContentLoaded', function() {
-//   let edTile = this.documentElement.getElementById('education')
+document.querySelector('.slide_Education').addEventListener('click', function() {
+  // Open the education accordion
+  acc[2].nextElementSibling.style.maxHeight = panel.scrollHeight + "px";
+  arrow.style.transform = "rotate(180deg)";
 
-
-// });
+});
 
 function adjustResumeMaxWidth() {
   // Get the width of the viewport
