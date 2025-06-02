@@ -33,26 +33,45 @@ For notes on how the HTML and sections are laid out:
 👉 [HTML Structure Notes](documents/html-home-layout.md)
 
 ```bash
-personal-portfolio/
-├─ .vscode/            # Editor preferences
-├─ documents/          # Public resume PDF 
-├─ images/             # Project images and media 
-├─ public/
-│ └─ css/               # output bundles (home.css, about.css…)
-├─ scss/
-│ ├─ abstracts/         # _variables.scss, _mixins.scss
-│ ├─ base/              # _global.scss (reset + typography)
-│ ├─ components/        # _buttons.scss, _theme-switch.scss
-│ ├─ layout/            # _container.scss, _header.scss, _footer.scss
-│ ├─ pages/             # one sub-folder per page
-│ │ ├─ home/            # _index.scss → imports intro/projects… partials
-│ │ ├─ about/
-│ │ ├─ projects/
-│ │ └─ contact/
-│ └─ _core.scss         # central barrel; @use layers above
-├─ *.html               # home, about, projects, contact, 404
-├─ index.js             # small interactive helpers
-└─ package.json         # scripts below
+PERSONAL_PORTFOLIO/
+├── .vscode/                # 🛠️  Editor/project settings (not deployed)
+├── documents/              # 📑  Working docs (private, not deployed)
+├── images/                 # 🖼️  Private/source/unused images (not deployed)
+│
+├── public/                 # 🌐 Only Public/ is deployed to AWS S3!
+│   ├── 01_images/          # Public project images and media
+│   ├── 02_documents/       # Public resume PDF
+│   ├── 03_css/             # 🎨 CSS, compiled from SCSS
+│   │   ├── about.css
+│   │   ├── home.css
+│   │   ├── projects.css
+│   │   ├── contact.css
+│   │   └── 404.css
+│   ├── 04_js/              # ✨ Javascript folder
+│   │   ├── home.js
+│   │   ├── projects.js
+│   │   ├── about.js
+│   │   └── contact.js
+│   ├── about/              # ℹ️ About page
+│   │   └── index.html
+│   ├── contact/            # 📫 Contact page
+│   │   └── index.html 
+│   ├── projects/           # 🛠️ Projects page 
+│   │   └── index.html
+│   │
+│   ├── 404.html            # 🚫 Error/Not Found page (for S3 error document)
+│   └── index.html          # 🏠 Home page
+│
+├─ scss/                    # 💅  Sass/SCSS source files (not deployed)
+│   ├── abstracts/          #    ▸ Variables, mixins, functions
+│   ├── base/               #    ▸ Global resets, typography
+│   ├── components/         #    ▸ Reusable widgets/components
+│   ├── layout/             #    ▸ Shared layout/structure styles
+│   └── pages/              #    ▸ Page-specific partials (one folder per page)
+│
+├── .gitignore              # Files/folders ignored by git
+├── package.json            # Project dependencies and scripts
+└── README.md               # Project overview/documentation
 ```
 ---
 

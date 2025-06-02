@@ -94,6 +94,7 @@ function showSlide_Education() {
   setTimeout(showSlide_Education, 5000); // Change image every 2 seconds
 }
 
+// (2.0) Accordion button
 document.addEventListener('DOMContentLoaded', function() {
   let acc = document.getElementsByClassName("accordion-btn");
 
@@ -127,6 +128,13 @@ document.addEventListener('DOMContentLoaded', function() {
       });
   }
 });
+
+// (2.1) Open Education section in Resume when Education tile is clicked
+// document.addEventListener('DOMContentLoaded', function() {
+//   let edTile = this.documentElement.getElementById('education')
+
+
+// });
 
 function adjustResumeMaxWidth() {
   // Get the width of the viewport

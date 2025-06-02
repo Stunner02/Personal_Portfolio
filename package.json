@@ -1,25 +1,25 @@
 {
-  "name": "personal_portfolio",
-  "version": "1.0.0",
-  "description": "This repository contains the source code for my personal portfolio website: 👉 [gavglynn.com](https://gavglynn.com)",
-  "main": "index.js",
+  "name":         "personal_portfolio",
+  "version":      "1.0.0",
+  "description":  "This repository contains the source code for my personal portfolio website: 👉 [gavglynn.com](https://gavglynn.com)",
+  "main":         "index.js",
   "scripts": {
-    "sass:home": "sass --watch scss/pages/home/_index.scss     public/css/home.css",
-    "sass:projects": "sass --watch scss/pages/projects/_index.scss public/css/projects.css",
-    "sass:about": "sass --watch scss/pages/about/_index.scss    public/css/about.css",
-    "sass:contact": "sass --watch scss/pages/contact/_index.scss  public/css/contact.css",
-    "sass:404": "sass --watch scss/pages/404/_index.scss public/css/404.css",
-    "dev": "npm-run-all -p sass:*"
+    "sass:home":      "sass --watch scss/pages/home/_index.scss       public/03_css/home.css",
+    "sass:projects":  "sass --watch scss/pages/projects/_index.scss   public/03_css/projects.css",
+    "sass:about":     "sass --watch scss/pages/about/_index.scss      public/03_css/about.css",
+    "sass:contact":   "sass --watch scss/pages/contact/_index.scss    public/03_css/contact.css",
+    "sass:404":       "sass --watch scss/pages/404/_index.scss        public/03_css/404.css",
+    "dev":            "npm-run-all -p sass:*"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Stunner02/Personal_Portfolio.git"
+    "url":  "git+https://github.com/Stunner02/Personal_Portfolio.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author":   "",
+  "license":  "ISC",
   "bugs": {
-    "url": "https://github.com/Stunner02/Personal_Portfolio/issues"
+    "url":    "https://github.com/Stunner02/Personal_Portfolio/issues"
   },
   "homepage": "https://github.com/Stunner02/Personal_Portfolio#readme"
 }
