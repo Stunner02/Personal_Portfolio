@@ -130,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   // (2.1) Open Education section in Resume when Education tile is clicked
-  document.querySelector('.slide_Education').addEventListener('click', function() {
+document.querySelectorAll('.slide_Education').forEach(function(tile) {
+  tile.addEventListener('click', function() {
     // Open the Education accordion (acc[1])
     // Close other accordian rows when opening education.
     for (let k = 0; k < acc.length; k++) {
@@ -141,17 +142,18 @@ document.addEventListener('DOMContentLoaded', function() {
       }
       acc[k].classList.remove('active');
     }
-
+    
     // Open Education
-    let btn = acc[1];
-    let panel = btn.nextElementSibling;
-    let arrow = btn.querySelector('.arrow');
-    btn.classList.add('active');
+    let accEd = acc[1];
+    let panel = accEd.nextElementSibling;
+    let arrow = accEd.querySelector('.arrow');
+    accEd.classList.add('active');
     if (arrow) arrow.style.transform = "rotate(180deg)";
     panel.style.maxHeight = panel.scrollHeight + "px";
 
-    // Optional: scroll to Education accordion
-    btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    //scroll to Education accordion
+    accEd.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
   });
 });
 

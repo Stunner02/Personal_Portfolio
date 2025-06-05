@@ -129,8 +129,8 @@ Do not copy, modify, or reuse without written permission.
 
 ## 🛠️ In Progress
 
-- [ ] Improve file structure for AWS deployment
-- [ ] Modular Sass structure + responsive layout
+- [x] Improve file structure for AWS deployment
+- [x] Modular Sass structure + responsive layout
 - [ ] Project case studies with technical breakdowns
 - [ ] GitHub Actions → auto-deploy to AWS S3
 - [ ] Create layout/_gradient.scss to replace all intro.scss
