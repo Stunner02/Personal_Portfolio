@@ -131,7 +131,19 @@ Do not copy, modify, or reuse without written permission.
 
 - [x] Improve file structure for AWS deployment
 - [x] Modular Sass structure + responsive layout
+- [ ] Set up Figma for quick iteration
 - [ ] Project case studies with technical breakdowns
 - [ ] GitHub Actions → auto-deploy to AWS S3
 - [ ] Create layout/_gradient.scss to replace all intro.scss
 - [ ] Create template.html easy page creation
+
+## 🧠 Design Philosophy & Scratch Notes
+
+- [ ] `Figma` layout/flow → `Vscode` implementation → `AWS` Deploy
+- [ ] Lead eyes with image first. Keep supporting text concise
+- [ ] Add logos to university/companies
+- [ ] Mobile readability first
+- [ ] **Design–Implement–Test Workflow:**  
+  - Figma _user flow_ → Figma _UI design_ → VSCode _code & live preview_
+  - ⟳ Iterate between Figma & VS Code
+  - ⟳ Final test on AWS (staging)
