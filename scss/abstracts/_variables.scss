@@ -1,48 +1,63 @@
+// :root targets highest level DOM (Document Object Model) - <html>
+// and sets (--variables) that can be reused anywhere in the style sheet
 :root {
-    --text-color: #222;
-    --bkg-color: steelblue;
-    --switch-bkg-color: hsl(207, 44%, 80%);
-    --switch-position: 4px;
+/* ---------------- Raw Tokens ---------------- */
+/* -------------------------------------------- */
+  // Color Tokens
+  --color-text:               #eee;
+  --color-text-light:         #222;
+  --color-text-dark:          #eee;
+  --color-bg-body-light:      steelblue;
+  --color-bg-body-dark:       #121212;
+  --color-bg-header-light:    #121212;
+  --color-bg-header-dark:     steelblue;
 
-    // Header
-    --header-bkg-color: #121212;
+  // Font Tokens
+  --font-primary:   'Lato',    sans-serif;
+  --font-secondary: 'Raleway', sans-serif;
+
+  // Font scaling
+  --base-font-size:       16px;
+  --min-font-size:        1rem;
+  --max-font-size:        2rem;
+  --font-scaling-factor:  0.5;
   
-    // Font scaling variables
-    --base-font-size: 16px;
-    --min-font-size: 1rem;
-    --max-font-size: 2rem;
-    --font-scaling-factor: 0.5;
-  
-    // Fonts
-    --font-primary: 'Lato', sans-serif;
-    --font-secondary: 'Raleway', sans-serif;
+  /* legacy color tokens */
+  --legacy-switch-bkg-color:  #2b2b2b;
+  --legacy-bkg-color:         #87CEFA;
+  --legacy-switch-bkg-color:  hsl(207, 44%, 80%);
+
+/* ------ Theme Aliases (applied tokens) ------ */
+/* -------------------------------------------- */
+  // Color
+  --text-color:       var(--color-text);
+  --bkg-color:        var(--color-bg-light);
+  --header-bkg-color: var(--color-bg-header-light);
 }
 
-body.dark-theme {
-  --text-color: #eee;
-  // --bkg-color: #121212; // add later with theme control
-  --switch-bkg-color: #2b2b2b;
-  --switch-position: 30px;
-}
+/* body.dark-theme is used for manual theme override, toggled by javascript 
+as seen here: document.body.classList.toggle("dark-theme")
+body.dark-theme {--text-color: #eee; --bkg-color: #121212;} */
 
+// @media (prefers-color-scheme: dark) automatically applies dark mode styles 
+// if the user's operating system prefers dark mode. Overriding :root
+// However, it does not override variables toggled by javascript. 
 @media (prefers-color-scheme: dark) {
   body {
     --text-color: #eee;
-    // --bkg-color: #121212;
-    --switch-bkg-color: #2b2b2b;
-    --switch-position: 30px;
+    --bkg-color: #121212;
+    --header-bkg-color: var(--color-bg-header-dark);
   }
 
   body.light-theme {
     --text-color: #222;
     --bkg-color: #87CEFA;
-    --switch-bkg-color: hsl(207, 44%, 80%);
-    --switch-position: 4px;
+    --header-bkg-color: var(--color-bg-header-light);
   }
 }
 
 // Layout rhythm
-$container-max: 75rem;   // ≈ 1120 px – rem is root <html> font-size: --base-font-size
+$container-max: 75rem;   // ≈ 1200 px – rem is root <html> font-size: --base-font-size
 $gutter:        1rem;    // base horizontal padding (mobile)
 
 /* Break‑points */
