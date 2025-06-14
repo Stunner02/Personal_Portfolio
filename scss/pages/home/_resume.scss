@@ -39,12 +39,12 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: steelblue;
+    background-color: var(--bkg-color);
     color: var(--text-color);
     padding: 10px 20px;
     width: 100%;
     text-align: left;
-    border: 1px solid steelblue;
+    border: 1px solid var(--bkg-color);
     border-top: 1px solid white;
     outline: none;
     cursor: pointer;
@@ -60,7 +60,7 @@
   .panel {
     max-height: 0;
     overflow: hidden;
-    background-color: steelblue;
+    background-color: var(--bkg-color);
     transition: max-height 0.3s ease-out;
     padding: 0 20px;
   }
@@ -74,47 +74,53 @@
    ================================ */
 
 .resume-section {
-    margin-bottom: 30px; /* Spacing between resume sections */
-    padding: 20px; /* Internal spacing for each resume section */
-    border: 1px solid #e0e0e0; /* A light border around each section */
-    border-radius: 5px; /* Rounded corners */
-    background-color: #f9f9f9; /* Light background color for each section */
+    margin-bottom: 30px;          /* Spacing between resume sections */
+    padding: 20px;                /* Internal spacing for each resume section */
+    border: 1px solid #e0e0e0;  /* A light border around each section */
+    border-radius: 5px;           /* Rounded corners */
+    background-color: #f9f9f9;  /* Light background color for each section */
   }
   
+  // Header for name of resume
   .resume-section h2 {
-    font-size: 1.5rem; /* Main resume title size */
-    margin-bottom: 10px; /* Spacing after the title */
-    color: #333; /* Dark text color for contrast */
-    font-weight: bold; /* Bold text for emphasis */
+    font-size: 1.5rem;            /* Main resume title size */
+    margin-bottom: 10px;          /* Spacing after the title */
+    color: #333;                /* Dark text color for contrast */
+    font-weight: bold;            /* Bold text for emphasis */
   }
   
+  // Sub-title/Role
   .resume-section h3 {
-    font-size: 1.2rem; /* Sub-title/role size */
-    margin-bottom: 5px; /* Spacing after the sub-title */
-    color: #555; /* A slightly lighter shade for sub-titles */
-    font-style: italic; /* Italic text for a different look. Can be removed if not desired */
+    font-size: 1.2rem;    /* Sub-title/role size */
+    margin-bottom: 5px;   /* Spacing after the sub-title */
+    color: #555;        /* A slightly lighter shade for sub-titles */
+    font-style: italic;   /* Italic text for a different look. Can be removed if not desired */
   }
   
+  // Info after "Date:" or "Location:"
   .resume-section p {
-    margin-bottom: 15px; /* Spacing after paragraphs (like Date and Location) */
-    color: #666; /* Color for general text */
+    margin-bottom: 15px;  /* Spacing after paragraphs (like Date and Location) */
+    color: #666;        /* Color for general text */
   }
   
+  // bold style for "Date:" or "Location"
   .resume-section p strong {
-    color: #444; /* Darker text color for labels like 'Date:' and 'Location:' for emphasis */
+    color: #444;        /* Darker text color for labels like 'Date:' and 'Location:' for emphasis */
   }
   
+  // Bullet points.
   .resume-section ul {
-    margin-left: 20px; /* Indentation for the bullet list */
-    list-style-type: disc; /* Regular disc bullet points, can be changed to another style if desired */
+    margin-left: 20px;      /* Indentation for the bullet list */
+    list-style-type: disc;  /* Regular disc bullet points, can be changed to another style if desired */
   }
   
+  // Bullet point descriptions 
   .resume-section li {
-    margin-bottom: 10px; /* Spacing between bullet points */
-    color: #666; /* Text color for bullet points */
+    margin-bottom: 10px;    /* Spacing between bullet points */
+    color: #666;          /* Text color for bullet points */
   }
   
   /* Optionally, style for the active button */
   .accordionButton.active {
-    background-color: #0056b3; /* A darker shade of blue */
+    background-color: #0056b3;  /* A darker shade of blue */
   }

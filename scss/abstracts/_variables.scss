@@ -13,14 +13,14 @@
   --color-bg-header-dark:     steelblue;
 
   // Font Tokens
-  --font-primary:   'Lato',    sans-serif;
-  --font-secondary: 'Raleway', sans-serif;
+  --font-primary:               'Lato',    sans-serif;
+  --font-secondary:             'Raleway', sans-serif;
 
   // Font scaling
-  --base-font-size:       16px;
-  --min-font-size:        1rem;
-  --max-font-size:        2rem;
-  --font-scaling-factor:  0.5;
+  --base-font-size:             16px;
+  --min-font-size:              1rem;
+  --max-font-size:              2rem;
+  --font-scaling-factor:        0.5;
   
   /* legacy color tokens */
   --legacy-switch-bkg-color:  #2b2b2b;
@@ -29,38 +29,28 @@
 
 /* ------ Theme Aliases (applied tokens) ------ */
 /* -------------------------------------------- */
-  // Color
-  --text-color:       var(--color-text);
-  --bkg-color:        var(--color-bg-light);
-  --header-bkg-color: var(--color-bg-header-light);
+  // Color                          
+  --text-color:                 var(--color-text);
+  --bkg-color:                  var(--color-bg-body-light);
+  --header-bkg-color:           var(--color-bg-header-light);
 }
-
-/* body.dark-theme is used for manual theme override, toggled by javascript 
-as seen here: document.body.classList.toggle("dark-theme")
-body.dark-theme {--text-color: #eee; --bkg-color: #121212;} */
 
 // @media (prefers-color-scheme: dark) automatically applies dark mode styles 
 // if the user's operating system prefers dark mode. Overriding :root
 // However, it does not override variables toggled by javascript. 
 @media (prefers-color-scheme: dark) {
-  body {
-    --text-color: #eee;
-    --bkg-color: #121212;
-    --header-bkg-color: var(--color-bg-header-dark);
-  }
-
-  body.light-theme {
-    --text-color: #222;
-    --bkg-color: #87CEFA;
-    --header-bkg-color: var(--color-bg-header-light);
+  :root {
+    --text-color:               var(--color-text);
+    --bkg-color:                var(--color-bg-body-dark);
+    --header-bkg-color:         var(--color-bg-header-dark);
   }
 }
 
 // Layout rhythm
-$container-max: 75rem;   // ≈ 1200 px – rem is root <html> font-size: --base-font-size
-$gutter:        1rem;    // base horizontal padding (mobile)
+$container-max: 75rem;  // ≈ 1200 px – rem is root <html> font-size: --base-font-size
+$gutter:        1rem;   // base horizontal padding (mobile)
 
 /* Break‑points */
-$bp-sm: 48rem;  // 768 px   Medium devices (tablets, 768px and up)
-$bp-md: 62rem;  // 992 px   Large devices (desktops, 992px and up) 
-$bp-lg: 72rem;  // 1152 px 
+$bp-sm:         48rem;  // 768 px   Medium devices (tablets, 768px and up)
+$bp-md:         62rem;  // 992 px   Large devices (desktops, 992px and up) 
+$bp-lg:         72rem;  // 1152 px 

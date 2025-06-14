@@ -2,36 +2,37 @@
 /* ---------- core shared styles ---------- */
 /* DESIGN TOKENS & MIXINS */
 :root {
-  --text-color: #222;
-  --bkg-color: steelblue;
-  --switch-bkg-color: hsl(207, 44%, 80%);
-  --switch-position: 4px;
-  --header-bkg-color: #121212;
+  /* ---------------- Raw Tokens ---------------- */
+  /* -------------------------------------------- */
+  --color-text: #eee;
+  --color-text-light: #222;
+  --color-text-dark: #eee;
+  --color-bg-body-light: steelblue;
+  --color-bg-body-dark: #121212;
+  --color-bg-header-light: #121212;
+  --color-bg-header-dark: steelblue;
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "Raleway", sans-serif;
   --base-font-size: 16px;
   --min-font-size: 1rem;
   --max-font-size: 2rem;
   --font-scaling-factor: 0.5;
-  --font-primary: "Lato", sans-serif;
-  --font-secondary: "Raleway", sans-serif;
-}
-
-body.dark-theme {
-  --text-color: #eee;
-  --switch-bkg-color: #2b2b2b;
-  --switch-position: 30px;
+  /* legacy color tokens */
+  --legacy-switch-bkg-color: #2b2b2b;
+  --legacy-bkg-color: #87CEFA;
+  --legacy-switch-bkg-color: hsl(207, 44%, 80%);
+  /* ------ Theme Aliases (applied tokens) ------ */
+  /* -------------------------------------------- */
+  --text-color: var(--color-text);
+  --bkg-color: var(--color-bg-body-light);
+  --header-bkg-color: var(--color-bg-header-light);
 }
 
 @media (prefers-color-scheme: dark) {
-  body {
-    --text-color: #eee;
-    --switch-bkg-color: #2b2b2b;
-    --switch-position: 30px;
-  }
-  body.light-theme {
-    --text-color: #222;
-    --bkg-color: #87CEFA;
-    --switch-bkg-color: hsl(207, 44%, 80%);
-    --switch-position: 4px;
+  :root {
+    --text-color: var(--color-text);
+    --bkg-color: var(--color-bg-body-dark);
+    --header-bkg-color: var(--color-bg-header-dark);
   }
 }
 /* Break‑points */
@@ -373,12 +374,12 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: steelblue;
+  background-color: var(--bkg-color);
   color: var(--text-color);
   padding: 10px 20px;
   width: 100%;
   text-align: left;
-  border: 1px solid steelblue;
+  border: 1px solid var(--bkg-color);
   border-top: 1px solid white;
   outline: none;
   cursor: pointer;
@@ -394,7 +395,7 @@ footer {
 .panel {
   max-height: 0;
   overflow: hidden;
-  background-color: steelblue;
+  background-color: var(--bkg-color);
   transition: max-height 0.3s ease-out;
   padding: 0 20px;
 }

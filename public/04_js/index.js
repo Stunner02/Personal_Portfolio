@@ -24,6 +24,10 @@
 //   }
 //   localStorage.setItem("theme", theme);
 // });
+// Below is the scss code for the. After this save, this theme control will be deleted
+/* body.dark-theme is used for manual theme override, toggled by javascript 
+as seen here: document.body.classList.toggle("dark-theme")
+body.dark-theme {--text-color: #eee; --bkg-color: #121212;} */
 
 // (0.1) This is for smooth scrolling
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
