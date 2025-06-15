@@ -11,7 +11,7 @@ aspect-ratio: 1.4;
 box-sizing: border-box;
 display: none;
 margin: auto;
-/* margin-top: 1.5em;    */
+margin-top: 9px;    
 aspect-ratio: 1.4;
 width: 90%;
 border: 1px solid #d1d1d1;
@@ -41,8 +41,8 @@ bottom: 0px;
 left: 25%;
 width: 50%;
 text-align: center;
+border-radius: 3px; 
 }
-
 
 .projectTag {
 position: absolute;
