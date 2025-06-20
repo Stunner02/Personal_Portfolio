@@ -38,7 +38,7 @@ PERSONAL_PORTFOLIO/
 ├── documents/              # 📑  Working docs (private, not deployed)
 ├── images/                 # 🖼️  Private/source/unused images (not deployed)
 │
-├── public/                 # 🌐 Only Public/ is deployed to AWS S3!
+├── public/                 # 🌐 Gets compiled by Vite into dist/ which is then deployed to AWS S3!
 │   ├── 01_images/          # Public project images and media
 │   ├── 02_documents/       # Public resume PDF
 │   ├── 03_css/             # 🎨 CSS, compiled from SCSS

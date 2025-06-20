@@ -180,4 +180,18 @@ footer {
   margin-bottom: 15px;
 }
 
+#fish-container {
+  width: 100%;
+  height: 25rem;
+  position: relative;
+  overflow: hidden;
+}
+#fish-container canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
 /*# sourceMappingURL=projects.css.map */

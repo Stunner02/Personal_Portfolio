@@ -1,0 +1,15 @@
+#fish-container {
+  width: 100%;
+  height: 25rem;          // = 400 px
+  position: relative;     // creates a new containing block
+  overflow: hidden;       // prevents the canvas from spilling out
+
+  // the canvas Three.js injects
+  canvas {
+    position: absolute;   // anchor it to the div
+    inset: 0;             // top:0 right:0 bottom:0 left:0
+    width: 100%;
+    height: 100%;
+    display: block;       // remove inline-element whitespace
+  }
+}
