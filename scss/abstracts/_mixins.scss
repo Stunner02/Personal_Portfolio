@@ -24,6 +24,11 @@
   cursor: pointer;
 }
 
+@mixin project_tile() {
+  display: flexbox;
+
+}
+
 /* (B) Tiny breakpoint helper */
 @mixin respond-to($bp) {
   @if $bp == sm   { @media (min-width: $bp-sm) { @content; } }
