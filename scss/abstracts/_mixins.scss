@@ -19,8 +19,8 @@
   position: relative;
   overflow: hidden;
   aspect-ratio: $aspect;
-  border-radius: var(--radius, $radius);
-  box-shadow: var(--shadow, $shadow);
+  // border-radius: var(--radius, $radius);
+  // box-shadow: var(--shadow, $shadow);
   cursor: pointer;
 }
 

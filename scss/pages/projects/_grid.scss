@@ -1,0 +1,24 @@
+// Projects <main> media queries + setup
+
+@use '../../abstracts/mixins' as *;
+@use '../../abstracts/variables' as *;
+
+
+.card_media {
+    @include tile()
+}
+
+.home-grid {
+  /* 0.  Mobile‑first — single column stack */
+  display: grid;
+  margin: 0 auto;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "intro"
+  "project-1"
+  "project-1-description"
+  "project-2"
+  "project-2-description"
+  "project-3"
+  "project-3-description";
+}
