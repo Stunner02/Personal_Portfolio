@@ -4,15 +4,17 @@
   "description": "This repository contains the source code for my personal portfolio website: 👉 [gavglynn.com](https://gavglynn.com)",
   "main": "index.js",
   "scripts": {
-    "sass:home":      "sass --watch scss/pages/home/_index.scss       public/03_css/home.css",
-    "sass:projects":  "sass --watch scss/pages/projects/_index.scss   public/03_css/projects.css",
-    "sass:about":     "sass --watch scss/pages/about/_index.scss      public/03_css/about.css",
-    "sass:contact":   "sass --watch scss/pages/contact/_index.scss    public/03_css/contact.css",
-    "sass:404":       "sass --watch scss/pages/404/_index.scss        public/03_css/404.css",
+    "sass:home":      "sass --watch scss/pages/home/_index.scss       public/03_css/home.css      --quiet",
+    "sass:projects":  "sass --watch scss/pages/projects/_index.scss   public/03_css/projects.css  --quiet",
+    "sass:about":     "sass --watch scss/pages/about/_index.scss      public/03_css/about.css     --quiet",
+    "sass:contact":   "sass --watch scss/pages/contact/_index.scss    public/03_css/contact.css   --quiet",
+    "sass:404":       "sass --watch scss/pages/404/_index.scss        public/03_css/404.css       --quiet",
+
+    "dev:banner": "node -e \"console.log('sass compiled & watching: projects, home, 404, about, contact  |  Press Ctrl-C to stop')\"",
 
     "dev:vite":   "vite",
     "dev:sass":   "npm-run-all -p sass:*",
-    "dev":        "npm-run-all -p dev:*",
+    "dev":        "npm-run-all --silent dev:banner -p dev:vite dev:sass",
 
     "build:sass": "npm-run-all sass:* --parallel=false",
     "build:vite": "vite build",
