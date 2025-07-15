@@ -2,6 +2,7 @@
 @use 'sass:meta';
 @use '../abstracts/variables' as *;
 
+//              if($condition, $value-when-true, $value-when-false)
 $container-max: if(meta.variable-exists('container-max'), $container-max, 70rem);
 $gutter:        if(meta.variable-exists('gutter'),        $gutter,        1rem);
 
@@ -13,6 +14,7 @@ $gutter:        if(meta.variable-exists('gutter'),        $gutter,        1rem);
   max-width: $container-max;  // clamp to readable line length on large screens
   margin-inline: auto;        // centers the block
   padding-inline: clamp(#{$gutter}, 4vw, calc(#{$gutter} * 2));
+  // clamp(min, default, max)
 }
 
 /* Optional modifier for edge-to-edge hero or footer sections. */
