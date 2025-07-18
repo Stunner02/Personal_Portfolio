@@ -194,19 +194,47 @@ footer {
   display: block;
 }
 
-.card_media {
-  position: relative;
-  overflow: hidden;
-  aspect-ratio: 1.7777777778;
-  cursor: pointer;
-}
-
 .home-grid {
   /* 0.  Mobile‑first — single column stack */
   display: grid;
   margin: 0 auto;
   grid-template-columns: 1fr;
   grid-template-areas: "intro" "project-1" "project-1-description" "project-2" "project-2-description" "project-3" "project-3-description";
+}
+.home-grid .card_media {
+  aspect-ratio: 1.7777777778;
+  overflow: hidden;
+  position: relative;
+  display: block;
+  width: 100%;
+}
+.home-grid .card_media > img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+@media (min-width: 48rem) {
+  .home-grid .card_media {
+    aspect-ratio: 1.7777777778;
+    overflow: hidden;
+    position: relative;
+    display: block;
+    width: 100%;
+    width: 50%;
+  }
+  .home-grid .card_media > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+  }
+}
+/* Area hooks  (keep flat; no nesting needed) */
+#intro {
+  grid-area: intro;
 }
 
 /*# sourceMappingURL=projects.css.map */

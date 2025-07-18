@@ -16,17 +16,24 @@
 
 /* (A) Re‑usable tile mixin you already have */
 @mixin tile($aspect: 16/9) {
+  aspect-ratio: $aspect;     // the “frame” all tiles share
+  overflow: hidden;          // hide excess
   position: relative;
-  overflow: hidden;
-  aspect-ratio: $aspect;
-  // border-radius: var(--radius, $radius);
-  // box-shadow: var(--shadow, $shadow);
-  cursor: pointer;
+  display: block;            // so width/height apply
+  width: 100%;               // fills its parent
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;       // fill box, crop excess
+    object-position: center;
+    display: block;
+  }
+  @content
 }
 
 @mixin project_tile() {
   display: flexbox;
-
 }
 
 /* (B) Tiny breakpoint helper */
