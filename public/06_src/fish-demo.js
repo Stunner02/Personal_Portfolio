@@ -6,7 +6,7 @@ import { Box3, Vector3 } from 'three';
 const container = document.getElementById('fish-container'); 
 
 /* 1 · Scene setup */
-const scene    = new THREE.Scene();
+const scene  = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
   45,
   container.clientWidth / container.clientHeight,              //  ← use div’s aspect

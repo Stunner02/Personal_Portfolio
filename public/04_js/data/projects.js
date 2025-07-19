@@ -15,6 +15,6 @@ const projects = [
     name: "3D Printing Enclosure",
     alt: "3D Printing Enclosure",
     media: "../01_images/Enclosure_in_progress.jpg",
-    description: "Built 3D Printing enclosure for a consistent printing enviroment"
+    description: "Built 3D Printing enclosure for a consistent printing environment"
   }
 ];

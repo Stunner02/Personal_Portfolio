@@ -16,3 +16,17 @@ projects.forEach(p => {
 
   container.appendChild(section);
 });
+
+/* 
+<section class="container" id="main3Projects">
+  <section class="project-tile">
+    <div class="card_media">
+      <img src="${p.media}" alt="${p.alt}">
+    </div>
+    <div class="card_description">
+      <h2>${p.name}</h2>
+      <p>${p.description}</p>
+    </div>
+  </section>
+</section>
+*/

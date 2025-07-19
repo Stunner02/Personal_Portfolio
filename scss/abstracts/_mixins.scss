@@ -15,12 +15,14 @@
   }
 
 /* (A) Re‑usable tile mixin you already have */
-@mixin tile($aspect: 16/9) {
+@mixin tile($aspect: 1.4) {
   aspect-ratio: $aspect;     // the “frame” all tiles share
   overflow: hidden;          // hide excess
   position: relative;
   display: block;            // so width/height apply
   width: 100%;               // fills its parent
+  border: 1px solid #d1d1d1;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 
   > img {
     width: 100%;

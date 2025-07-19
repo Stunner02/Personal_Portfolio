@@ -5,33 +5,45 @@
 
 .home-grid {
   /* 0.  Mobile‑first — single column stack */
-  display: grid;
+  display: block;
   margin: 0 auto;
-  grid-template-columns: 1fr;
-  grid-template-areas:
-  "intro"
-  "project-1"
-  "project-1-description"
-  "project-2"
-  "project-2-description"
-  "project-3"
-  "project-3-description";
+}
 
-  .card_media {
+.card_media {
   @include tile()
-  }
+}
+
+.project-tile {
+  display: flex;
+  flex-direction: column;   // mobile: media on top
+  gap: 1rem;
 
   @include respond-to(sm) {
+    flex-direction: row; // ③ media on the right
+    margin-block-end: 2rem;
+    gap: 2rem;
+
     .card_media {
-    @include tile() {width: 50%;}
+      flex: 0 0 50%;       // ④ image takes half the row
+      @include tile;       // ⑤ reuse the mixin (no braces)
     }
-  }
-  
-  @include respond-to(md) { 
-  }
-  @include respond-to(lg) {
+
+    .card_description {
+      flex: 1 1 50%;       // ⑥ text fills remaining space
+    }
   }
 }
 
-/* Area hooks  (keep flat; no nesting needed) */
-#intro     { grid-area: intro; }
+.card_description {
+  border: 1.5px solid var(--text-color);  /* A light border around each section */
+  padding: 20px;
+  border-radius: 5px;                     /* Rounded corners */
+}
+
+// Make 3 in '3D' inline with text
+.card_description h2 {
+  font-family: 'Raleway', sans-serif;
+  font-variant-numeric: lining-nums tabular-nums;  /* or font-feature-settings:"lnum","tnum"; */
+  color: var(--text-color-h2);
+  font-size: 1.5rem;            /* Main resume title size */
+}
