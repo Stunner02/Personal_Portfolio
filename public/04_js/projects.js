@@ -1,10 +1,10 @@
 const container = document.getElementById("main3Projects");
 
 projects.forEach(p => {
-  const section = document.createElement("section");
-  section.classList.add("project-tile");
+  const article = document.createElement("article");
+  article.classList.add("project-tile");
 
-  section.innerHTML = `
+  article.innerHTML = `
     <div class="card_media">
       <img src="${p.media}" alt="${p.alt}">
     </div>
@@ -14,12 +14,12 @@ projects.forEach(p => {
     </div>
   `;
 
-  container.appendChild(section);
+  container.appendChild(article);
 });
 
 /* 
 <section class="container" id="main3Projects">
-  <section class="project-tile">
+  <article class="project-tile">
     <div class="card_media">
       <img src="${p.media}" alt="${p.alt}">
     </div>
@@ -27,6 +27,6 @@ projects.forEach(p => {
       <h2>${p.name}</h2>
       <p>${p.description}</p>
     </div>
-  </section>
+  </article>
 </section>
 */
