@@ -15,17 +15,18 @@
 
 .project-tile {
   display: flex;
-  flex-direction: column;   // mobile: media on top
-  gap: 1rem;
+  flex-direction: column;   // Description is under media
+  margin-bottom: 1rem;
 
   @include respond-to(sm) {
-    flex-direction: row; // ③ media on the right
+    flex-direction: row;    // Moves description right of media
     margin-block-end: 2rem;
     gap: 2rem;
 
     .card_media {
-      flex: 0 0 50%;       // ④ image takes half the row
-      @include tile;       // ⑤ reuse the mixin (no braces)
+      // flex: flex-grow, flex-shrink, flex-initialSize
+      flex: 0 0 50%;       // Image should take up half the div
+      @include tile;       
     }
 
     .card_description {
@@ -35,15 +36,31 @@
 }
 
 .card_description {
-  border: 1.5px solid var(--text-color);  /* A light border around each section */
-  padding: 20px;
-  border-radius: 5px;                     /* Rounded corners */
+  border: 1.5px solid var(--text-color);
+  border-top: none;
+  padding: 10px 20px 20px;
+
+  @include respond-to(sm) {
+    border: 1.5px solid var(--text-color);  /* A light border around each section */
+    padding: 20px;
+    border-radius: 5px;                     /* Rounded corners */
+  }
+
+  h2 {
+    font-family: 'Raleway', sans-serif;
+    font-variant-numeric: lining-nums tabular-nums;  // Make 3 in '3D' inline with text
+    color: var(--text-color-h2);
+    font-size: 1.5rem;
+  }
+  
+  p {
+    margin-bottom: 0px;
+  }
+
+  ul {
+    margin-top: 1em;
+  }
 }
 
-// Make 3 in '3D' inline with text
-.card_description h2 {
-  font-family: 'Raleway', sans-serif;
-  font-variant-numeric: lining-nums tabular-nums;  /* or font-feature-settings:"lnum","tnum"; */
-  color: var(--text-color-h2);
-  font-size: 1.5rem;            /* Main resume title size */
-}
+
+

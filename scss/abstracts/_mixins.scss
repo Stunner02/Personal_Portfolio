@@ -14,6 +14,14 @@
     }
   }
 
+/* Add different images for different sizes like */
+// <picture>
+//   <source srcset="img_smallflower.jpg" media="(max-width: 400px)">
+//   <source srcset="img_flowers.jpg">
+//   <img src="img_flowers.jpg" alt="Flowers">
+// </picture>
+
+
 /* (A) Re‑usable tile mixin you already have */
 @mixin tile($aspect: 1.4) {
   aspect-ratio: $aspect;     // the “frame” all tiles share
@@ -21,7 +29,7 @@
   position: relative;
   display: block;            // so width/height apply
   width: 100%;               // fills its parent
-  border: 1px solid #d1d1d1;
+  border: 1.5px solid #d1d1d1;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
 
   > img {
