@@ -9,7 +9,7 @@ projects.forEach(p => {
       <img src="${p.media}" alt="${p.alt}">
     </div>
     <div class="card_description">
-      <h2>${p.name}</h2>
+      <a ${p.projectPageLink}>${p.name}</a>
       <p>${p.description}</p>
       <ul>
         ${p.smallDetails

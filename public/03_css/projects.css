@@ -263,7 +263,7 @@ footer {
     border-radius: 5px; /* Rounded corners */
   }
 }
-.card_description h2 {
+.card_description a {
   font-family: "Raleway", sans-serif;
   font-variant-numeric: lining-nums tabular-nums;
   color: var(--text-color-h2);
