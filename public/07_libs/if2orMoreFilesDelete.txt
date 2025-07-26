@@ -1,0 +1,5 @@
+Reveal.js overtakes the naming conventions I am using.
+And looks like /07_libs Reveal.js
+instead of /07/Reveal.js 
+this file does not matter, except for making things look good.
+Delete if you have 2 or more libraries being used.
