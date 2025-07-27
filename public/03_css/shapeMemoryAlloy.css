@@ -151,5 +151,21 @@ footer {
 }
 
 /* REUSABLE COMPONENTS */
+/* ---------- page-specific sections ------ */
+.pptWrapperTest {
+  aspect-ratio: 1.7777777778;
+  width: 700px;
+  height: 400px;
+  margin: 2rem auto;
+  border-radius: 18px;
+  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.0666666667);
+  overflow: hidden;
+  background: #fff;
+}
+.pptWrapperTest > reveal {
+  width: 100%;
+  height: 100%;
+  min-height: unset;
+}
 
 /*# sourceMappingURL=shapeMemoryAlloy.css.map */

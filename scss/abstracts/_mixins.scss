@@ -21,6 +21,26 @@
 //   <img src="img_flowers.jpg" alt="Flowers">
 // </picture>
 
+@mixin pptWrapper($aspect: 16/9) {
+  //ppt is 16/9 ratio
+  width: min(96vw, 960px);        /* Responsive, maxes at 960px */
+  aspect-ratio: $aspect;
+  background: #fff;
+  box-shadow: 0 4px 24px #0001;
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  > reveal {
+  width: 100%;
+  height: 100%;
+  min-height: unset;
+  }
+  @content
+}
 
 /* (A) Re‑usable tile mixin you already have */
 @mixin tile($aspect: 1.4) {
