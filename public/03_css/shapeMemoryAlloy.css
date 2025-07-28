@@ -19,6 +19,8 @@
   --color-bg-header-dark: steelblue;
   --color-bg-accordion-light: #f9f9f9;
   --color-bg-accordion-dark: #222;
+  --color-ppt-headings: #0097a7;
+  --color-ppt-bg-progressbar: #595959;
   --font-primary: "Lato", sans-serif;
   --font-secondary: "Raleway", sans-serif;
   --base-font-size: 16px;
@@ -152,15 +154,46 @@ footer {
 
 /* REUSABLE COMPONENTS */
 /* ---------- page-specific sections ------ */
+.intro {
+  background: linear-gradient(var(--header-bkg-color), var(--bkg-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro .container {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  padding: 15px;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-top: 0.65em;
+  margin-bottom: 20px;
+}
+
+.intro .nameHighlight {
+  color: gold;
+  font-weight: bold;
+}
+
+.intro p {
+  margin-bottom: 15px;
+}
+
 .pptWrapperTest {
+  width: min(96vw, 960px); /* Responsive, maxes at 960px */
   aspect-ratio: 1.7777777778;
-  width: 700px;
-  height: 400px;
-  margin: 2rem auto;
-  border-radius: 18px;
-  box-shadow: 0 6px 32px rgba(0, 0, 0, 0.0666666667);
-  overflow: hidden;
   background: #fff;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.0666666667);
+  border-radius: 8px;
+  overflow: hidden;
+  margin: 2em auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .pptWrapperTest > reveal {
   width: 100%;

@@ -47,11 +47,20 @@
           <section>Slide 1</section>
           <section>Slide 2</section>
         </div>
+          <button
+    class="enter-fullscreen"
+    style="position:absolute; top:12px; right:16px; z-index:9999; 
+    background:#222; color:#fff; border:none; padding:8px 12px;
+     border-radius:8px; cursor:pointer;"
+    aria-label="Toggle fullscreen"
+  >
+    ⤢
+  </button>
       </div>
     </div>
     <script src="/07_libs/reveal.js/dist/reveal.js"></script>
     <script>
-      Reveal.initialize();
+      Reveal.initialize({ embedded: true });
     </script>
   </main>
     
