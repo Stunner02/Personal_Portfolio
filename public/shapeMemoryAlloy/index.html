@@ -28,7 +28,12 @@
 <!--- (1) Header / Site Navigation -->
   <header id="top" class="site-header">
     <div class="header-bar container">
-      <a href="../">Gavin Glynn</a>
+      <div class="header-left">
+        <a href="../">Gavin Glynn</a>
+        <a href="../projects/">/Projects</a>
+        <!-- <span class="arrow">&#9662;</span> -->
+        <a>/Shape Memory Alloy</a>
+      </div>
       <a class="contact-link" href="#contact">Contact</a>
     </div>
   </header>
@@ -41,27 +46,39 @@
         <p>I have a wide array of skills and interests that I combine to fulfill unique solutions. Please check out the ones you find the most interesting.</p>
       </div>
     </section>
-    <div class="container pptWrapperTest">
-      <div class="reveal">
+
+    <section class="container pptWrapperTest">
+      <div class="reveal" data-slideset="SMA">
+        <div class="slides"></div>
+      </div>
+    </section>
+
+    <section class="container pptWrapperTest">
+      <div class="reveal" data-slideset="resume">
+        <div class="slides"></div>
+      </div>
+    </section>
+    <script type="module" src="/04_js/slides-init.js"></script>
+    <!-- <div class="container pptWrapperTest">
+      <div class="reveal" data-slideset="resume">
         <div class="slides">
           <section>Slide 1</section>
           <section>Slide 2</section>
         </div>
           <button
-    class="enter-fullscreen"
-    style="position:absolute; top:12px; right:16px; z-index:9999; 
-    background:#222; color:#fff; border:none; padding:8px 12px;
-     border-radius:8px; cursor:pointer;"
-    aria-label="Toggle fullscreen"
-  >
-    ⤢
-  </button>
+            class="enter-fullscreen"
+            style="position:absolute; top:12px; right:16px; z-index:9999; 
+            background:#222; color:#fff; border:none; padding:8px 12px;
+            border-radius:8px; cursor:pointer;"
+            aria-label="Toggle fullscreen">
+            ⤢
+          </button>
       </div>
-    </div>
+    </div> 
     <script src="/07_libs/reveal.js/dist/reveal.js"></script>
     <script>
       Reveal.initialize({ embedded: true });
-    </script>
+    </script> -->
   </main>
     
   <footer class="site-header">
