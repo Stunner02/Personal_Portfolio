@@ -2,9 +2,9 @@
 export const slides = [
   {
     id: 'cover',
-    w: 960, h: 700,
+    // w: 960, h: 700,
     elements: [
-      addEl( 60, 100, 'h1', 'My Portfolio' ),
+      addEl( 0, 0, 'h1', 'My Portfolio' ),
       addEl( 60, 240, 'p',  'Mechanical Engineer · FEA · Robotics' )
     ]
     // ,audio: '/audio/intro.mp3'

@@ -3,6 +3,6 @@
 
 .pptWrapperTest {
   @include pptWrapper() {
-
+    padding: 0px;
   }
 }

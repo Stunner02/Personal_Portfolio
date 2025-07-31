@@ -26,8 +26,11 @@ function buildDeck(revealDiv, slideData) {
   const deck = new Reveal(revealDiv, {
     embedded: true,
     width:    960,
-    height:   700,
-    margin:   0.04
+    height:   540,
+    margin:   0,
+    center: false,
+    minScale: 0.2,   // safety rails
+    maxScale: 2
   });
 
   const slidesRoot = revealDiv.querySelector('.slides');
