@@ -19,10 +19,18 @@
 
 
 // Override theme settings (see ../template/settings.scss)
+$mainFont: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+
 $mainColor: #0097a7;
 $headingColor: #0097a7;
 $headingTextShadow: none;
 $backgroundColor: #fff;
+
+// Heading sizes
+$heading1Size: 36px;
+$heading2Size: 25px;
+
+// Link attributes
 $linkColor: #2a76dd;
 $linkColorHover: color.scale( $linkColor, $lightness: 15% );
 $selectionBackgroundColor: color.scale( $linkColor, $lightness: 25% );

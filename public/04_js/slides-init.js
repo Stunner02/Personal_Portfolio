@@ -1,5 +1,6 @@
 // slides-init.js 
 import Reveal from 'reveal.js';
+import { FONT_STACKS } from '../tokens/fonts.js';
 
 document.querySelectorAll('.reveal').forEach(startDeck);
   // revealEl is what is inside <div class="reveal">…</div>
@@ -12,7 +13,7 @@ document.querySelectorAll('.reveal').forEach(startDeck);
   // Use each .reveal section's dataset name to import slides
   
 async function startDeck(revealDiv) {
-  const slideKey   = revealDiv.dataset.slideset;              // "resume"
+  const slideKey   = revealDiv.dataset.slideset;               // "resume"
   const slideModule  = await import(`./data/${slideKey}.js`);  // ⇒ /data/resume.js
   const slides  = slideModule.slides ?? [];
 
@@ -25,8 +26,9 @@ async function startDeck(revealDiv) {
 function buildDeck(revealDiv, slideData) {
   const deck = new Reveal(revealDiv, {
     embedded: true,
-    width:    960,
-    height:   540,
+    //gSlides widescreen 16/9 dimensions: w: 960, h: 540
+    width:    960,  // 10 inches - 1 inch/96px
+    height:   540,  // 5.625 inches
     margin:   0,
     center: false,
     minScale: 0.2,   // safety rails
@@ -51,11 +53,12 @@ function createSection(slide) {
   return section;
 }
 
-function createNode({ x, y, tag, html }) {
+function createNode({ x, y, tag, fontFamily, html }) {
   const node = document.createElement(tag);
   node.innerHTML      = html;
   node.style.position = 'absolute';
   node.style.left     = `${x}px`;
   node.style.top      = `${y}px`;
+  node.style.fontFamily = FONT_STACKS[fontFamily] ?? FONT_STACKS.default;
   return node;
 }
