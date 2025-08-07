@@ -1,6 +1,6 @@
 // slides-init.js 
 import Reveal from 'reveal.js';
-import { FONT_STACKS } from '../tokens/fonts.js';
+import { FONT_STACKS } from './tokens/fonts.js';
 
 document.querySelectorAll('.reveal').forEach(startDeck);
   // revealEl is what is inside <div class="reveal">…</div>
