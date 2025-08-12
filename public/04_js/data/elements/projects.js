@@ -12,7 +12,7 @@ const projects = [
     alt: "Hyperloop capstone",
     media: "../01_images/Hyperloop_insideTube.jpg",
     description: "HyperEagles enter the hyperloop competition!",
-    projectPageLink: "",
+    projectPageLink: "href='../hyperloop/'",
     smallDetails: [
       "Lorem ipsum dolor sit amet consectetur adipiscing elit.",
       "Amet consectetur adipiscing elit quisque faucibus ex sapien.",
@@ -25,7 +25,7 @@ const projects = [
     alt: "3D Printing Enclosure",
     media: "../01_images/Enclosure_in_progress.jpg",
     description: "Built 3D Printing enclosure for a consistent printing environment",
-    projectPageLink: "",
+    projectPageLink: "href='../printingEnclosure3D/'",
     smallDetails: []
   }
 ];

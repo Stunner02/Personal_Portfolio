@@ -1,0 +1,5 @@
+/* ---------- core shared styles ---------- */
+@use '../../_core.scss';
+
+/* ---------- page-specific sections ------ */
+@forward 'intro';

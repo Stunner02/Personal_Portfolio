@@ -1,0 +1,134 @@
+/* Left rail with section NAMES, and dot runs between names indicating length */
+
+:root{
+  --rail-w: 220px;          /* wider to fit names */
+  --header-h: 0px;          /* set by JS */
+  --rail-gap: .25rem;       /* gap between name and dots */
+  --dot-size: 6px;          /* constant dot size */
+  --dot-gap: 6px;           /* spacing between dots */
+  --rail-accent: hsl(200 85% 60%);
+  --rail-fg: hsl(210 10% 70%);
+  --rail-fg-dim: hsl(210 6% 45%);
+  --rail-bg: hsl(220 15% 10% / .96);
+}
+
+/* Avoid header overlap on hash jumps */
+main.home-grid section[id]{ scroll-margin-top: calc(var(--header-h) + 16px); }
+
+/* Reserve space for the rail on wide screens */
+@media (min-width: 62rem){
+  main.home-grid{ margin-left: calc(var(--rail-w) + 8px); }
+}
+
+/* Rail */
+aside.timeline-rail{
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: calc(var(--header-h) + 12px);
+  bottom: 12px;
+  width: var(--rail-w);
+  padding: .5rem .75rem;
+  border-right: 1px solid hsl(0 0% 25% / .25);
+  overflow: auto;                 /* in case the list gets long */
+  display: none;                  /* hidden on small screens */
+  background: transparent;        /* keep your page’s look; change if desired */
+}
+@media (min-width: 62rem){ aside.timeline-rail{ display: block; } }
+
+#timelineNav{
+  display: flex;
+  flex-direction: column;
+//   gap: .25rem;
+}
+
+/* One group = a NAME + the dots that represent that section */
+.tl-group{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* clickable section name */
+.tl-name{
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .25rem .4rem;
+  border-radius: .4rem;
+  text-decoration: none;
+  font: 600 .95rem/1.2 system-ui, sans-serif;
+  color: var(--rail-fg);
+  transition: color .15s ease, transform .15s ease, background-color .15s ease;
+}
+.tl-name:hover,
+.tl-name:focus-visible{
+  color: var(--rail-accent);
+  background: hsl(0 0% 100% / .05);
+}
+
+/* active section = emphasized name */
+.tl-group.is-active .tl-name{
+  color: var(--rail-accent);
+  transform: scale(1.04);
+  background: hsl(0 0% 100% / .06);
+}
+
+/* subnav (H3s) pops to the right on hover/focus */
+.tl-subnav{
+  position: absolute;
+  left: calc(100% + .5rem);
+  margin-top: .25rem;
+  background: var(--rail-bg);
+  color: white;
+  border: 1px solid hsl(0 0% 100% / .08);
+  border-radius: .5rem;
+  padding: .5rem;
+  min-width: 220px;
+  display: none;
+}
+.tl-subnav a{
+  display: block;
+  padding: .25rem .25rem;
+  font-size: .9rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: .35rem;
+}
+.tl-subnav a:hover,
+.tl-subnav a:focus-visible{ background: hsl(0 0% 100% / .08); }
+
+/* attach subnav to the name element’s hover/focus */
+.tl-name-wrap{ position: relative; }
+.tl-name-wrap:hover .tl-subnav,
+.tl-name-wrap:focus-within .tl-subnav { display: block; }
+.tl-name-wrap:hover .tl-subnav,
+.tl-name-wrap:focus-within .tl-subnav{ display: block; }
+
+/* dot run BETWEEN names (constant dot size; only COUNT varies) */
+.tl-dots{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dot-gap);
+  padding: var(--rail-gap) 0 var(--rail-gap) .9rem; /* small indent under the name */
+}
+.tl-dot{
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--rail-fg-dim);
+  flex: 0 0 auto;
+}
+
+/* optional: faint vertical spine */
+.tl-dots::before{
+  content: "";
+  position: absolute;
+  left: .95rem;
+  transform: translateX(-1px);
+  width: 2px;
+  height: 100%;
+  background: hsl(0 0% 25% / .15);
+}
+.tl-dots{ position: relative; }
