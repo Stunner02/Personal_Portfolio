@@ -11,6 +11,8 @@
     "sass:404": "sass --watch scss/pages/404/_index.scss            public/03_css/404.css       --quiet",
     "sass:shapeMemoryAlloy": "sass --watch scss/pages/shapeMemoryAlloy/_index.scss    public/03_css/shapeMemoryAlloy.css       --quiet",
     "sass:slide_sma": "sass --watch scss/slides/sma.scss               public/03_css/slide_sma.css --quiet",
+    "sass:printingEnclosure3D": "sass --watch scss/pages/printingEnclosure3D/_index.scss    public/03_css/printingEnclosure3D.css       --quiet",
+    "sass:hyperloop": "sass --watch scss/pages/hyperloop/_index.scss    public/03_css/hyperloop.css       --quiet",
     "dev:banner": "node -e \"console.log('sass compiled & watching: projects, home, 404, about, contact  |  Press Ctrl-C to stop')\"",
     "dev:vite": "vite",
     "dev:sass": "npm-run-all -p sass:*",

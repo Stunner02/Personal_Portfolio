@@ -1,0 +1,343 @@
+@charset "UTF-8";
+/* ---------- core shared styles ---------- */
+/* DESIGN TOKENS & MIXINS */
+:root {
+  /* ---------------- Raw Tokens ---------------- */
+  /* -------------------------------------------- */
+  --color-text: #eee;
+  --color-text-light: #222;
+  --color-text-dark: #eee;
+  --color-text-h2-light: #333;
+  --color-text-h2-dark: #87CEFA;
+  --color-text-h3-light: #555;
+  --color-text-h3-dark: #eee;
+  --color-text-p-light: #666;
+  --color-text-p-dark: #e0e0e0;
+  --color-bg-body-light: steelblue;
+  --color-bg-body-dark: #121212;
+  --color-bg-header-light: #121212;
+  --color-bg-header-dark: steelblue;
+  --color-bg-accordion-light: #f9f9f9;
+  --color-bg-accordion-dark: #222;
+  --color-ppt-headings: #0097a7;
+  --color-ppt-bg-progressbar: #595959;
+  --font-primary: "Lato", sans-serif;
+  --font-secondary: "Raleway", sans-serif;
+  --base-font-size: 16px;
+  --min-font-size: 1rem;
+  --max-font-size: 2rem;
+  --font-scaling-factor: 0.5;
+  /* Legacy color tokens */
+  --legacy-switch-bkg-color: #2b2b2b;
+  --legacy-bkg-color: #87CEFA;
+  --legacy-switch-bkg-color: hsl(207, 44%, 80%);
+  /* ------ Theme Aliases (applied tokens) ------ */
+  /* -------------------------------------------- */
+  --text-color: var(--color-text);
+  --text-color-h2: var(--color-text-h2-light);
+  --text-color-h3: var(--color-text-h3-light);
+  --text-color-p: var(--color-text-p-light);
+  --bkg-color: var(--color-bg-body-light);
+  --header-bkg-color: var(--color-bg-header-light);
+  --accordian-bkg-color: var(--color-bg-accordion-light);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color: var(--color-text);
+    --text-color-h2: var(--color-text-h2-dark);
+    --text-color-h3: var(--color-text-h3-dark);
+    --text-color-p: var(--color-text-p-dark);
+    --bkg-color: var(--color-bg-body-dark);
+    --header-bkg-color: var(--color-bg-header-dark);
+    --accordian-bkg-color: var(--color-bg-accordion-dark);
+  }
+}
+/* Break‑points */
+/* DESIGN TOKENS & MIXINS */
+/* Add different images for different sizes like */
+/* (A) Re‑usable tile mixin you already have */
+/* (B) Tiny breakpoint helper */
+/* RESET + TYPOGRAPHY */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  height: 100%;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+body {
+  height: 100%;
+  background: var(--bkg-color);
+  font-family: var(--font-primary);
+  color: var(--text-color);
+  font-size: clamp(var(--min-font-size), var(--base-font-size) + var(--font-scaling-factor) * 1vw, var(--max-font-size));
+}
+
+ul {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* Hide scrollbar for Chrome, Safari, and Opera */
+::-webkit-scrollbar {
+  width: 0;
+  background: transparent;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-secondary);
+  line-height: 1.2;
+  margin-bottom: 0.5em;
+}
+
+p {
+  margin-bottom: 1em;
+}
+
+/* LAYOUT CHROME */
+/* DESIGN TOKENS & MIXINS */
+/* Global page wrapper
+   - Keeps content centered, applies horizontal padding only.
+   - No flex/grid so sections decide their own layout. */
+.container {
+  width: 100%;
+  max-width: 75rem;
+  margin-inline: auto;
+  padding-inline: clamp(1rem, 4vw, 1rem * 2);
+}
+
+/* Optional modifier for edge-to-edge hero or footer sections. */
+.container--full {
+  max-width: none;
+  padding-inline: 0;
+}
+
+header {
+  background: var(--header-bkg-color);
+  color: #fff;
+  padding: 0 auto;
+  font-size: 24px;
+}
+
+.header-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem;
+}
+
+footer {
+  background: var(--bkg-color);
+  color: #fff;
+  padding: 0 auto;
+  font-size: 24px;
+}
+
+.footer-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem;
+}
+
+/* REUSABLE COMPONENTS */
+/* ---------- page-specific sections ------ */
+.intro {
+  background: linear-gradient(var(--header-bkg-color), var(--bkg-color));
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.intro .container {
+  display: block;
+  font-size: 1rem;
+  text-align: center;
+  padding: 15px;
+}
+
+.intro h1 {
+  font-size: 2.5rem;
+  margin-top: 0.65em;
+  margin-bottom: 20px;
+}
+
+.intro .nameHighlight {
+  color: gold;
+  font-weight: bold;
+}
+
+.intro p {
+  margin-bottom: 15px;
+}
+
+/* Left rail with section NAMES, and dot runs between names indicating length */
+:root {
+  --rail-w: 220px; /* wider to fit names */
+  --header-h: 0px; /* set by JS */
+  --rail-gap: .25rem; /* gap between name and dots */
+  --dot-size: 6px; /* constant dot size */
+  --dot-gap: 6px; /* spacing between dots */
+  --rail-accent: hsl(200 85% 60%);
+  --rail-fg: hsl(210 10% 70%);
+  --rail-fg-dim: hsl(210 6% 45%);
+  --rail-bg: hsl(220 15% 10% / .96);
+}
+
+/* Avoid header overlap on hash jumps */
+main.home-grid section[id] {
+  scroll-margin-top: calc(var(--header-h) + 16px);
+}
+
+/* Reserve space for the rail on wide screens */
+@media (min-width: 62rem) {
+  main.home-grid {
+    margin-left: calc(var(--rail-w) + 8px);
+  }
+}
+/* Rail */
+aside.timeline-rail {
+  position: fixed;
+  z-index: 5;
+  left: 0;
+  top: calc(var(--header-h) + 12px);
+  bottom: 12px;
+  width: var(--rail-w);
+  padding: 0.5rem 0.75rem;
+  border-right: 1px solid hsla(0, 0%, 25%, 0.25);
+  overflow: auto; /* in case the list gets long */
+  display: none; /* hidden on small screens */
+  background: transparent; /* keep your page’s look; change if desired */
+}
+
+@media (min-width: 62rem) {
+  aside.timeline-rail {
+    display: block;
+  }
+}
+#timelineNav {
+  display: flex;
+  flex-direction: column;
+}
+
+/* One group = a NAME + the dots that represent that section */
+.tl-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+/* clickable section name */
+.tl-name {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.4rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  font: 600 0.95rem/1.2 system-ui, sans-serif;
+  color: var(--rail-fg);
+  transition: color 0.15s ease, transform 0.15s ease, background-color 0.15s ease;
+}
+
+.tl-name:hover,
+.tl-name:focus-visible {
+  color: var(--rail-accent);
+  background: hsla(0, 0%, 100%, 0.05);
+}
+
+/* active section = emphasized name */
+.tl-group.is-active .tl-name {
+  color: var(--rail-accent);
+  transform: scale(1.04);
+  background: hsla(0, 0%, 100%, 0.06);
+}
+
+/* subnav (H3s) pops to the right on hover/focus */
+.tl-subnav {
+  position: absolute;
+  left: calc(100% + 0.5rem);
+  margin-top: 0.25rem;
+  background: var(--rail-bg);
+  color: white;
+  border: 1px solid hsla(0, 0%, 100%, 0.08);
+  border-radius: 0.5rem;
+  padding: 0.5rem;
+  min-width: 220px;
+  display: none;
+}
+
+.tl-subnav a {
+  display: block;
+  padding: 0.25rem 0.25rem;
+  font-size: 0.9rem;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 0.35rem;
+}
+
+.tl-subnav a:hover,
+.tl-subnav a:focus-visible {
+  background: hsla(0, 0%, 100%, 0.08);
+}
+
+/* attach subnav to the name element’s hover/focus */
+.tl-name-wrap {
+  position: relative;
+}
+
+.tl-name-wrap:hover .tl-subnav,
+.tl-name-wrap:focus-within .tl-subnav {
+  display: block;
+}
+
+.tl-name-wrap:hover .tl-subnav,
+.tl-name-wrap:focus-within .tl-subnav {
+  display: block;
+}
+
+/* dot run BETWEEN names (constant dot size; only COUNT varies) */
+.tl-dots {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--dot-gap);
+  padding: var(--rail-gap) 0 var(--rail-gap) 0.9rem; /* small indent under the name */
+}
+
+.tl-dot {
+  width: var(--dot-size);
+  height: var(--dot-size);
+  border-radius: 50%;
+  background: var(--rail-fg-dim);
+  flex: 0 0 auto;
+}
+
+/* optional: faint vertical spine */
+.tl-dots::before {
+  content: "";
+  position: absolute;
+  left: 0.95rem;
+  transform: translateX(-1px);
+  width: 2px;
+  height: 100%;
+  background: hsla(0, 0%, 25%, 0.15);
+}
+
+.tl-dots {
+  position: relative;
+}
+
+/*# sourceMappingURL=hyperloop.css.map */
