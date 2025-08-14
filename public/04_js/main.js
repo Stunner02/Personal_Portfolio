@@ -1,4 +1,4 @@
-// import { setupGlobals } from './engine/bootstrap.js';
+import { setupGlobals } from './bootstrap.js';
 
 const page = document.documentElement.dataset.page; // "home", "projects", "resume"
 
