@@ -1,3 +1,5 @@
+// registry.js links the component name to the module.
+
 const components = new Map();
 const interactives = new Map();
 

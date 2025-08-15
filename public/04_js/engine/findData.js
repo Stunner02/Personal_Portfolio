@@ -1,4 +1,4 @@
-// Example: resolve manifest + any page data slices
+// findData.js is in charge of importing data from data/
 export async function loadManifest(pageKey) {
   const m = await import(`../data/manifests/${pageKey}.js`);
   return m.default || m.manifest || m;

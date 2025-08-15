@@ -1,10 +1,10 @@
 // src/engine/bootstrap.js
 import './registry.setup.js';                          // ensure components/interactives are registered
 
-import { loadManifest } from './engine/findData.js';
-import { render } from './engine/renderer.js';
+import { loadManifest } from './findData.js';
+import { render } from './renderer.js';
 import { initInteractives } from './initInteractives.js';
-import { initRevealIfNeeded } from './engine/revealSetup.js';
+import { initRevealIfNeeded } from './revealSetup.js';
 import { applyTheme, applyFonts } from './themeFonts.js';
 import { preloadAssets } from '../utils/preloadAssets.js';
 
@@ -48,7 +48,8 @@ function applyMeta(meta = {}) {
  * Boot a page using its manifest key.
  * @param {{ pageKey: string, rootSelector?: string }} opts
  */
-export async function bootstrap({ pageKey, rootSelector = '#app' }) {
+export async function bootstrap({ pageKey, rootSelector = '#app' }) { // Update #apps to <main>
+  // Setting a root element limits the query scope of the components to improve error rate
   const root = document.querySelector(rootSelector);
   if (!root) throw new Error(`[bootstrap] Root not found: ${rootSelector}`);
 

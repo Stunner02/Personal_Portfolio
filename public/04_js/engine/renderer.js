@@ -7,6 +7,7 @@ import { qs, mount } from '../utils/dom.js';
  * @param {HTMLElement} defaultRoot
  * @param {object} context - shared bag: { pageKey, registry, assets, bus }
  */
+
 function renderBlock(block, defaultRoot, context) {
   const Component = getComponent(block.component);
   const node = Component(block.props || {}, context);       // ← PURE DOM creation

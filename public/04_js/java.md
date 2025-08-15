@@ -150,6 +150,11 @@ This allows the renderer.js to selectively initialize components and preload ass
 
 main → bootloader → shell → manifest → engine.
 
+- Import: what,
+- Setup (Pre-Render): what/where,
+- Render: first paint (structure/content only),
+- Hydrate: give what interactives/effects to which html elements
+
 1. main.js is called.
     1. Imports bootloader and runs it.
     2. Bootloader computes env (no heavy assets).
