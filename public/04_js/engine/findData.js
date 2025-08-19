@@ -1,8 +1,12 @@
 // findData.js is in charge of importing data from data/
+
 export async function loadManifest(pageKey) {
   const m = await import(`../data/manifests/${pageKey}.js`);
-  return m.default || m.manifest || m;
-}
+  return m.default || m.manifest || m; 
+  /* m.default is used because export default is common on most manifests. 
+     m.manifest is used in case the manifest page requires more than one object, 
+     making manifest a seperate object */
+}                                       
 
 export async function loadSlides(name) {
   const m = await import(`../data/slides/${name}.js`);

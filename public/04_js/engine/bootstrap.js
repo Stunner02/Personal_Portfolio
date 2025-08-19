@@ -1,54 +1,76 @@
 // src/engine/bootstrap.js
-import './registry.setup.js';                          // ensure components/interactives are registered
+import './registry.setup.js'; // ensure components/interactives are registered
 
 import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
 import { initInteractives } from './initInteractives.js';
 import { initRevealIfNeeded } from './revealSetup.js';
-import { applyTheme, applyFonts } from './themeFonts.js';
+// import { applyTheme, applyFonts } from './themeFonts.js';
 import { preloadAssets } from '../utils/preloadAssets.js';
+
+// setupGlobals is empty - setup for later
+export async function setupGlobals() {
+  // preload fonts/polyfills/etc here later
+  return {}; // return { env: {} } if it gets used later
+}
 
 /**
  * Apply <head> tags from manifest.meta (title, description, canonical, favicon, OG image)
  * Keeps SEO data next to the page manifest.
  */
 function applyMeta(meta = {}) {
+  //    upsert = update or insert
   const upsertMetaByName = (name, content) => {
     if (!content) return;
-    let tag = document.querySelector(`meta[name="${name}"]`);
-    if (!tag) { tag = document.createElement('meta'); tag.setAttribute('name', name); document.head.appendChild(tag); }
-    tag.setAttribute('content', content);
-  };
-
-  const upsertMetaByProp = (property, content) => {
-    if (!content) return;
-    let tag = document.querySelector(`meta[property="${property}"]`);
-    if (!tag) { tag = document.createElement('meta'); tag.setAttribute('property', property); document.head.appendChild(tag); }
+    let tag = document.head.querySelector(`meta[name="${name}"]`);
+    if (!tag) { 
+      tag = document.createElement('meta'); // Create <meta>
+      tag.setAttribute('name', name);       // Give 'name' attribute
+      document.head.appendChild(tag); 
+    }
     tag.setAttribute('content', content);
   };
 
   const upsertLink = (rel, href) => {
     if (!href) return;
-    let link = document.querySelector(`link[rel="${rel}"]`);
-    if (!link) { link = document.createElement('link'); link.setAttribute('rel', rel); document.head.appendChild(link); }
+    let link = document.head.querySelector(`link[rel="${rel}"]`);
+    if (!link) { 
+      link = document.createElement('link');  // Create <link> 
+      link.setAttribute('rel', rel);          // Give 'rel' attribute
+      document.head.appendChild(link); 
+    }
     link.setAttribute('href', href);
   };
+
+  // const upsertMetaByProp = (property, content) => {
+  //   if (!content) return;
+  //   let tag = document.head.querySelector(`meta[property="${property}"]`);
+  //   if (!tag) { 
+  //     tag = document.createElement('meta');   // Create <meta>
+  //     tag.setAttribute('property', property); // Give 'property' attribute
+  //     document.head.appendChild(tag); 
+  //   }
+  //   tag.setAttribute('content', content);
+  // };
 
   if (meta.title) document.title = meta.title;
   upsertMetaByName('description', meta.description);
   upsertLink('canonical', meta.canonical);
   upsertLink('icon', meta.favicon);
-  upsertMetaByProp('og:title', meta.ogTitle || meta.title);
-  upsertMetaByProp('og:description', meta.ogDescription || meta.description);
-  upsertMetaByProp('og:image', meta.ogImage);
-  upsertMetaByProp('og:url', meta.canonical);
+
+  /* Below sets up Open Graph metadata so the page preview looks good on social media */
+  // upsertMetaByProp('og:title', meta.ogTitle || meta.title);
+  // upsertMetaByProp('og:description', meta.ogDescription || meta.description);
+  // upsertMetaByProp('og:image', meta.ogImage);
+  // upsertMetaByProp('og:url', meta.canonical);
 }
 
 /**
  * Boot a page using its manifest key.
  * @param {{ pageKey: string, rootSelector?: string }} opts
  */
-export async function bootstrap({ pageKey, rootSelector = '#app' }) { // Update #apps to <main>
+
+export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   // Setting a root element limits the query scope of the components to improve error rate
   const root = document.querySelector(rootSelector);
   if (!root) throw new Error(`[bootstrap] Root not found: ${rootSelector}`);
@@ -61,10 +83,12 @@ export async function bootstrap({ pageKey, rootSelector = '#app' }) { // Update 
 
   // 2) Head/meta + theme/fonts (page-wide cosmetics)
   if (manifest.meta) applyMeta(manifest.meta);
-  if (manifest.options?.theme) applyTheme(manifest.options.theme);
-  if (manifest.assets?.fonts && manifest.assets.fonts.length) {
-    await applyFonts(manifest.assets.fonts);
-  }
+  /* Set up themes potentially later, fonts only for slides at the moment, need to
+    create applyFonts.js? Mostly just want the manifest to call the fonts for the slides */
+  // if (manifest.options?.theme) applyTheme(manifest.options.theme);
+  // if (manifest.assets?.fonts && manifest.assets.fonts.length) {
+  //   await applyFonts(manifest.assets.fonts);
+  // }
 
   // 3) Preload assets (non-blocking is fine; await if you want strict ordering)
   try {

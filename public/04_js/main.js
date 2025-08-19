@@ -2,7 +2,7 @@ import { setupGlobals } from './bootstrap.js';
 
 const page = document.documentElement.dataset.page; // "home", "projects", "resume"
 
-const shellMap = {
+const shellMap = {  // Have shell map called from data if pages > six.
   home:       () => import('./pages/home.shell.js'),
   projects:   () => import('./pages/projects.shell.js'),
   resume:     () => import('./pages/resume.shell.js'),
@@ -19,12 +19,11 @@ const shellMap = {
     return;
   }
 
-
   const mod = await loadShell();
   if (typeof mod.startPage !== 'function') {  // Error check if shell can start its program
     console.error(`[main] "${page}.shell.js" missing startPage() export`);
     return;
   }
 
-  await mod.startPage(); // shell loads manifest + calls engine
+  await mod.startPage({pageKey: page}); // shell loads manifest + calls engine
 })();

@@ -7,9 +7,9 @@ import { bootstrap } from '../engine/bootstrap.js';
  * Called by main.js after it lazy-imports this shell.
  * Keeps page-specific logic here (if any), but right now it just boots.
  */
-export async function startPage() {
+export async function startPage({ pageKey }) {
   await bootstrap({
-    pageKey: 'shapeMemoryAlloy', // must match manifest.key
-    rootSelector: '#app',        // change only if your page uses a different root
+    pageKey,
+    rootSelector: 'main', // change only if your page uses a different root
   });
 }

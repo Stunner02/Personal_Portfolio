@@ -1,4 +1,3 @@
-// Any JS module – use whatever field names feel clear to you.
 export const slides = [
   {
     id: 'cover',
@@ -7,7 +6,7 @@ export const slides = [
       addEl( 0, 0, 'h1', 'arial', 'My Portfolio'),
       addEl( 60, 240, 'p', 'inter', 'Mechanical Engineer · FEA · Robotics')
     ]
-    // ,audio: '/audio/intro.mp3'
+    // Add later: audio: '/audio/intro.mp3'
   },
   {
     id: 'resume-highlight',
@@ -18,7 +17,6 @@ export const slides = [
          <li>Rapid bingus prototyping</li>
          <li>Using · Chat · GPT</li>` )
     ]
-    // no audio – fine to omit
   }
 ];
 
