@@ -14,13 +14,14 @@ const _preloaded = new Set(); // avoid double work across calls
  * - Adds <link rel="preconnect"> for new origins (optional)
  * - Uses appropriate strategy per type (image/font/css/js)
  *
+ * preloadAssets parameters:
  * @param {string[]} urls
  * @param {{
  *   throwOnError?: boolean,     // if true, reject on first failure
  *   base?: string,              // resolve relative URLs against this
  *   preconnect?: boolean,       // add <link rel="preconnect"> to new origins
  *   crossorigin?: 'anonymous'|'use-credentials'|undefined // for cross-origin fonts
- * }} [opts]
+ *                }}[opts] 
  * @returns {Promise<void>}
  */
 export function preloadAssets(urls = [], opts = {}) {
@@ -31,14 +32,17 @@ export function preloadAssets(urls = [], opts = {}) {
     crossorigin = 'anonymous',
   } = opts;
 
+  // 1) Resolve duplicated links. Return asset links with no dupes to absolute for clean list
   const absolute = dedupeResolve(urls, base);
   if (absolute.length === 0) return Promise.resolve();
 
+  // 2) Add
   if (preconnect) addPreconnects(absolute);
 
   const tasks = absolute.map(url => {
     const ext = extname(url);
 
+    // If the ext name matches, return appropriate preload method
     if (IMAGE_EXTS.has(ext)) return preloadImage(url);
     if (FONT_EXTS.has(ext))  return preloadFont(url, { crossorigin });
     if (CSS_EXTS.has(ext))   return preloadStyle(url);
@@ -53,6 +57,7 @@ export function preloadAssets(urls = [], opts = {}) {
 
 // ---------- helpers (hoisted as declarations) ----------
 
+// Check if url has duplicates
 function dedupeResolve(urls, base) {
   const out = [];
   for (const raw of urls) {
@@ -65,14 +70,16 @@ function dedupeResolve(urls, base) {
   return out;
 }
 
+// Return the extension name 
 function extname(url) {
   try {
     const { pathname } = new URL(url, document.baseURI || location.href);
-    const last = pathname.split('/').pop() || '';
-    const dot  = last.lastIndexOf('.');
-    return dot >= 0 ? last.slice(dot + 1).toLowerCase() : '';
+    const last = pathname.split('/').pop() || ''; // split url into an array, remove + return last one.
+    const dot  = last.lastIndexOf('.');           // lastindexof() helps find the dot position in the extension
+    // ? : is shorthand if else statement. If dot is > 0, run this : else run this
+    return dot >= 0 ? last.slice(dot + 1).toLowerCase() : ''; // Return ext name here or ''
   } catch {
-    return '';
+    return '';  // Invalid extension -> return empty string
   }
 }
 
@@ -81,6 +88,7 @@ function addPreconnects(urls) {
     urls.map(u => new URL(u).origin).filter(o => o !== location.origin)
   );
   for (const origin of origins) {
+    // If the link isn't created, create the link for preconnection
     if (!document.head.querySelector(`link[rel="preconnect"][href="${origin}"]`)) {
       const link = document.createElement('link');
       link.rel = 'preconnect';

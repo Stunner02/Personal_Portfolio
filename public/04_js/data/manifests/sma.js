@@ -7,11 +7,13 @@ export default {
     title: 'Shape Memory Alloy page',
     description: 'Page describing my shape memory alloy (or sma) college capstone project',
     canonical: '/sma.html',
-    favicon: '/assets/icons/sma.ico',       // Set up flavicon later.
-    // ogImage: '/assets/sma/og-preview.png'
+    // favicon: '/assets/icons/sma.ico',       // Set up flavicon later.
   },
-  // Options: theme(prob not necesary), reveal, threejs
-  options: { theme: 'dark', reveal: false }, // flip reveal true to test later
+
+  // Options: is for page-level switches that affect boot order. 
+  // Three.js only paints to its canvas, not entire page
+  // Theme: themeName can be added later in options
+  options: { reveal: true },
 
   assets: {
     images: ['/assets/sma/hero.jpg', '/assets/sma/micrograph.png'],
@@ -28,6 +30,8 @@ export default {
         theme: 'sma',
       }
     },
-    { component: 'footer' }
+    { component: 'three.js',
+      props: { }
+     }
   ],
 };

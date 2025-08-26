@@ -1,12 +1,16 @@
-import { setupGlobals } from './bootstrap.js';
+import { setupGlobals } from '../04_js/engine/bootstrap.js';
 
-const page = document.documentElement.dataset.page; // "home", "projects", "resume"
+const page = (
+  document.body?.dataset.page ||
+  document.documentElement.dataset.page ||
+  ''
+).trim().toLowerCase();
 
 const shellMap = {  // Have shell map called from data if pages > six.
-  home:       () => import('./pages/home.shell.js'),
-  projects:   () => import('./pages/projects.shell.js'),
-  resume:     () => import('./pages/resume.shell.js'),
-  sma:        () => import('./pages/sma.shell.js')
+  // home:       () => import('../04_js/pages/home.shell.js'),
+  // projects:   () => import('../04_js/pages/projects.shell.js'),
+  // resume:     () => import('../04_js/pages/resume.shell.js'),
+  sma:        () => import('../04_js/pages/sma.shell.js')
 };
 
 (async () => {

@@ -1,5 +1,5 @@
 // src/engine/bootstrap.js
-import './registry.setup.js'; // ensure components/interactives are registered
+import './registry.js'; // ensure components/interactives are registered
 
 import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
