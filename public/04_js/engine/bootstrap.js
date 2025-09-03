@@ -1,10 +1,9 @@
-// src/engine/bootstrap.js
+// engine/bootstrap.js
 import './registry.js'; // ensure components/interactives are registered
 
 import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
 import { initInteractives } from './initInteractives.js';
-import { initRevealIfNeeded } from './revealSetup.js';
 // import { applyTheme, applyFonts } from './themeFonts.js';
 import { preloadAssets } from '../utils/preloadAssets.js';
 
@@ -30,7 +29,7 @@ function applyMeta(meta = {}) {
     }
     tag.setAttribute('content', content);
   };
-
+  //    upsert = update or insert
   const upsertLink = (rel, href) => {
     if (!href) return;
     let link = document.head.querySelector(`link[rel="${rel}"]`);
@@ -92,7 +91,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
 
   // 3) Preload assets (non-blocking is fine; await if you want strict ordering)
   try {
-    if (manifest.assets) preloadAssets(manifest.assets);
+    if (manifest.assets) preloadAssets(manifest.assets.images); // Fix: currently only loads images, sort out manifest 
   } catch (e) {
     console.warn('[bootstrap] preloadAssets warning:', e);
   }
@@ -105,8 +104,10 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   await initInteractives(root, manifest, context);
 
   // 6) Initialize Reveal decks if this page opted in
-  if (manifest.options?.reveal) {
-    await initRevealIfNeeded(root);
+  const hasSlides = manifest.blocks.some(b => b?.component === 'slide');
+  if (hasSlides) {
+    const { initSlides } = await import('./revealSetup.js');
+    await initSlides(root);
   }
 
   return { manifest, root };

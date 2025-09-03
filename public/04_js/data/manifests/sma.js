@@ -16,22 +16,19 @@ export default {
   options: { reveal: true },
 
   assets: {
-    images: ['/assets/sma/hero.jpg', '/assets/sma/micrograph.png'],
+    images: ['../01_images/ShapeMemoryPic_1.png', '../01_images/SMA_thickness_almost open.jpg'],
     fonts:  [{ family: 'Inter', weights: [400, 700] }],
   },
   blocks: [
     {
       component: 'slide',
-      props: {  
+      props: {  // props = properties
         slideId: 'SMA',
-        display: 'embedded', // embedded, fullscreen
+        display: 'embedded',  // embedded, add other options later like: fullscreen,
         controls: true,
-        uniqueFonts: true,
-        theme: 'sma',
+        theme: 'sma'          // includes unique fonts
+        // preloadSlides: 3,  // maybe add it here later
       }
-    },
-    { component: 'three.js',
-      props: { }
-     }
+    }
   ],
 };

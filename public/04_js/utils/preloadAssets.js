@@ -6,7 +6,7 @@ const FONT_EXTS  = new Set(['woff2', 'woff']);
 const CSS_EXTS   = new Set(['css']);
 const JS_EXTS    = new Set(['js', 'mjs']);
 
-const _preloaded = new Set(); // avoid double work across calls
+const _preloaded = new Set(); // Stashes already loaded exts. Avoid double work across calls
 
 /**
  * Preload or warm the cache for a list of URLs.
@@ -25,6 +25,7 @@ const _preloaded = new Set(); // avoid double work across calls
  * @returns {Promise<void>}
  */
 export function preloadAssets(urls = [], opts = {}) {
+  // 0) Default options below, pass the opts object with different values for varieties 
   const {
     throwOnError = false,
     base = document.baseURI || location.href,
@@ -32,7 +33,7 @@ export function preloadAssets(urls = [], opts = {}) {
     crossorigin = 'anonymous',
   } = opts;
 
-  // 1) Resolve duplicated links. Return asset links with no dupes to absolute for clean list
+  // 1) Resolve duplicated links. Return asset links with no dupes to absolute in an array
   const absolute = dedupeResolve(urls, base);
   if (absolute.length === 0) return Promise.resolve();
 
@@ -59,15 +60,15 @@ export function preloadAssets(urls = [], opts = {}) {
 
 // Check if url has duplicates
 function dedupeResolve(urls, base) {
-  const out = [];
+  const out = [];                         // 0) Set up returned 'out' array.
   for (const raw of urls) {
-    if (!raw) continue;
-    const href = new URL(raw, base).href;
-    if (_preloaded.has(href)) continue;
-    _preloaded.add(href);
-    out.push(href);
+    if (!raw) continue;                         // Error check 1) Null or bad url, skip
+    const href = new URL(raw, base).href; // 1) create href for url
+    if (_preloaded.has(href)) continue;         // Error check 2) created url matches one already in _preloaded --> skip
+    _preloaded.add(href);                 // 2) add href to _preloaded
+    out.push(href);                       // 3) add new href to out
   }
-  return out;
+  return out;                             // 4) return 'out' array once all urls are checked
 }
 
 // Return the extension name 
@@ -83,21 +84,28 @@ function extname(url) {
   }
 }
 
+// Add preconnect to each unique origin, ignore our website origin 
 function addPreconnects(urls) {
+
+  // 1) Create origins set, strip everything but the origin, filter out our origin 
   const origins = new Set(
-    urls.map(u => new URL(u).origin).filter(o => o !== location.origin)
-  );
+    urls
+      .map(u => new URL(u).origin)
+      .filter(o => o !== location.origin)
+  );  // new URL("https://fonts.gstatic.com/s/inter…").origin → "https://fonts.gstatic.com"
+
+  // 2) For each origin, add a preconnect and a dns-prefetch as a fallback
   for (const origin of origins) {
-    // If the link isn't created, create the link for preconnection
-    if (!document.head.querySelector(`link[rel="preconnect"][href="${origin}"]`)) {
+    // Warms DNS + TCP + TLS
+    if (!document.head.querySelector(`link[rel~="preconnect"][href^="${origin}"]`)) {
       const link = document.createElement('link');
       link.rel = 'preconnect';
       link.href = origin;
       link.crossOrigin = 'anonymous';
       document.head.appendChild(link);
     }
-    // Light-weight DNS hint (safe redundancy)
-    if (!document.head.querySelector(`link[rel="dns-prefetch"][href="${origin}"]`)) {
+    // Cheap DNS warmup as a fallback - Light-weight DNS hint (safe redundancy)
+    if (!document.head.querySelector(`link[rel~="dns-prefetch"][href^="${origin}"]`)) {
       const dns = document.createElement('link');
       dns.rel = 'dns-prefetch';
       dns.href = origin;
