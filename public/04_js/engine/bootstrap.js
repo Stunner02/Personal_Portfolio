@@ -82,13 +82,15 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
 
   // 2) Head/meta + theme/fonts (page-wide cosmetics)
   if (manifest.meta) applyMeta(manifest.meta);
-  /* Set up themes potentially later, fonts only for slides at the moment, need to
-    create applyFonts.js? Mostly just want the manifest to call the fonts for the slides */
-  // if (manifest.options?.theme) applyTheme(manifest.options.theme);
-  // if (manifest.assets?.fonts && manifest.assets.fonts.length) {
-  //   await applyFonts(manifest.assets.fonts);
-  // }
 
+  // Set up themes potentially later, fonts only for slides at the moment, need to
+  // create applyFonts.js? Mostly just want the manifest to call the fonts for the slides */
+  /*
+    if (manifest.options?.theme) applyTheme(manifest.options.theme);
+    if (manifest.assets?.fonts && manifest.assets.fonts.length) {
+      await applyFonts(manifest.assets.fonts);
+    }
+  */
   // 3) Preload assets (non-blocking is fine; await if you want strict ordering)
   try {
     if (manifest.assets) preloadAssets(manifest.assets.images); // Fix: currently only loads images, sort out manifest 

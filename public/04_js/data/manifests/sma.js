@@ -32,3 +32,33 @@ export default {
     }
   ],
 };
+
+// Example with children: 
+/*
+const manifest = {
+  blocks: [
+    {
+      component: 'Grid',
+      mount: '#projects',         // parent mounts into a known spot on the page
+      props: { cols: 3, gap: '16px', className: 'projects-grid' },
+      children: [
+        { component: 'Card', props: {
+            title: 'Shape Memory Mechanism',
+            body: 'CubeSat deployment concept with SMA wires.',
+            href: '/projects/sma'
+        }},
+        { component: 'Card', props: {
+            title: 'Hyperloop Capstone',
+            body: 'Analysis & structures for pod chassis.',
+            href: '/projects/hyperloop'
+        }},
+        { component: 'Card', props: {
+            title: 'Blender City Model',
+            body: 'Procedural pipelines for large scenes.',
+            href: '/projects/blender-city'
+        }}
+      ]
+    }
+  ]
+};
+*/

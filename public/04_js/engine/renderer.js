@@ -1,5 +1,15 @@
+// engine/renderer.js
 import { getComponent } from './registry.js';
 import { qs, mount } from '../utils/dom.js';
+
+/**
+ * Block definition.
+ * @typedef {object} Block
+ * @property {string} component
+ * @property {string} [mount]           // CSS selector like "#target"
+ * @property {object} [props]           // Properties of a component
+ * @property {Array<Block>} [children]  // Block can contain more Blocks. Ex: grid with sub components
+ */
 
 /**
  * Render a block tree
@@ -8,11 +18,17 @@ import { qs, mount } from '../utils/dom.js';
  * @param {object} context - shared bag: { pageKey, registry, assets, bus }
  */
 
+// render each block.component from manifest.
+export function render(manifest, root, context) {   // Context is a bundle of page info. 
+  for (const block of manifest.blocks) renderBlock(block, root, context);
+}
+
 function renderBlock(block, defaultRoot, context) {
-  const Component = getComponent(block.component);
-  const node = Component(block.props || {}, context);       // ← PURE DOM creation
-  const target = block.mount ? qs(block.mount) : defaultRoot;
-  if (!target) throw new Error(`Mount target not found: ${block.mount || '(root)'}`);
+  const Component = getComponent(block.component);            // From ./registry.js
+  const node = Component(block.props || {}, context);         // Pass block props + context to component
+  const target = block.mount ? qs(block.mount) : defaultRoot; // If block.mount exists, apply qs function to it, or return default root
+  if (!target)                                                // Throw error if target !exist
+    throw new Error(`Mount target not found: ${block.mount || '(root)'}`);
   mount(node, target);
 
   // Recurse into children, using current node as default root unless mount overrides
@@ -20,8 +36,4 @@ function renderBlock(block, defaultRoot, context) {
     renderBlock(child, node, context);
   }
   return node;
-}
-
-export function render(manifest, root, context) {
-  for (const block of manifest.blocks) renderBlock(block, root, context);
 }
