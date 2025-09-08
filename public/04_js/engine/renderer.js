@@ -23,6 +23,7 @@ export function render(manifest, root, context) {   // Context is a bundle of pa
   for (const block of manifest.blocks) renderBlock(block, root, context);
 }
 
+// This is only for creating elements, not setting up interactives?
 function renderBlock(block, defaultRoot, context) {
   const Component = getComponent(block.component);            // From ./registry.js
   const node = Component(block.props || {}, context);         // Pass block props + context to component

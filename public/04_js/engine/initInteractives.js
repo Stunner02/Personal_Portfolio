@@ -14,12 +14,13 @@
 const _state = new WeakMap(); // el -> { name, mounted, unmount? }
 
 /**
- * @param {HTMLElement|Document} root
  * @param {object} manifest
+ * @param {HTMLElement|Document} root
  * @param {object} context - { registry?, pageKey?, bus? ... }
  */
-export async function initInteractives(root = document, manifest = {}, context = {}) {
-  const targets = Array.from(root.querySelectorAll('[data-interactive]'));
+export async function initInteractives(manifest = {}, root = document, context = {}) {
+  // 1) Locate all hydrate targets
+  const targets = Array.from(root.querySelectorAll('[data-interactive]')); 
   if (targets.length === 0) return;
 
   // Prefer lazy hydrate; allow opt-out per element.
@@ -28,9 +29,10 @@ export async function initInteractives(root = document, manifest = {}, context =
     ? new IntersectionObserver(onIntersect, { rootMargin: '200px 0px', threshold: 0.01 })
     : null;
 
+  // 2) 
   for (const el of targets) {
-    const name = (el.dataset.interactive || '').trim();
-    if (!name) continue;
+    const name = (el.dataset.interactive || '').trim(); // Trim removes whitespace from name
+    if (!name) continue;                                // If name isn't readable, skip
 
     // Gather props: prefer data-props JSON, otherwise all other data-* fields.
     const props = readProps(el);

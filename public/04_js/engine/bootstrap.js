@@ -103,7 +103,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   render(manifest, root, context);
 
   // 5) Hydrate interactives
-  await initInteractives(root, manifest, context);
+  await initInteractives(manifest, root, context);
 
   // 6) Initialize Reveal decks if this page opted in
   const hasSlides = manifest.blocks.some(b => b?.component === 'slide');
