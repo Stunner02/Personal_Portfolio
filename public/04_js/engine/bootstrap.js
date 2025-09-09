@@ -1,11 +1,12 @@
 // engine/bootstrap.js
-import './registry.js'; // ensure components/interactives are registered
-
+import { setupRegistry } from './registry.setup.js'; // ensure components/interactives are registered
 import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
 import { initInteractives } from './initInteractives.js';
 // import { applyTheme, applyFonts } from './themeFonts.js';
 import { preloadAssets } from '../utils/preloadAssets.js';
+
+
 
 // setupGlobals is empty - setup for later
 export async function setupGlobals() {
@@ -74,6 +75,9 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   const root = document.querySelector(rootSelector);
   if (!root) throw new Error(`[bootstrap] Root not found: ${rootSelector}`);
 
+  // 0) Registry must be ready before components/interactives are used
+  setupRegistry(); 
+
   // 1) Load manifest (data only)
   const manifest = await loadManifest(pageKey);
   if (!manifest || !manifest.blocks) {
@@ -105,9 +109,9 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   // 5) Hydrate interactives
   await initInteractives(manifest, root, context);
 
-  // 6) Initialize Reveal decks if this page opted in
+  // 6) This should be in interactives ^^^
   const hasSlides = manifest.blocks.some(b => b?.component === 'slide');
-  if (hasSlides) {
+  if (hasSlides) {  // Initialize Reveal decks if this page opted in
     const { initSlides } = await import('./revealSetup.js');
     await initSlides(root);
   }

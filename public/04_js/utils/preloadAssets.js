@@ -37,7 +37,7 @@ export function preloadAssets(urls = [], opts = {}) {
   const absolute = dedupeResolve(urls, base);
   if (absolute.length === 0) return Promise.resolve();
 
-  // 2) Add
+  // 2) Add preconnects
   if (preconnect) addPreconnects(absolute);
 
   const tasks = absolute.map(url => {

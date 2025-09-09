@@ -150,6 +150,8 @@ This allows the renderer.js to selectively initialize components and preload ass
 
 main → bootloader → shell → manifest → engine.
 
+engine → preload → DOM components → Hydrate
+
 - Import: what,
 - Setup (Pre-Render): what/where,
 - Render: first paint (structure/content only),

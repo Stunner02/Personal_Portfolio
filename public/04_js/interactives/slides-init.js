@@ -12,7 +12,7 @@ Html:
 */
 
 import Reveal from 'reveal.js'; // Gives us: Reveal(htmlElement, {options})
-import { FONT_STACKS } from './tokens/fonts.js';
+import { FONT_STACKS } from '../tokens/fonts.js';
 
 /* 1) Each <div class="reveal">…</div> runs its own startDeck() */
 document.querySelectorAll('.reveal').forEach(startDeck);

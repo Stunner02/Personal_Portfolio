@@ -1,4 +1,4 @@
-// Page shell for the Shape Memory Alloy page.
+// Page shell for the Projects page.
 // Purpose: start the engine with the manifest whose key matches this page.
 
 import { bootstrap } from '../../04_js/engine/bootstrap.js';
