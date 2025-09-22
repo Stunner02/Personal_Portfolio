@@ -3,7 +3,7 @@ import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { Box3, Vector3 } from 'three';
 
 /* 0 · Grab the div you already have in projects/index.html */
-const container = document.getElementById('fish-container'); 
+const container = document.getElementById('fish-container'); // This might be good for first render - component
 
 /* 1 · Scene setup */
 const scene  = new THREE.Scene();

@@ -23,11 +23,14 @@ export default {
     {
       component: 'projectsTile',
       props: {  // props = properties
+        elData: 'projects.js'
       }
     },
     {
       component: 'fish', // Prob should be 3js, with fish as props, ect.
-      props: { }
+      props: { 
+        // asset: BarramundiFish.glb
+      }
     }
   ],
 };

@@ -76,7 +76,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   if (!root) throw new Error(`[bootstrap] Root not found: ${rootSelector}`);
 
   // 0) Registry must be ready before components/interactives are used
-  setupRegistry(); 
+  setupRegistry(); // Add - If the page has its own registry, use the pageKey to find it.
 
   // 1) Load manifest (data only)
   const manifest = await loadManifest(pageKey);
@@ -101,6 +101,9 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   } catch (e) {
     console.warn('[bootstrap] preloadAssets warning:', e);
   }
+
+  // 3.1) DATA — await so components have what they need
+  const dataBag = await preloadData(manifest.blocks);
 
   // 4) Render static DOM via components
   const context = { pageKey, options: manifest.options, manifest };
