@@ -4,8 +4,8 @@ import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
 import { initInteractives } from './initInteractives.js';
 // import { applyTheme, applyFonts } from './themeFonts.js';
+import { preloadData } from './preloadData.js';
 import { preloadAssets } from '../utils/preloadAssets.js';
-
 
 
 // setupGlobals is empty - setup for later
@@ -75,14 +75,17 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   const root = document.querySelector(rootSelector);
   if (!root) throw new Error(`[bootstrap] Root not found: ${rootSelector}`);
 
-  // 0) Registry must be ready before components/interactives are used
-  setupRegistry(); // Add - If the page has its own registry, use the pageKey to find it.
-
-  // 1) Load manifest (data only)
+  // 0) Load manifest (data only)
   const manifest = await loadManifest(pageKey);
   if (!manifest || !manifest.blocks) {
     throw new Error(`[bootstrap] Invalid manifest for "${pageKey}"`);
   }
+
+  //0.1 Load Data
+  preloadData(manifest);
+
+  // 1) Registry must be ready before components/interactives are used
+  setupRegistry();
 
   // 2) Head/meta + theme/fonts (page-wide cosmetics)
   if (manifest.meta) applyMeta(manifest.meta);
@@ -95,6 +98,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
       await applyFonts(manifest.assets.fonts);
     }
   */
+
   // 3) Preload assets (non-blocking is fine; await if you want strict ordering)
   try {
     if (manifest.assets) preloadAssets(manifest.assets.images); // Fix: currently only loads images, sort out manifest 
@@ -102,10 +106,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
     console.warn('[bootstrap] preloadAssets warning:', e);
   }
 
-  // 3.1) DATA — await so components have what they need
-  const dataBag = await preloadData(manifest.blocks);
-
-  // 4) Render static DOM via components
+  // 4) Render static DOM via components - first paint
   const context = { pageKey, options: manifest.options, manifest };
   render(manifest, root, context);
 

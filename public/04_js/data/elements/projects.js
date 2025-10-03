@@ -1,4 +1,4 @@
-const projects = [
+export const projects = [
   {
   name: "Shape Memory Alloy",
   alt: "Shape Memory Alloy",

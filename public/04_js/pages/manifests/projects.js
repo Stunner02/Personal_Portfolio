@@ -23,7 +23,8 @@ export default {
     {
       component: 'projectsTile',
       props: {  // props = properties
-        elData: 'projects.js'
+        elData: 'projects'
+      //inData // Interactive data
       }
     },
     {

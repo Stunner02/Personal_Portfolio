@@ -1,6 +1,10 @@
+
+export default function projectsTile(dataBag = {}) 
+{  
+const items = dataBag.projects ?? dataBag['projects'] ?? [];
 const container = document.getElementById("main3Projects");
 
-projects.forEach(p => {
+items.forEach(p => {
   const article = document.createElement("article");
   article.classList.add("project-tile");
   
@@ -22,8 +26,7 @@ projects.forEach(p => {
 
   container.appendChild(article);
 });
-
-
+}
 /* 
 <section class="container" id="main3Projects">
   <article class="project-tile">

@@ -5,10 +5,11 @@ const page = (
   document.documentElement.dataset.page ||
   ''
 ).trim().toLowerCase();
+console.log(page);
 
 const shellMap = {  // Have shell map called from data if pages > six.
   // home:       () => import('../04_js/pages/home.shell.js'),
-  // projects:   () => import('../04_js/pages/projects.shell.js'),
+  projects:   () => import('../04_js/pages/projects.shell.js'),
   // resume:     () => import('../04_js/pages/resume.shell.js'),
   sma:        () => import('../04_js/pages/sma.shell.js')
 };
