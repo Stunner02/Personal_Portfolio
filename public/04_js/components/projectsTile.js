@@ -1,32 +1,38 @@
+// components/projectTile.js
 
-export default function projectsTile(dataBag = {}) 
-{  
-const items = dataBag.projects ?? dataBag['projects'] ?? [];
-const container = document.getElementById("main3Projects");
-
-items.forEach(p => {
-  const article = document.createElement("article");
-  article.classList.add("project-tile");
-  
-  article.innerHTML = `
-    <div class="card_media">
-      <img src="${p.media}" alt="${p.alt}">
-    </div>
-    <div class="card_description">
-      <a ${p.projectPageLink}>${p.name}</a>
-      <p>${p.description}</p>
-      <ul>
-        ${p.smallDetails
-           .map(detail => `<li>${detail}</li>`) // -> ["<li>element1</li>", …]
-           .join("")                            // -> "<li>element1</li><li>element2</li>…"
-        }
-      </ul>
-    </div>
-  `;
-
-  container.appendChild(article);
-});
+// /04_js/components/projectsTile.js
+function hrefFrom(link) {
+  if (!link) return '#';
+  const m = String(link).match(/href\s*=\s*['"]?([^'">]+)['"]?/i);
+  return m ? m[1] : String(link); // supports "href='/path/'" or plain "/path/"
 }
+
+export default function projectsTile(props = {}) {
+  const items = Array.isArray(props.items) ? props.items : [];
+
+  const nodes = items.map(p => {
+    const article = document.createElement('article');
+    article.className = 'project-tile';
+    article.innerHTML = `
+      <div class="card_media">
+        <img src="${p.media}" alt="${p.alt || p.name || ''}">
+      </div>
+      <div class="card_description">
+        <a href="${hrefFrom(p.projectPageLink)}">${p.name}</a>
+        <p>${p.description || ''}</p>
+        ${
+          Array.isArray(p.smallDetails) && p.smallDetails.length
+            ? `<ul>${p.smallDetails.map(d => `<li>${d}</li>`).join('')}</ul>`
+            : ''
+        }
+      </div>
+    `;
+    return article;
+  });
+
+  return nodes; // renderer mounts into '#main3Projects'
+}
+
 /* 
 <section class="container" id="main3Projects">
   <article class="project-tile">

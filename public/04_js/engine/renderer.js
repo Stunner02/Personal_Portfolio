@@ -26,7 +26,14 @@ export function render(manifest, root, context) {   // Context is a bundle of pa
 // This is only for creating DOM elements, not setting up interactives.
 function renderBlock(block, defaultRoot, context) {
   const Component = getComponent(block.component);            // From ./registry.js
-  const node = Component(block.props || {}, context);         // Pass block props + context to component
+  
+  const props = { ...(block.props || {}) };
+  if (props.elData && context?.data) {
+    props.items = Array.isArray(context.data[props.elData])
+      ? context.data[props.elData]
+      : []; // safe empty default
+  }
+  const node = Component(props, context);         // Pass block props + context to component
   const target = block.mount ? qs(block.mount) : defaultRoot; // If block.mount exists, apply qs function to it, or return default root
   if (!target)                                                // Throw error if target !exist
     throw new Error(`Mount target not found: ${block.mount || '(root)'}`);

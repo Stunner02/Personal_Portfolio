@@ -82,7 +82,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   }
 
   //0.1 Load Data
-  preloadData(manifest);
+  const dataBag = await preloadData(manifest)
 
   // 1) Registry must be ready before components/interactives are used
   setupRegistry();
@@ -107,7 +107,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   }
 
   // 4) Render static DOM via components - first paint
-  const context = { pageKey, options: manifest.options, manifest };
+  const context = { pageKey, options: manifest.options, manifest, data: dataBag };
   render(manifest, root, context);
 
   // 5) Hydrate interactives

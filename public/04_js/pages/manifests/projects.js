@@ -22,17 +22,19 @@ export default {
   blocks: [
     {
       component: 'projectsTile',
+      mount: '#main3Projects',
       props: {  // props = properties
         elData: 'projects'
       //inData // Interactive data
       }
-    },
-    {
-      component: 'fish', // Prob should be 3js, with fish as props, ect.
-      props: { 
-        // asset: BarramundiFish.glb
-      }
     }
+
+    // {
+    //   component: 'fish', // Prob should be 3js, with fish as props, ect.
+    //   props: { 
+    //     // asset: BarramundiFish.glb
+    //   }
+    // }
   ],
 };
 
