@@ -27,14 +27,15 @@ export default {
         elData: 'projects'
       //inData // Interactive data
       }
+    },
+    {
+      interactive: 'fish', // interactive: name is good here.
+      mount: '#fish-container',
+      props: { 
+        asset: '/assets/3d/fish/BarramundiFish.glb'
+        // preload: controls or static image
+      }
     }
-
-    // {
-    //   component: 'fish', // Prob should be 3js, with fish as props, ect.
-    //   props: { 
-    //     // asset: BarramundiFish.glb
-    //   }
-    // }
   ],
 };
 

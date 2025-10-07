@@ -1,4 +1,4 @@
-// slides-init.js 
+// revealSetup.js 
 /* Notes 
 Note:    document.querySelectorAll('.reveal').forEach(startDeck);
 Same as: document.querySelectorAll('.reveal').forEach((el, i, list) => startDeck(el)); 
@@ -11,11 +11,26 @@ Html:
 </section> 
 */
 
+// Notes for calling this js file with bootstrap.js
+/* Need function for calling: initRevealIfNeeded(root);
+- function needs to use root?
+- Manifest has properties for each slide it passes: 
+- props list: 
+        slideId: 'SMA',       // Match to dataset.slideset key,
+        display: 'embedded',  // Nothing for now, gets passed to buildDeck = new Reveal(RevealDiv, {embed: ,ect:})
+        controls: true,       // Keep true for now, 
+        theme: 'sma'          // I suppose fonts get called by the theme? maybe set this up for ease in future
+        // preloadSlides: 3   // preloading a certain amount of slides is good, variable control from testing load time
+*/
+
+
 import Reveal from 'reveal.js'; // Gives us: Reveal(htmlElement, {options})
-import { FONT_STACKS } from '../tokens/fonts.js';
+import { FONT_STACKS } from '../../tokens/fonts';
 
 /* 1) Each <div class="reveal">…</div> runs its own startDeck() */
-document.querySelectorAll('.reveal').forEach(startDeck);
+export async function initSlides(root = document) {
+  root.querySelectorAll('.reveal').forEach(startDeck);
+}
   
 async function startDeck(revealDiv) {
 /* 2) Find the correct slideset for the div */

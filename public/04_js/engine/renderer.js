@@ -1,5 +1,5 @@
 // engine/renderer.js
-import { getComponent } from './registry.js';
+import { getComponent , getInteractive } from './registry.js';
 import { qs, mount } from '../utils/dom.js';
 
 /**
@@ -19,29 +19,49 @@ import { qs, mount } from '../utils/dom.js';
  */
 
 // render each block.component from manifest.
-export function render(manifest, root, context) {   // Context is a bundle of page info. 
-  for (const block of manifest.blocks) renderBlock(block, root, context);
+export async function render(manifest, root, context) {
+  for (const block of manifest.blocks) {
+    await renderBlock(block, root, context);
+  }
 }
 
 // This is only for creating DOM elements, not setting up interactives.
-function renderBlock(block, defaultRoot, context) {
-  const Component = getComponent(block.component);            // From ./registry.js
-  
+async function renderBlock(block, defaultRoot, context) {
+  const target = block.mount ? qs(block.mount) : defaultRoot;
+  if (!target) throw new Error(`Mount target not found: ${block.mount || '(root)'}`);
+
+  // Interactive route
+  if (block.interactive) {
+
+    // Tag the existing element so the hydrator can find and mount later
+    target.dataset.interactive = block.interactive;
+    if (block.props) target.dataset.props = JSON.stringify(block.props);
+
+    // Optional readiness flag to gate hydration (your preload will flip this)
+    if (block.props?.hydrationReady === true) {
+      target.dataset.hydrationReady = 'true';
+    } else if (!target.dataset.hydrationReady) {
+      target.dataset.hydrationReady = 'false';
+    }
+
+    // Render any children into this same target (optional)
+    for (const child of (block.children || [])) {
+      await renderBlock(child, target, context);
+    }
+    return target;
+  }
+
+  // Component route
+  const Component = getComponent(block.component);
   const props = { ...(block.props || {}) };
   if (props.elData && context?.data) {
-    props.items = Array.isArray(context.data[props.elData])
-      ? context.data[props.elData]
-      : []; // safe empty default
+    props.items = Array.isArray(context.data[props.elData]) ? context.data[props.elData] : [];
   }
-  const node = Component(props, context);         // Pass block props + context to component
-  const target = block.mount ? qs(block.mount) : defaultRoot; // If block.mount exists, apply qs function to it, or return default root
-  if (!target)                                                // Throw error if target !exist
-    throw new Error(`Mount target not found: ${block.mount || '(root)'}`);
+  const node = Component(props, context);
   mount(node, target);
 
-  // Recurse into children, using current node as default root unless mount overrides
   for (const child of (block.children || [])) {
-    renderBlock(child, node, context);
+    await renderBlock(child, node, context);
   }
   return node;
 }

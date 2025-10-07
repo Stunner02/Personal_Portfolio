@@ -116,7 +116,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   // 6) This should be in interactives ^^^
   const hasSlides = manifest.blocks.some(b => b?.component === 'slide');
   if (hasSlides) {  // Initialize Reveal decks if this page opted in
-    const { initSlides } = await import('./revealSetup.js');
+    const { initSlides } = await import('./reveal/revealSetup.js');
     await initSlides(root);
   }
 

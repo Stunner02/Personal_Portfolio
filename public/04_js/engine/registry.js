@@ -11,7 +11,7 @@ const databag     = new Map();            // name -> value
 
 
 /* ----- Component get/register ------ */
-export function registerComponent(name, factory) {
+export function registerComponent(name, factory) { 
   components.set(name, factory);
 }
 

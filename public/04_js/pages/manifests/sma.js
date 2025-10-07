@@ -22,6 +22,7 @@ export default {
   blocks: [
     {
       component: 'slide',
+      // mount: ? 
       props: {  // props = properties
         slideId: 'SMA',
         display: 'embedded',  // embedded, add other options later like: fullscreen,
