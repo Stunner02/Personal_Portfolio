@@ -26,7 +26,7 @@ export async function loadDataBag(keys = []) {
   return Object.fromEntries(entries); // { projects: [...] , ... }
 }
 
-
+// Find keys in manifest: element Data, interactive Data
 export function collectDatasetKeys(manifest) {
   const need = new Set();
   for (const block of manifest.blocks || []) {

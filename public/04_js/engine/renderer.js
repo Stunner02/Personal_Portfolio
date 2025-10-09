@@ -32,6 +32,14 @@ async function renderBlock(block, defaultRoot, context) {
 
   // Interactive route
   if (block.interactive) {
+    // Renderer sets up first pass of interactives, and labels them hydration ready!
+    // The initInteractive function then searches for the labels ready to be hydrated 
+    // after first pass and fully initiates them
+    /* 1. block.interactive: match interactive name with file pathway - is this done in registry? 
+          A. Yes, reg does this.
+       2. run the first pass part of the interactive, each one should have their own optimized method
+       3. Label the interactive as hydrationReady! for initInteractive.js
+    */
 
     // Tag the existing element so the hydrator can find and mount later
     target.dataset.interactive = block.interactive;

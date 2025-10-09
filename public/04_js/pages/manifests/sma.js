@@ -1,4 +1,8 @@
 export default {
+  // Options: is for page-level switches that affect boot order. 
+  // Three.js only paints to its canvas, not entire page
+  // Theme: themeName can be added later in options
+  options: { reveal: true },
   key: 'shapeMemoryAlloy',
   root: '', // If needed, add manifest override in boostrap, ex: 'body', '#app', '[data-root]'
 
