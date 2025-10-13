@@ -2,7 +2,9 @@
 import { setupRegistry } from './registry.setup.js'; // ensure components/interactives are registered
 import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
-import { initInteractives } from './initInteractives.js';
+import { qs } from '../utils/dom.js';
+import Hydrator from './hydrator.js';
+// import { initInteractives } from './initInteractives.js';
 // import { applyTheme, applyFonts } from './themeFonts.js';
 import { preloadData } from './preloadData.js';
 import { preloadAssets } from '../utils/preloadAssets.js';
@@ -71,7 +73,8 @@ function applyMeta(meta = {}) {
  */
 
 export async function bootstrap({ pageKey, rootSelector = 'main' }) {
-  // Setting a root element limits the query scope of the components to improve error rate
+
+  // Limiting doc scope with root - reduces error/search speed 
   const root = document.querySelector(rootSelector);
   if (!root) throw new Error(`[bootstrap] Root not found: ${rootSelector}`);
 
@@ -81,7 +84,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
     throw new Error(`[bootstrap] Invalid manifest for "${pageKey}"`);
   }
 
-  //0.1 Load Data
+  // 0.1 Load Data
   const dataBag = await preloadData(manifest)
 
   // 1) Registry must be ready before components/interactives are used
@@ -90,7 +93,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   // 2) Head/meta + theme/fonts (page-wide cosmetics)
   if (manifest.meta) applyMeta(manifest.meta);
 
-  // 2.5) Set up themes potentially later
+  // Set up page themes potentially later
 
   // 3) Preload assets (non-blocking is fine; await if you want strict ordering)
   try {
@@ -99,19 +102,14 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
     console.warn('[bootstrap] preloadAssets warning:', e);
   }
 
-  // 4) Render static DOM via components - first paint
+  // Context - provide components context - page name, options, manifest, databag
   const context = { pageKey, options: manifest.options, manifest, data: dataBag };
+
+  // 4) Render static DOM via components - first paint
   render(manifest, root, context);
 
-  // 5) Hydrate interactives
-  await initInteractives(manifest, root, context);
-
-  // 6) This should be in interactives ^^^
-  const hasSlides = manifest.blocks.some(b => b?.component === 'slide');
-  if (hasSlides) {  // Initialize Reveal decks if this page opted in
-    const { initSlides } = await import('./reveal/revealSetup.js');
-    await initSlides(root);
-  }
+  // 5) Hydrator
+  await hydrator(manifest, root, context); // Prepare(), First pass(), Full pass()
 
   return { manifest, root };
 }
