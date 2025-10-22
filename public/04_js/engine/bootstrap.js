@@ -3,7 +3,7 @@ import { setupRegistry } from './registry.setup.js'; // ensure components/intera
 import { loadManifest } from './findData.js';
 import { render } from './renderer.js';
 import { qs } from '../utils/dom.js';
-import Hydrator from './hydrator.js';
+import hydrator from './hydrator.js';
 // import { initInteractives } from './initInteractives.js';
 // import { applyTheme, applyFonts } from './themeFonts.js';
 import { preloadData } from './preloadData.js';
@@ -96,6 +96,7 @@ export async function bootstrap({ pageKey, rootSelector = 'main' }) {
   // Set up page themes potentially later
 
   // 3) Preload assets (non-blocking is fine; await if you want strict ordering)
+  // 3.1) Posters for interactives get preloadeded here. 
   try {
     if (manifest.assets) preloadAssets(manifest.assets.images); // Fix: currently only loads images, sort out manifest 
   } catch (e) {

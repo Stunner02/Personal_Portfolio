@@ -2,8 +2,8 @@
 //
 // Posters/placeholder HTML are already in the page for first paint.
 // This hydrator does, per interactive block:
-//   1) prepare()  — load slides object / heavy deps (Reveal) or GLB/HDR (Three)
-//   2) mountFirstPass() — fast upgrade (e.g., swap poster → first few slides / lite scene)
+//   1) prepare()         — load slides object / heavy deps (Reveal) or GLB/HDR (Three)
+//   2) mountFirstPass()  — fast upgrade (e.g., swap poster → first few slides / lite scene)
 //   3) mountSecondPass() — finish in the background (append remaining slides / full 3D)
 //
 // Notes:
@@ -15,9 +15,11 @@ import { qs } from '../utils/dom.js';
 import { getInteractive } from './registry.js';
 
 export default async function hydrator(manifest, root, context) {
+  // 1) Name interactives in the manifest
   const blocks = collectInteractiveBlocks(manifest.blocks);
 
-  // Run each interactive independently; prepare+first pass are awaited for "ASAP upgrade".
+  // 2) Run each interactive independently
+  // 3) prepare+first pass are awaited for "ASAP upgrade".
   await Promise.all(blocks.map(block => hydrateOne(block, root, context)));
 }
 

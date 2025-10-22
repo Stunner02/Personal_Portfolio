@@ -16,7 +16,9 @@ export default {
   options: { reveal: false },
 
   assets: {
-    images: ['../01_images/ShapeMemoryPic_1.png', '../01_images/SMA_thickness_almost open.jpg'],
+    images:  ['../01_images/ShapeMemoryPic_1.png', 
+              '../01_images/SMA_thickness_almost open.jpg',
+              '../01_images/slides_loading.jpg'],
     fonts:  [{ family: 'Inter', weights: [400, 700] }],
   },
   blocks: [
