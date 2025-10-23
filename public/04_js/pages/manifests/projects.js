@@ -34,7 +34,7 @@ export default {
       interactive: 'fish', // interactive: name is good here.
       mount: '#fish-container',
       props: { 
-        asset: '/assets/3d/fish/BarramundiFish.glb'
+        asset: '../05_assets/BarramundiFish.glb'
         // preload: controls or static image
       }
     }

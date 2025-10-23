@@ -25,9 +25,16 @@ export function registerInteractive(name, ctor) { // Add interactives to the int
   interactives.set(name, ctor); // Set(key, value)
 }
 
-export function getInteractive(name) {
+export async function getInteractive(name) {
   if (!interactives.has(name)) throw new Error(`Interactive "${name}" not found`);
-  return interactives.get(name);
+  const entry = interactives.get(name);                 // module OR loader
+  const mod = (typeof entry === 'function') ? await entry() : entry;
+
+  // Flatten default so either named or default exports work
+  if (mod && (typeof mod.default === 'object' || typeof mod.default === 'function')) {
+    return { ...mod, ...mod.default };
+  }
+  return mod;
 }
 
 

@@ -24,7 +24,7 @@ export default async function hydrator(manifest, root, context) {
 }
 
 async function hydrateOne(block, root, context) {
-  const el = block.mount ? qs(block.mount) : root;
+  const el = block.mount ? qs(block.mount) : root;  // Locate element interactive hydrates to
   if (!el) {
     console.warn('[hydrator] mount not found:', block.mount || '(root)');
     return;
@@ -54,7 +54,8 @@ async function hydrateOne(block, root, context) {
       console.warn('[hydrator] no mount function for', name, mod);
       return;
     }
-
+    // const cleanup = await firstPass(el, props, ctx, prepared);
+    
     el.dataset.hydrationReady = 'first';
     const cleanupMaybe = await firstPass(el, props, context, prepared, { stage: 'first' });
     if (typeof cleanupMaybe === 'function') {
@@ -93,9 +94,9 @@ async function hydrateOne(block, root, context) {
 
 function collectInteractiveBlocks(blocks = [], out = []) {
   for (const b of blocks) {
-    if (b?.interactive) out.push(b);
-    if (Array.isArray(b?.children) && b.children.length) {
-      collectInteractiveBlocks(b.children, out);
+    if (b?.interactive) out.push(b);  // If interactive exists, append it to 'out'
+    if (Array.isArray(b?.children) && b.children.length) {  // If interactive is an array,
+      collectInteractiveBlocks(b.children, out);            // append children too
     }
   }
   return out;
