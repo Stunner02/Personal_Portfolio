@@ -27,20 +27,17 @@ Html:
 import Reveal from 'reveal.js'; // Gives us: Reveal(htmlElement, {options})
 import { FONT_STACKS } from '../../tokens/fonts';
 
-/* 1) Each <div class="reveal">…</div> runs its own startDeck() */
-export async function initSlides(root = document) {
-  root.querySelectorAll('.reveal').forEach(startDeck);
-}
-  
-async function startDeck(revealDiv) {
+export async function startDeck(revealDiv, props = {}) {
 /* 2) Find the correct slideset for the div */
-  const slideKey   = revealDiv.dataset.slideset;               // "resume"
-  const slideModule  = await import(`./data/${slideKey}.js`);  // ⇒ /data/resume.js
-  const slides  = slideModule.slides ?? [];
+  const { slideId } = props;                                    // "Resume"
+  if (!slideId) throw new Error('[startDeck] props.slideId is required'); // err check slides name
+
+  const { slides = [] } = await import(`./data/${slideId}.js`); // ⇒ /data/resume.js
 
 /* 3) Build the deck, then initialize the deck */
   const deck = buildDeck(revealDiv, slides);
   await deck.initialize();
+  return deck;
 }
 
 /* ===== Helpers ===== */

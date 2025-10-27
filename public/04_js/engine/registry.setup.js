@@ -15,7 +15,8 @@ import projectsTile from '../components/projectsTile.js';
 // import Accordion    from '/04_js/interactives/accordion.js';     // Add later
 
 // Quick fix: couldn't import default with fish, lazy side-effect loader; no exports needed from fish-demo.js
-const fish = () => import('../interactives/fish-demo.js');
+const fish  = () => import('../interactives/fish-demo.js');
+const slide = () => import('../interactives/slides.js');
 
 export async function setupRegistry() {
 
@@ -25,6 +26,7 @@ export async function setupRegistry() {
   // Interactives - register(name, factory)
   // registerInteractive('revealsSlides', revealsSlides);
   registerInteractive('fish', fish);
+  registerInteractive('slide', slide);
 
   // Optional: quick visibility in dev
   if (import.meta?.env?.DEV) {

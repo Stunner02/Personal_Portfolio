@@ -27,13 +27,24 @@ export default {
   },
   blocks: [
     {
-      component: 'slide',
-      // mount: ? 
-      props: {  // props = properties
+      interactive: 'slide',
+      mount: '[data-slideMount="SMA"]',
+      props: {        // props = properties
         slideId: 'SMA',
         display: 'embedded',  // embedded, add other options later like: fullscreen,
         controls: true,
         theme: 'sma'          // includes unique fonts
+        // preloadSlides: 3,  // maybe add it here later
+      }
+    },
+    {
+      interactive: 'slide',
+      mount: '[data-slideMount="resume"]',
+      props: {          // props = properties
+        slideId: 'resume',
+        display: 'embedded',  // embedded, add other options later like: fullscreen,
+        controls: true,
+        theme: 'resume'       // includes unique fonts
         // preloadSlides: 3,  // maybe add it here later
       }
     }
