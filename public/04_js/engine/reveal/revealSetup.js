@@ -27,12 +27,19 @@ Html:
 import Reveal from 'reveal.js'; // Gives us: Reveal(htmlElement, {options})
 import { FONT_STACKS } from '../../tokens/fonts';
 
+// Build-time file map: { './data/SMA.js': () => import('./data/SMA.js'), ... }
+const decks = import.meta.glob('../../data/slides/*.js');
+
 export async function startDeck(revealDiv, props = {}) {
 /* 2) Find the correct slideset for the div */
   const { slideId } = props;                                    // "Resume"
   if (!slideId) throw new Error('[startDeck] props.slideId is required'); // err check slides name
 
-  const { slides = [] } = await import(`./data/${slideId}.js`); // ⇒ /data/resume.js
+  const key  = `../../data/slides/${slideId}.js`;   // case-sensitive; must match filename
+  const load = decks[key];
+  if (!load) throw new Error(`[startDeck] no deck for ${key}`);
+
+  const { slides = [] } = await load();  // lazy import the chosen module
 
 /* 3) Build the deck, then initialize the deck */
   const deck = buildDeck(revealDiv, slides);
