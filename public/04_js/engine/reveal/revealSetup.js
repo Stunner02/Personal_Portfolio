@@ -30,7 +30,8 @@ import { FONT_STACKS } from '../../tokens/fonts';
 // Build-time file map: { './data/SMA.js': () => import('./data/SMA.js'), ... }
 const decks = import.meta.glob('../../data/slides/*.js');
 
-export async function startDeck(revealDiv, props = {}) {
+
+export async function startDeck(revealDiv, props = {}) { // Start deck gets called from mount() in slides.js
 /* 2) Find the correct slideset for the div */
   const { slideId } = props;                                    // "Resume"
   if (!slideId) throw new Error('[startDeck] props.slideId is required'); // err check slides name

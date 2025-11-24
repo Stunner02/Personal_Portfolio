@@ -54,6 +54,7 @@ async function hydrateOne(block, root, context) {
       console.warn('[hydrator] no mount function for', name, mod);
       return;
     }
+    
     // const cleanup = await firstPass(el, props, ctx, prepared);
     
     el.dataset.hydrationReady = 'first';
