@@ -58,10 +58,16 @@ export const slides = [
   {
     id: 'Design-8',
     elements: [
-      addEl( 32.5, 225.5,  'h2', 'inter', 'Design'),
+      addEl( 32.5, 225.5,  'h2', 'inter', '<img src="../01_images/ShapeMemoryPic_1.png" alt="slides loading">'),
     ]
   }
 ];
+
+// So, we need to add photos and animations
+// Reveal has built in animation support 
+/* Actions - on click, with previous */
+// Fade in (time) 
+// Fade out (time)
 
 // Add element - addEl
 function addEl(x, y, tag, fontFamily, html) {

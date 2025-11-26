@@ -77,6 +77,18 @@ function createSection(slide) {
   if (slide.w) section.dataset.width  = slide.w; 
   if (slide.h) section.dataset.height = slide.h;
 
+  /* We create <section> here. If we want to add animation to an element we
+    need two adjacent sections with data-auto-animate like so: <section data-auto-animate>
+    This won't show the transition to a new slide, but rather the transition of the element
+    data-auto-animate-duration - speed in seconds
+    data-auto-animate-id       - ties adjacent animated sections
+    
+    Okay, so do we want to update the slide or do 3.1, 3.2,3.3 to represent the transtision state 
+    for the slides. I think for ease, we recreate the whole section/slide for each animation step.
+    This is the less complicated, sloppier way.
+    
+    */
+
   /* 3.2.2 Create elements inside the slides section using createNode() */
   slide.elements.forEach(el => section.appendChild(createNode(el)));
  
