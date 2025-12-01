@@ -3,6 +3,7 @@ export const slides = [
   {
     id: 'cover',
     w: 960, h: 700,
+    attrs: { },
     elements: [
       addEl( 60, 100, 'h1', 'My Portfolio' ),
       addEl( 60, 240, 'p',  'Mechanical Engineer · FEA · Robotics' )
@@ -11,6 +12,7 @@ export const slides = [
   },
   {
     id: 'resume-highlight',
+    attrs: { },
     elements: [
       addEl( 60, 80,  'h2', 'Key Skills' ),
       addEl( 60, 140, 'ul',

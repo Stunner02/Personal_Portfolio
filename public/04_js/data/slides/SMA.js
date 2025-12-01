@@ -2,6 +2,7 @@ export const slides = [
   {
     id: 'cover-1',
     // w: 960, h: 700,
+    attrs: { },
     elements: [
       addEl( 0, 0, 'h1', 'arial', 'My Portfolio'),
       addEl( 60, 240, 'p', 'inter', 'Mechanical Engineer · FEA · Robotics')
@@ -10,16 +11,17 @@ export const slides = [
   },
   {
     id: 'outline-2',
+    attrs: {  },
     elements: [
       addEl( 32.5, 34.5,  'h2', 'inter', 'Outline' ),
-      addEl( 50,   121,   'p', 'inter',
+      addEl( 50,   121,   'h1', 'inter',
         `<u>Topic</u><br>
         Pitch<br>
         Key specifications<br>
         Design<br>
         Analysis / testing<br>
         Results and Conclusions` ),
-      addEl( 560, 121, 'p', 'inter',
+      addEl( 560, 121, 'h1', 'inter',
         `<u>Time</u><br>
         5%<br>
         10%<br>
@@ -31,9 +33,11 @@ export const slides = [
   },
   {
     id: 'ourProjectScope-3',
+    attrs: {},
+    // attrs: { 'data-auto-animate': '', 'data-auto-animate-id': 'two' }, // Example
     elements: [
       addEl( 32.5, 29,  'h2', 'inter', 'Our Project Scope'),
-      addEl( 60,   140, 'p', 'arial',
+      addEl( 60,   140, 'h1', 'arial',
         `Increase in CubeSat solar cell<br>
         surface area via an origami <br>
         flasher.<br>
@@ -44,12 +48,14 @@ export const slides = [
   },
   {
     id: 'keySpecifications-6',
+    attrs: { },
     elements: [
       addEl( 32.5, 225.5,  'h2', 'inter', 'Key Specifications')
     ]
   },
   {
     id: 'targetSpecifications-7',
+    attrs: { },
     elements: [
       addEl( 32.5, 26,  'h2', 'inter', 'Target Specifications'),
       addEl( 60,   140, 'p', 'arial', `1.   Solar Power Generation = 28.5 W`)
@@ -57,6 +63,7 @@ export const slides = [
   },
   {
     id: 'Design-8',
+    attrs: { },
     elements: [
       addEl( 32.5, 225.5,  'h2', 'inter', '<img src="../01_images/ShapeMemoryPic_1.png" alt="slides loading">'),
     ]

@@ -71,11 +71,20 @@ function buildDeck(revealDiv, slideData) {
 }
 
 function createSection(slide) {
-  /* 3.2.1 Create <section> for slide */
+  /* 3.2.1 Create <section> for slide with id*/
   const section = Object.assign(document.createElement('section'), { id: slide.id });
   // per-slide size override
   if (slide.w) section.dataset.width  = slide.w; 
   if (slide.h) section.dataset.height = slide.h;
+
+  /* 3.2.2 Set attributes in <section> */
+  if (slide.attrs && typeof slide.attrs === 'object') {
+    Object.entries(slide.attrs).forEach(([name, value]) => {
+      if (value === false || value == null) return;
+      if (value === true) section.setAttribute(name, '');
+      else section.setAttribute(name, String(value));
+    });
+  }
 
   /* We create <section> here. If we want to add animation to an element we
     need two adjacent sections with data-auto-animate like so: <section data-auto-animate>
