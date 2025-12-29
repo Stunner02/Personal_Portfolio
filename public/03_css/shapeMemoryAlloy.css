@@ -206,6 +206,7 @@ footer {
   /* Make the poster behave like the current slide (override reveal.css) */
 }
 .pptWrapperTest > .reveal .slides {
+  text-align: left;
   width: 100%;
   height: 100%;
   min-height: 0;
